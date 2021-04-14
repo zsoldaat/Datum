@@ -15,6 +15,7 @@ class DatasetStorage: NSObject, ObservableObject {
     var datasets = CurrentValueSubject<[Dataset], Never>([])
     
     private let datasetFetchController: NSFetchedResultsController<Dataset>
+    private let context = PersistenceController.shared.container.viewContext
     
     static let shared: DatasetStorage = DatasetStorage()
     
@@ -25,7 +26,7 @@ class DatasetStorage: NSObject, ObservableObject {
         
         datasetFetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
-            managedObjectContext: PersistenceController.shared.container.viewContext,
+            managedObjectContext: context,
             sectionNameKeyPath: nil,
             cacheName: nil
         )
@@ -58,8 +59,9 @@ class DatasetStorage: NSObject, ObservableObject {
         
     }
     
-    func delete(id: UUID) {
-        
+    func delete(dataset: Dataset) {
+        context.delete(dataset)
+        context.safeSave()
     }
 }
 extension DatasetStorage: NSFetchedResultsControllerDelegate {

@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 class ContentViewModel: ObservableObject {
     
@@ -21,6 +22,9 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    
-    
+    func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            offsets.map { datasets[$0] }.forEach(DatasetStorage.shared.delete)
+        }
+    }
 }
