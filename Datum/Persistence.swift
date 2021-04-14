@@ -8,14 +8,59 @@
 import CoreData
 
 struct PersistenceController {
+    
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+
+        for i in 0..<10 {
+            let newDataset = Dataset(context: viewContext)
+            newDataset.name = "Test Dataset \(i)"
+            newDataset.id = UUID()
+            newDataset.date = Date()
+            
+            let newContinuous = ContinuousVariable(context: viewContext)
+            newContinuous.name = "Continuous Variable"
+            newContinuous.id = UUID()
+            newContinuous.min = 0
+            newContinuous.max = 100
+            newContinuous.dataset = newDataset
+            
+            let newCategorical = CategoricalVariable(context: viewContext)
+            newCategorical.name = "Categorical Variable"
+            newCategorical.id = UUID()
+            //add categories
+            for i in 1...3 {
+                let category = Category(context: viewContext)
+                category.id = UUID()
+                category.name = "Category \(i)"
+                
+                newCategorical.addToCategories(category)
+            }
+            newCategorical.dataset = newDataset
+            
+            for i in 1...10 {
+                
+                let rowID = UUID()
+                
+                let newContinuousDataPoint = ContinuousDataPoint(context: viewContext)
+                newContinuousDataPoint.date = Date()
+                newContinuousDataPoint.id = UUID()
+                newContinuousDataPoint.rowId = rowID
+                newContinuousDataPoint.value = Double(i)
+                
+                newContinuous.addToValues(newContinuousDataPoint)
+                
+                let newCategoricalDataPoint = CategoricalDataPoint(context: viewContext)
+                newCategoricalDataPoint.date = Date()
+                newCategoricalDataPoint.id = UUID()
+                newCategoricalDataPoint.rowId = rowID
+                newCategoricalDataPoint.category = newCategorical.categoriesArray[Int.random(in: 0...2)]
+                
+                newCategorical.addToValues(newCategoricalDataPoint)
+            }
         }
         do {
             try viewContext.save()

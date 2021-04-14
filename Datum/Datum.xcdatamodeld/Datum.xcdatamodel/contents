@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CategoricalDataPoint" representedClassName="CategoricalDataPoint" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="rowId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="values" inverseEntity="Category"/>
+        <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalVariable" inverseName="values" inverseEntity="CategoricalVariable"/>
+    </entity>
+    <entity name="CategoricalVariable" representedClassName="CategoricalVariable" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="variable" inverseEntity="Category"/>
+        <relationship name="dataset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dataset" inverseName="categoricalData" inverseEntity="Dataset"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoricalDataPoint" inverseName="variable" inverseEntity="CategoricalDataPoint"/>
+    </entity>
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="values" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalDataPoint" inverseName="category" inverseEntity="CategoricalDataPoint"/>
+        <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalVariable" inverseName="categories" inverseEntity="CategoricalVariable"/>
+    </entity>
+    <entity name="ContinuousDataPoint" representedClassName="ContinuousDataPoint" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="rowId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContinuousVariable" inverseName="values" inverseEntity="ContinuousVariable"/>
+    </entity>
+    <entity name="ContinuousVariable" representedClassName="ContinuousVariable" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="max" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="min" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="dataset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dataset" inverseName="continuousData" inverseEntity="Dataset"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContinuousDataPoint" inverseName="variable" inverseEntity="ContinuousDataPoint"/>
+    </entity>
+    <entity name="Dataset" representedClassName="Dataset" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="categoricalData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoricalVariable" inverseName="dataset" inverseEntity="CategoricalVariable"/>
+        <relationship name="continuousData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContinuousVariable" inverseName="dataset" inverseEntity="ContinuousVariable"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="CategoricalDataPoint" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="CategoricalVariable" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="Category" positionX="-45" positionY="45" width="128" height="89"/>
+        <element name="ContinuousDataPoint" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="ContinuousVariable" positionX="-45" positionY="0" width="128" height="119"/>
+        <element name="Dataset" positionX="-45" positionY="18" width="128" height="104"/>
     </elements>
 </model>

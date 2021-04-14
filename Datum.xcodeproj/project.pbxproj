@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0A8C9526272FB00078F09B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A8C9426272FB00078F09B /* ContentViewModel.swift */; };
+		4C39411D261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */; };
+		4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */; };
+		4C39414D261F4F6600F9F3E4 /* AddVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */; };
+		4C3941BD2620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */; };
+		4C3941BE2620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */; };
+		4C3941BF2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */; };
+		4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */; };
+		4C3941C92620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */; };
+		4C3941CA2620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */; };
 		4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */; };
 		4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70C261DF5B900EF21E7 /* ContentView.swift */; };
 		4CAEB70F261DF5BD00EF21E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */; };
@@ -15,6 +25,8 @@
 		4CAEB717261DF5BD00EF21E7 /* Datum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB715261DF5BD00EF21E7 /* Datum.xcdatamodeld */; };
 		4CAEB722261DF5BE00EF21E7 /* DatumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB721261DF5BE00EF21E7 /* DatumTests.swift */; };
 		4CAEB72D261DF5BE00EF21E7 /* DatumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB72C261DF5BE00EF21E7 /* DatumUITests.swift */; };
+		4CAEB73F261DF6CF00EF21E7 /* ScatterplotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */; };
+		4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD51D1261E21F400B625F6 /* DatasetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +47,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C0A8C9426272FB00078F09B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext-Save.swift"; sourceTree = "<group>"; };
+		4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatasetView.swift; sourceTree = "<group>"; };
+		4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVariableView.swift; sourceTree = "<group>"; };
+		4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dataset+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dataset+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContinuousVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContinuousVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4CAEB707261DF5B900EF21E7 /* Datum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatumApp.swift; sourceTree = "<group>"; };
 		4CAEB70C261DF5B900EF21E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +71,8 @@
 		4CAEB728261DF5BE00EF21E7 /* DatumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DatumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB72C261DF5BE00EF21E7 /* DatumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatumUITests.swift; sourceTree = "<group>"; };
 		4CAEB72E261DF5BE00EF21E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterplotView.swift; sourceTree = "<group>"; };
+		4CDD51D1261E21F400B625F6 /* DatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +100,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C3539E02625E31300F312F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB70C261DF5B900EF21E7 /* ContentView.swift */,
+				4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */,
+				4CDD51D1261E21F400B625F6 /* DatasetView.swift */,
+				4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C39411B261E4C5B00F9F3E4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4C3941542620CA5F00F9F3E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */,
+				4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */,
+				4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */,
+				4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */,
+				4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */,
+				4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4C3941CE26248AD300F9F3E4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C0A8C9426272FB00078F09B /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4CAEB6FE261DF5B900EF21E7 = {
 			isa = PBXGroup;
 			children = (
@@ -100,11 +164,15 @@
 			isa = PBXGroup;
 			children = (
 				4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */,
-				4CAEB70C261DF5B900EF21E7 /* ContentView.swift */,
-				4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */,
 				4CAEB713261DF5BD00EF21E7 /* Persistence.swift */,
-				4CAEB718261DF5BD00EF21E7 /* Info.plist */,
+				4C3539E02625E31300F312F5 /* View */,
+				4CAEB73D261DF6BB00EF21E7 /* Charts */,
+				4C3941CE26248AD300F9F3E4 /* ViewModel */,
+				4C3941542620CA5F00F9F3E4 /* Model */,
+				4C39411B261E4C5B00F9F3E4 /* Extensions */,
 				4CAEB715261DF5BD00EF21E7 /* Datum.xcdatamodeld */,
+				4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */,
+				4CAEB718261DF5BD00EF21E7 /* Info.plist */,
 				4CAEB710261DF5BD00EF21E7 /* Preview Content */,
 			);
 			path = Datum;
@@ -134,6 +202,14 @@
 				4CAEB72E261DF5BE00EF21E7 /* Info.plist */,
 			);
 			path = DatumUITests;
+			sourceTree = "<group>";
+		};
+		4CAEB73D261DF6BB00EF21E7 /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,10 +341,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
 				4CAEB714261DF5BD00EF21E7 /* Persistence.swift in Sources */,
+				4C3941C92620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift in Sources */,
+				4C39411D261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift in Sources */,
+				4CAEB73F261DF6CF00EF21E7 /* ScatterplotView.swift in Sources */,
 				4CAEB717261DF5BD00EF21E7 /* Datum.xcdatamodeld in Sources */,
+				4C3941CA2620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift in Sources */,
+				4C3941BD2620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift in Sources */,
+				4C0A8C9526272FB00078F09B /* ContentViewModel.swift in Sources */,
+				4C39414D261F4F6600F9F3E4 /* AddVariableView.swift in Sources */,
+				4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */,
+				4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */,
+				4C3941BE2620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift in Sources */,
 				4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
+				4C3941BF2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
