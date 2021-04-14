@@ -17,6 +17,7 @@ class DatasetStorage: NSObject, ObservableObject {
     private let datasetFetchController: NSFetchedResultsController<Dataset>
     private let context = PersistenceController.shared.container.viewContext
     
+    //Singleton
     static let shared: DatasetStorage = DatasetStorage()
     
     public override init() {

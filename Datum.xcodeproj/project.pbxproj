@@ -28,6 +28,9 @@
 		4CAEB73F261DF6CF00EF21E7 /* ScatterplotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */; };
 		4CD1AC88262748BF0018CEF1 /* DatasetStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC87262748BF0018CEF1 /* DatasetStorage.swift */; };
 		4CD1AC8D26274EF50018CEF1 /* AddDatasetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC8C26274EF50018CEF1 /* AddDatasetViewModel.swift */; };
+		4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC91262757B60018CEF1 /* CategoricalVariableStorage.swift */; };
+		4CD1AC97262758C80018CEF1 /* DatasetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */; };
+		4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */; };
 		4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD51D1261E21F400B625F6 /* DatasetView.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +79,9 @@
 		4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterplotView.swift; sourceTree = "<group>"; };
 		4CD1AC87262748BF0018CEF1 /* DatasetStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetStorage.swift; sourceTree = "<group>"; };
 		4CD1AC8C26274EF50018CEF1 /* AddDatasetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatasetViewModel.swift; sourceTree = "<group>"; };
+		4CD1AC91262757B60018CEF1 /* CategoricalVariableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoricalVariableStorage.swift; sourceTree = "<group>"; };
+		4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetViewModel.swift; sourceTree = "<group>"; };
+		4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousVariableStorage.swift; sourceTree = "<group>"; };
 		4CDD51D1261E21F400B625F6 /* DatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,6 +147,7 @@
 			children = (
 				4C0A8C9426272FB00078F09B /* ContentViewModel.swift */,
 				4CD1AC8C26274EF50018CEF1 /* AddDatasetViewModel.swift */,
+				4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -222,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				4CD1AC87262748BF0018CEF1 /* DatasetStorage.swift */,
+				4CD1AC91262757B60018CEF1 /* CategoricalVariableStorage.swift */,
+				4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -355,8 +364,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
+				4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */,
 				4CAEB714261DF5BD00EF21E7 /* Persistence.swift in Sources */,
+				4CD1AC97262758C80018CEF1 /* DatasetViewModel.swift in Sources */,
 				4C3941C92620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift in Sources */,
 				4C39411D261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift in Sources */,
 				4CAEB73F261DF6CF00EF21E7 /* ScatterplotView.swift in Sources */,
