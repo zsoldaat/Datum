@@ -1,5 +1,5 @@
 //
-//  ContentViewModel.swift
+//  AddDatasetViewModel.swift
 //  Datum
 //
 //  Created by Zac Soldaat on 2021-04-14.
@@ -8,9 +8,10 @@
 import Foundation
 import Combine
 
-class ContentViewModel: ObservableObject {
+class AddDatasetViewModel: ObservableObject {
     
     @Published var datasets: [Dataset] = []
+    @Published var datasetName = ""
     
     private var cancellable: AnyCancellable?
     
@@ -20,6 +21,16 @@ class ContentViewModel: ObservableObject {
             self.datasets = datasets
         }
     }
+    
+    func addDataset() {
+        if !datasetName.isEmpty {
+            DatasetStorage.shared.add(name: datasetName)
+        }
+        
+        
+    }
+    
+    
     
     
     
