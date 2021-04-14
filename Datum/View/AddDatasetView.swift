@@ -9,22 +9,25 @@ import SwiftUI
 
 struct AddDatasetView: View {
     
+    @ObservedObject var vm = AddDatasetViewModel()
+    
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.presentationMode) private var presentationMode
     
-    @State private var datasetName = ""
+//    @State private var datasetName = ""
     @State private var alertShowing = false
     @State private var alertMessage = ""
     
     var body: some View {
         Form {
             Section {
-                TextField("Name", text: $datasetName)
+                TextField("Name", text: $vm.datasetName)
             }
             Section {
                 Button("Save") {
-                    if !datasetName.isEmpty {
-                        addDataset()
+                    if !vm.datasetName.isEmpty {
+                        vm.addDataset()
+                        presentationMode.wrappedValue.dismiss()
                     } else {
                         showAlert()
                     }
@@ -35,15 +38,15 @@ struct AddDatasetView: View {
         }
     }
     
-    func addDataset() {
-        let newDataset = Dataset(context: viewContext)
-        newDataset.name = datasetName
-        newDataset.id = UUID()
-        
-        viewContext.safeSave()
-
-        presentationMode.wrappedValue.dismiss()
-    }
+//    func addDataset() {
+//        let newDataset = Dataset(context: viewContext)
+//        newDataset.name = datasetName
+//        newDataset.id = UUID()
+//        
+//        viewContext.safeSave()
+//
+//        
+//    }
     
     func showAlert() {
         alertMessage = "Name cannot be blank"

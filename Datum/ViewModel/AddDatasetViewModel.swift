@@ -1,5 +1,5 @@
 //
-//  ContentViewModel.swift
+//  AddDatasetViewModel.swift
 //  Datum
 //
 //  Created by Zac Soldaat on 2021-04-14.
@@ -7,11 +7,11 @@
 
 import Foundation
 import Combine
-import SwiftUI
 
-class ContentViewModel: ObservableObject {
+class AddDatasetViewModel: ObservableObject {
     
     @Published var datasets: [Dataset] = []
+    @Published var datasetName = ""
     
     private var cancellable: AnyCancellable?
     
@@ -22,9 +22,11 @@ class ContentViewModel: ObservableObject {
         }
     }
     
-    func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { datasets[$0] }.forEach(DatasetStorage.shared.delete)
+    func addDataset() {
+        if !datasetName.isEmpty {
+            DatasetStorage.shared.add(name: datasetName)
         }
+        
+        
     }
 }
