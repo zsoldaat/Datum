@@ -18,6 +18,8 @@
 		4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */; };
 		4C3941C92620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */; };
 		4C3941CA2620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */; };
+		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
+		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
 		4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */; };
 		4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70C261DF5B900EF21E7 /* ContentView.swift */; };
 		4CAEB70F261DF5BD00EF21E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */; };
@@ -64,6 +66,8 @@
 		4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContinuousVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
+		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
 		4CAEB707261DF5B900EF21E7 /* Datum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatumApp.swift; sourceTree = "<group>"; };
 		4CAEB70C261DF5B900EF21E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */,
 				4CDD51D1261E21F400B625F6 /* DatasetView.swift */,
 				4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */,
+				4C62F31D2628AA610075372E /* AddObservationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				4CD1AC8C26274EF50018CEF1 /* AddDatasetViewModel.swift */,
 				4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */,
 				4C090C5D262892CF000D6F8E /* AddVariableViewModel.swift */,
+				4C62F3222628AD110075372E /* AddObservationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -368,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
+				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
 				4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */,
 				4CAEB714261DF5BD00EF21E7 /* Persistence.swift in Sources */,
@@ -386,6 +393,7 @@
 				4C090C5E262892CF000D6F8E /* AddVariableViewModel.swift in Sources */,
 				4CD1AC8D26274EF50018CEF1 /* AddDatasetViewModel.swift in Sources */,
 				4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */,
+				4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
 				4CD1AC88262748BF0018CEF1 /* DatasetStorage.swift in Sources */,
 				4C3941BF2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift in Sources */,

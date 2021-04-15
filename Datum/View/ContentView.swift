@@ -14,22 +14,42 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
+                
+                Section {
+                    Button("Add Dataset") {vm.showSheet(.addDatasetView)}
+                }
+                
                 Section {
                     List {
                         ForEach(vm.datasets) { dataset in
-                            NavigationLink(destination: DatasetView(dataset: dataset)) {
-                                Text(dataset.wrappedName)
+                            
+                            if vm.isInEditMode {
+                                NavigationLink(destination: DatasetView(dataset: dataset)) {
+                                    HStack {
+                                        Text(dataset.wrappedName)
+                                        Spacer()
+                                        Text("Editing").foregroundColor(.red)
+                                    }
+                                }
+                            } else {
+                                HStack {
+                                    Text(dataset.wrappedName)
+                                    Spacer()
+                                    Button("Add Observation") {vm.showSheet(.addObservationView)}
+                                }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                 }
             }
-            .navigationBarItems(trailing: Button("Add Dataset") {vm.showAddDatasetView()})
-            .sheet(isPresented: $vm.showSheet) {
+            .navigationBarItems(trailing: Button(vm.isInEditMode ? "Done" : "Edit") { vm.isInEditMode.toggle()} )
+            .sheet(isPresented: $vm.showingSheet) {
                 switch vm.destination {
                 case .addDatasetView:
                     AddDatasetView()
+                case .addObservationView:
+                    AddObservationView()
                 }
             }
         }
