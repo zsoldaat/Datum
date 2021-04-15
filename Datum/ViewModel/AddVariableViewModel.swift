@@ -73,7 +73,6 @@ class AddVariableViewModel: ObservableObject {
                 guard let doubleMin = Double(newVariableMin) else {
                     showAlert(message: "The minimum value you entered is not a number")
                     return
-                    
                 }
                 guard let doubleMax = Double(newVariableMax) else {
                     showAlert(message: "The maximum value you entered is not a number")
@@ -112,6 +111,4 @@ class AddVariableViewModel: ObservableObject {
         alertMessage = message
         alertShowing = true
     }
-    
-    
 }

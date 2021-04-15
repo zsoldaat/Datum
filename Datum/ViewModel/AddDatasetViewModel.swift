@@ -13,6 +13,9 @@ class AddDatasetViewModel: ObservableObject {
     @Published var datasets: [Dataset] = []
     @Published var datasetName = ""
     
+    @Published var alertShowing = false
+    @Published var alertMessage = ""
+    
     private var cancellable: AnyCancellable?
     
     init(datasetPublisher: AnyPublisher<[Dataset], Never> = DatasetStorage.shared.datasets.eraseToAnyPublisher()) {
@@ -26,5 +29,10 @@ class AddDatasetViewModel: ObservableObject {
         if !datasetName.isEmpty {
             DatasetStorage.shared.add(name: datasetName)
         }
+    }
+    
+    func showAlert() {
+        alertMessage = "Name cannot be blank"
+        alertShowing = true
     }
 }

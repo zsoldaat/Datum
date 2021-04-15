@@ -9,14 +9,9 @@ import SwiftUI
 
 struct AddDatasetView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var vm = AddDatasetViewModel()
-    
-    @Environment(\.managedObjectContext) private var viewContext
-    @Environment(\.presentationMode) private var presentationMode
-    
-//    @State private var datasetName = ""
-    @State private var alertShowing = false
-    @State private var alertMessage = ""
     
     var body: some View {
         Form {
@@ -29,19 +24,15 @@ struct AddDatasetView: View {
                         vm.addDataset()
                         presentationMode.wrappedValue.dismiss()
                     } else {
-                        showAlert()
+                        vm.showAlert()
                     }
                 }
             }
-        }.alert(isPresented: $alertShowing) {
-            Alert(title: Text(alertMessage))
+        }.alert(isPresented: $vm.alertShowing) {
+            Alert(title: Text(vm.alertMessage))
         }
     }
     
-    func showAlert() {
-        alertMessage = "Name cannot be blank"
-        alertShowing = true
-    }
 }
 
 struct AddDatasetView_Previews: PreviewProvider {

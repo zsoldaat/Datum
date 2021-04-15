@@ -64,26 +64,9 @@ struct DatasetView: View {
 
 struct DatasetView_Previews: PreviewProvider {
     
-    static let moc = PersistenceController.preview.container.viewContext
+    static let datasets = DatasetStorage.shared.datasets
     
     static var previews: some View {
-        
-        func getDataset() -> Dataset? {
-            do {
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: Dataset.entity().name!)
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \Dataset.name, ascending: true)]
-                
-                let result = try moc.fetch(request) as? [Dataset]
-                if !result!.isEmpty {
-                    return result?.first!
-                } else {
-                    return nil
-                }
-            } catch {
-                print("Could not fetch datasets")
-                return nil
-            }
-        }
-        return DatasetView(dataset: getDataset()!)
+        DatasetView(dataset: datasets.value.first!)
     }
 }
