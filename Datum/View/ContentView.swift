@@ -11,9 +11,6 @@ struct ContentView: View {
     
     @ObservedObject var vm = ContentViewModel()
 
-    @State private var destination = SheetDestination.addDatasetView
-    @State var showSheet = false
-
     var body: some View {
         NavigationView {
             Form {
@@ -28,9 +25,9 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarItems(trailing: Button("Add Dataset") {showAddDatasetView()})
-            .sheet(isPresented: $showSheet) {
-                switch destination {
+            .navigationBarItems(trailing: Button("Add Dataset") {vm.showAddDatasetView()})
+            .sheet(isPresented: $vm.showSheet) {
+                switch vm.destination {
                 case .addDatasetView:
                     AddDatasetView()
                 }
@@ -38,20 +35,12 @@ struct ContentView: View {
         }
     }
     
-    private func showAddDatasetView() {
-        destination = .addDatasetView
-        showSheet = true
-    }
-
-    enum SheetDestination {
-        case addDatasetView
-    }
-    
-    private func deleteItems(offsets: IndexSet) {
+    func deleteItems(offsets: IndexSet) {
         withAnimation {
             vm.deleteItems(offsets: offsets)
         }
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

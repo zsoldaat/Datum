@@ -79,28 +79,8 @@ struct AddVariableView: View {
 
 struct AddVariableView_Previews: PreviewProvider {
     
-    static let moc = PersistenceController.preview.container.viewContext
-    
     static var previews: some View {
         
-        func getDataset() -> Dataset? {
-            
-            do {
-                let request = NSFetchRequest<NSFetchRequestResult>(entityName: Dataset.entity().name!)
-                request.sortDescriptors = [NSSortDescriptor(keyPath: \Dataset.name, ascending: true)]
-                
-                let result = try moc.fetch(request) as? [Dataset]
-                if !result!.isEmpty {
-                    return result?.first!
-                } else {
-                    return nil
-                }
-            } catch {
-                print("Could not fetch datasets")
-                return nil
-            }
-        }
-        
-        return AddVariableView(dataset: getDataset()!)
+        AddVariableView(dataset: DatasetStorage.shared.datasets.value.first!)
     }
 }

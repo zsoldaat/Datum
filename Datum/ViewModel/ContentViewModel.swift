@@ -12,6 +12,9 @@ class ContentViewModel: ObservableObject {
     
     @Published var datasets: [Dataset] = []
     
+    @Published var destination = SheetDestination.addDatasetView
+    @Published var showSheet = false
+    
     private var cancellable: AnyCancellable?
     
     init(datasetPublisher: AnyPublisher<[Dataset], Never> = DatasetStorage.shared.datasets.eraseToAnyPublisher()) {
@@ -23,5 +26,14 @@ class ContentViewModel: ObservableObject {
     
     func deleteItems(offsets: IndexSet) {
         offsets.map { datasets[$0] }.forEach(DatasetStorage.shared.delete)
+    }
+    
+    func showAddDatasetView() {
+        destination = .addDatasetView
+        showSheet = true
+    }
+
+    enum SheetDestination {
+        case addDatasetView
     }
 }

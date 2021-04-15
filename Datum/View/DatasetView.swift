@@ -18,35 +18,15 @@ struct DatasetView: View {
     
     var body: some View {
         Form {
-            Button("Add Continuous") {
-                let continous = ContinuousVariable(context: PersistenceController.shared.container.viewContext)
-                continous.name = "Test"
-                continous.id = UUID()
-                vm.dataset.addToContinuousData(continous)
-                PersistenceController.shared.container.viewContext.safeSave()
-            }
-            Button("Add Categorical") {
-                let continous = CategoricalVariable(context: PersistenceController.shared.container.viewContext)
-                continous.name = "Test"
-                continous.id = UUID()
-                vm.dataset.addToCategoricalData(continous)
-                PersistenceController.shared.container.viewContext.safeSave()
-            }
             List {
                 Section(header: Text("Continuous Variables")) {
                     ForEach(vm.continuousVariables) { variable in
-                        HStack {
-                            Text(variable.wrappedName)
-                            Text("\(variable.dataset!.wrappedName)")
-                        }
+                        Text(variable.wrappedName)
                     }
                 }
                 Section(header: Text("Categorical Variables")) {
                     ForEach(vm.categoricalVariables) { variable in
-                        HStack {
-                            Text(variable.wrappedName)
-                            Text("\(variable.dataset!.wrappedName)")
-                        }
+                        Text(variable.wrappedName)
                     }
                 }
             }
@@ -64,9 +44,7 @@ struct DatasetView: View {
 
 struct DatasetView_Previews: PreviewProvider {
     
-    static let datasets = DatasetStorage.shared.datasets
-    
     static var previews: some View {
-        DatasetView(dataset: datasets.value.first!)
+        DatasetView(dataset: DatasetStorage.shared.datasets.value.first!)
     }
 }
