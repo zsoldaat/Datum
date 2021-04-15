@@ -26,7 +26,5 @@ class AddDatasetViewModel: ObservableObject {
         if !datasetName.isEmpty {
             DatasetStorage.shared.add(name: datasetName)
         }
-        
-        
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C090C5E262892CF000D6F8E /* AddVariableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C090C5D262892CF000D6F8E /* AddVariableViewModel.swift */; };
 		4C0A8C9526272FB00078F09B /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0A8C9426272FB00078F09B /* ContentViewModel.swift */; };
 		4C39411D261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */; };
 		4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C090C5D262892CF000D6F8E /* AddVariableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVariableViewModel.swift; sourceTree = "<group>"; };
 		4C0A8C9426272FB00078F09B /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext-Save.swift"; sourceTree = "<group>"; };
 		4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatasetView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				4C0A8C9426272FB00078F09B /* ContentViewModel.swift */,
 				4CD1AC8C26274EF50018CEF1 /* AddDatasetViewModel.swift */,
 				4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */,
+				4C090C5D262892CF000D6F8E /* AddVariableViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */,
 				4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */,
 				4C3941BE2620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift in Sources */,
+				4C090C5E262892CF000D6F8E /* AddVariableViewModel.swift in Sources */,
 				4CD1AC8D26274EF50018CEF1 /* AddDatasetViewModel.swift in Sources */,
 				4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,

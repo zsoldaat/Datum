@@ -46,8 +46,6 @@ class DatasetStorage: NSObject, ObservableObject {
     
     func add(name: String) {
         
-        let context = PersistenceController.shared.container.viewContext
-        
         let newDataset = Dataset(context: context)
         newDataset.name = name
         newDataset.id = UUID()
@@ -57,6 +55,8 @@ class DatasetStorage: NSObject, ObservableObject {
     }
     
     func update(id: UUID) {
+        
+        //TODO: Add this method
         
     }
     

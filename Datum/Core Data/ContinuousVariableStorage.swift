@@ -45,26 +45,29 @@ class ContinuousVariableStorage: NSObject, ObservableObject {
 
     }
     
-    func add(name: String) {
+    func add(name: String, min: Double, max: Double, dataset: Dataset) {
         
-//        let context = PersistenceController.shared.container.viewContext
-//
-//        let newDataset = Dataset(context: context)
-//        newDataset.name = name
-//        newDataset.id = UUID()
-//
-//        context.safeSave()
+        let newVariable = ContinuousVariable(context: context)
+        newVariable.id = UUID()
+        newVariable.dataset = dataset
+        newVariable.name = name
+        newVariable.min = min
+        newVariable.max = max
+        
+        context.safeSave()
         
     }
     
     func update(id: UUID) {
         
+        //TODO: Fill this method when the time comes
+        
     }
     
-//    func delete(dataset: Dataset) {
-//        context.delete(dataset)
-//        context.safeSave()
-//    }
+    func delete(variable: ContinuousVariable) {
+        context.delete(variable)
+        context.safeSave()
+    }
 }
 extension ContinuousVariableStorage: NSFetchedResultsControllerDelegate {
     

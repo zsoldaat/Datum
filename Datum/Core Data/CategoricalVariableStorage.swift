@@ -45,26 +45,40 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
 
     }
     
-    func add(name: String) {
+    func add(name: String, dataset: Dataset, categories: [String]) {
         
-//        let context = PersistenceController.shared.container.viewContext
-//
-//        let newDataset = Dataset(context: context)
-//        newDataset.name = name
-//        newDataset.id = UUID()
-//
-//        context.safeSave()
+        let newVariable = CategoricalVariable(context: context)
+        newVariable.id = UUID()
+        newVariable.dataset = dataset
+        newVariable.name = name
         
+        for category in categories {
+            addCategory(name: category, variable: newVariable)
+        }
+        
+        context.safeSave()
+        
+    }
+    
+    func addCategory(name: String, variable: CategoricalVariable) {
+        let newCategory = Category(context: context)
+        newCategory.id = UUID()
+        newCategory.variable = variable
+        newCategory.name = name
+        
+        context.safeSave()
     }
     
     func update(id: UUID) {
         
+        //TODO: Add this method
+        
     }
     
-//    func delete(dataset: Dataset) {
-//        context.delete(dataset)
-//        context.safeSave()
-//    }
+    func delete(variable: CategoricalVariable) {
+        context.delete(variable)
+        context.safeSave()
+    }
 }
 extension CategoricalVariableStorage: NSFetchedResultsControllerDelegate {
     

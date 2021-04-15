@@ -12,22 +12,8 @@ struct DatasetView: View {
     
     @ObservedObject var vm: DatasetViewModel
     
-//    @Environment(\.managedObjectContext) var viewContext
-    
-    var dataset: Dataset
-//    var continuousFetchRequest: FetchRequest<ContinuousVariable>
-//    var categoricalFetchRequest: FetchRequest<CategoricalVariable>
-    
-    @State var showSheet = false
-    @State private var destination: SheetDestination = .addVariableView
-    
     init(dataset: Dataset) {
-        
-        self.dataset = dataset
-        self.vm = DatasetViewModel(selectedDataset: dataset)
-//        self.continuousFetchRequest = FetchRequest<ContinuousVariable>(entity: ContinuousVariable.entity(), sortDescriptors: [], predicate: NSPredicate(format: "dataset = %@", dataset), animation: .default)
-//        self.categoricalFetchRequest = FetchRequest<CategoricalVariable>(entity: CategoricalVariable.entity(), sortDescriptors: [], predicate: NSPredicate(format: "dataset = %@", dataset), animation: .default)
-        
+        self.vm = DatasetViewModel(dataset: dataset)
     }
     
     var body: some View {
@@ -36,14 +22,14 @@ struct DatasetView: View {
                 let continous = ContinuousVariable(context: PersistenceController.shared.container.viewContext)
                 continous.name = "Test"
                 continous.id = UUID()
-                dataset.addToContinuousData(continous)
+                vm.dataset.addToContinuousData(continous)
                 PersistenceController.shared.container.viewContext.safeSave()
             }
             Button("Add Categorical") {
                 let continous = CategoricalVariable(context: PersistenceController.shared.container.viewContext)
                 continous.name = "Test"
                 continous.id = UUID()
-                dataset.addToCategoricalData(continous)
+                vm.dataset.addToCategoricalData(continous)
                 PersistenceController.shared.container.viewContext.safeSave()
             }
             List {
@@ -65,23 +51,14 @@ struct DatasetView: View {
                 }
             }
         }
-        .navigationBarTitle(Text(dataset.wrappedName))
-        .navigationBarItems(trailing: Button("Manage Variables") { showAddVariableView()})
-        .sheet(isPresented: $showSheet) {
-//            switch destination {
-//            case .addVariableView:
-//                AddVariableView(dataset: dataset).environment(\.managedObjectContext, viewContext)
-//            }
+        .navigationBarTitle(Text(vm.dataset.wrappedName))
+        .navigationBarItems(trailing: Button("Manage Variables") { vm.showAddVariableView()})
+        .sheet(isPresented: $vm.showSheet) {
+            switch vm.destination {
+            case .addVariableView:
+                AddVariableView(dataset: vm.dataset)
+            }
         }
-    }
-    
-    enum SheetDestination {
-        case addVariableView
-    }
-    
-    func showAddVariableView() {
-        destination = .addVariableView
-        showSheet = true
     }
 }
 

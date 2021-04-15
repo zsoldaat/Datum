@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 struct ContentView: View {
     
@@ -25,7 +24,7 @@ struct ContentView: View {
                                 Text(dataset.wrappedName)
                             }
                         }
-                        .onDelete(perform: vm.deleteItems)
+                        .onDelete(perform: deleteItems)
                     }
                 }
             }
@@ -46,6 +45,12 @@ struct ContentView: View {
 
     enum SheetDestination {
         case addDatasetView
+    }
+    
+    private func deleteItems(offsets: IndexSet) {
+        withAnimation {
+            vm.deleteItems(offsets: offsets)
+        }
     }
 }
 

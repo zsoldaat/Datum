@@ -38,16 +38,6 @@ struct AddDatasetView: View {
         }
     }
     
-//    func addDataset() {
-//        let newDataset = Dataset(context: viewContext)
-//        newDataset.name = datasetName
-//        newDataset.id = UUID()
-//        
-//        viewContext.safeSave()
-//
-//        
-//    }
-    
     func showAlert() {
         alertMessage = "Name cannot be blank"
         alertShowing = true
