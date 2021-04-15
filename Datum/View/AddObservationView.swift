@@ -8,14 +8,32 @@
 import SwiftUI
 
 struct AddObservationView: View {
+    
+    @ObservedObject var vm: AddObservationViewModel
+    
+    init(dataset: Dataset) {
+        self.vm = AddObservationViewModel(dataset: dataset)
+    }
 
     var body: some View {
-        Text("Hello")
+        
+        Form {
+            Section {
+                ForEach(vm.continuousVariables) { variable in
+                    AddContinuousVariableView(variable: variable)
+                }
+                ForEach(vm.categoricalVariables) { variable in
+                    AddCategoricalVariableView(variable: variable)
+                }
+            }
+        }
+        
+        
     }
 }
 
-struct AddObservationView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddObservationView()
-    }
-}
+//struct AddObservationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddObservationView()
+//    }
+//}

@@ -36,6 +36,6 @@ class ContentViewModel: ObservableObject {
     }
 
     enum SheetDestination {
-        case addDatasetView, addObservationView
+        case addDatasetView
     }
 }

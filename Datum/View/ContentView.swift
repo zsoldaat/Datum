@@ -28,14 +28,16 @@ struct ContentView: View {
                                     HStack {
                                         Text(dataset.wrappedName)
                                         Spacer()
-                                        Text("Editing").foregroundColor(.red)
+                                        Text("DatasetView").foregroundColor(.red)
                                     }
                                 }
                             } else {
-                                HStack {
-                                    Text(dataset.wrappedName)
-                                    Spacer()
-                                    Button("Add Observation") {vm.showSheet(.addObservationView)}
+                                NavigationLink(destination: AddObservationView(dataset: dataset)) {
+                                    HStack {
+                                        Text(dataset.wrappedName)
+                                        Spacer()
+                                        Text("AddObservationView").foregroundColor(.red)
+                                    }
                                 }
                             }
                         }
@@ -48,8 +50,6 @@ struct ContentView: View {
                 switch vm.destination {
                 case .addDatasetView:
                     AddDatasetView()
-                case .addObservationView:
-                    AddObservationView()
                 }
             }
         }

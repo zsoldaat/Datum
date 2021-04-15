@@ -26,6 +26,14 @@ extension ContinuousVariable {
     public var wrappedName: String {
         name ?? "No Name"
     }
+    
+    public var minString: String {
+        self.min.removeZerosFromEnd()
+    }
+    
+    public var maxString: String {
+        self.max.removeZerosFromEnd()
+    }
 
 }
 
