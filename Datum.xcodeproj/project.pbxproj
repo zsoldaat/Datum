@@ -134,8 +134,7 @@
 				4CDD51D1261E21F400B625F6 /* DatasetView.swift */,
 				4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */,
 				4C62F31D2628AA610075372E /* AddObservationView.swift */,
-				4C62F3272628B3420075372E /* AddContinuousVariableView.swift */,
-				4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */,
+				4C62F346262A1D050075372E /* SubViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +171,15 @@
 				4C62F3222628AD110075372E /* AddObservationViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4C62F346262A1D050075372E /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				4C62F3272628B3420075372E /* AddContinuousVariableView.swift */,
+				4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		4CAEB6FE261DF5B900EF21E7 = {
