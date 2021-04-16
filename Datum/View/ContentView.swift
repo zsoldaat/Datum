@@ -45,6 +45,7 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear {vm.isInEditMode = false}
             .navigationBarItems(trailing: Button(vm.isInEditMode ? "Done" : "Edit") { vm.isInEditMode.toggle()} )
             .sheet(isPresented: $vm.showingSheet) {
                 switch vm.destination {

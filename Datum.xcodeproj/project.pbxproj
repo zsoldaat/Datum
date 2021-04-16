@@ -21,8 +21,10 @@
 		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
 		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
 		4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3272628B3420075372E /* AddContinuousVariableView.swift */; };
-		4C62F32D2628B9900075372E /* Double-SmartRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F32C2628B9900075372E /* Double-SmartRound.swift */; };
+		4C62F32D2628B9900075372E /* Double-removeZerosFromEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F32C2628B9900075372E /* Double-removeZerosFromEnd.swift */; };
 		4C62F3322628C26A0075372E /* AddCategoricalVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */; };
+		4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F339262A0CD20075372E /* ContinuousDataPointStorage.swift */; };
+		4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */; };
 		4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */; };
 		4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70C261DF5B900EF21E7 /* ContentView.swift */; };
 		4CAEB70F261DF5BD00EF21E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */; };
@@ -72,8 +74,10 @@
 		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
 		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
 		4C62F3272628B3420075372E /* AddContinuousVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContinuousVariableView.swift; sourceTree = "<group>"; };
-		4C62F32C2628B9900075372E /* Double-SmartRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-SmartRound.swift"; sourceTree = "<group>"; };
+		4C62F32C2628B9900075372E /* Double-removeZerosFromEnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double-removeZerosFromEnd.swift"; sourceTree = "<group>"; };
 		4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoricalVariableView.swift; sourceTree = "<group>"; };
+		4C62F339262A0CD20075372E /* ContinuousDataPointStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousDataPointStorage.swift; sourceTree = "<group>"; };
+		4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoricalDataPointStorage.swift; sourceTree = "<group>"; };
 		4CAEB707261DF5B900EF21E7 /* Datum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatumApp.swift; sourceTree = "<group>"; };
 		4CAEB70C261DF5B900EF21E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,7 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */,
-				4C62F32C2628B9900075372E /* Double-SmartRound.swift */,
+				4C62F32C2628B9900075372E /* Double-removeZerosFromEnd.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +253,8 @@
 				4CD1AC87262748BF0018CEF1 /* DatasetStorage.swift */,
 				4CD1AC91262757B60018CEF1 /* CategoricalVariableStorage.swift */,
 				4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */,
+				4C62F339262A0CD20075372E /* ContinuousDataPointStorage.swift */,
+				4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -382,6 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */,
+				4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */,
 				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
 				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
@@ -399,7 +407,7 @@
 				4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */,
 				4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */,
 				4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */,
-				4C62F32D2628B9900075372E /* Double-SmartRound.swift in Sources */,
+				4C62F32D2628B9900075372E /* Double-removeZerosFromEnd.swift in Sources */,
 				4C62F3322628C26A0075372E /* AddCategoricalVariableView.swift in Sources */,
 				4C3941BE2620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift in Sources */,
 				4C090C5E262892CF000D6F8E /* AddVariableViewModel.swift in Sources */,

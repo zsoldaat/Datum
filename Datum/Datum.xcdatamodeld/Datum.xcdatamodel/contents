@@ -29,8 +29,8 @@
     </entity>
     <entity name="ContinuousVariable" representedClassName="ContinuousVariable" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="max" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="min" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="max" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
+        <attribute name="min" optional="YES" attributeType="Double" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="dataset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dataset" inverseName="continuousData" inverseEntity="Dataset"/>
         <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContinuousDataPoint" inverseName="variable" inverseEntity="ContinuousDataPoint"/>

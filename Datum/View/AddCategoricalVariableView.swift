@@ -11,7 +11,7 @@ struct AddCategoricalVariableView: View {
     
     let variable: CategoricalVariable
     
-    @State var selected: Category?
+    @Binding var selected: Category
     
     var body: some View {
         

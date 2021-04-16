@@ -14,18 +14,18 @@ class ContinuousVariableStorage: NSObject, ObservableObject {
     
     private let context = PersistenceController.shared.container.viewContext
     
-    private let continuousFetchController: NSFetchedResultsController<ContinuousVariable>
+    private let fetchController: NSFetchedResultsController<ContinuousVariable>
     
     //Singleton
     static let shared: ContinuousVariableStorage = ContinuousVariableStorage()
     
     public override init() {
         
-        let continuousFetchRequest: NSFetchRequest<ContinuousVariable> = ContinuousVariable.fetchRequest()
-        continuousFetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContinuousVariable.name, ascending: true)]
+        let fetchRequest: NSFetchRequest<ContinuousVariable> = ContinuousVariable.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \ContinuousVariable.name, ascending: true)]
         
-        continuousFetchController = NSFetchedResultsController(
-            fetchRequest: continuousFetchRequest,
+        fetchController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
             managedObjectContext: context,
             sectionNameKeyPath: nil,
             cacheName: nil
@@ -33,11 +33,11 @@ class ContinuousVariableStorage: NSObject, ObservableObject {
         
         super.init()
         
-        continuousFetchController.delegate = self
+        fetchController.delegate = self
         
         do {
-            try continuousFetchController.performFetch()
-            continuousVariables.value = continuousFetchController.fetchedObjects ?? []
+            try fetchController.performFetch()
+            continuousVariables.value = fetchController.fetchedObjects ?? []
             
         } catch {
             print("Could not fetch variables")
@@ -45,15 +45,18 @@ class ContinuousVariableStorage: NSObject, ObservableObject {
 
     }
     
-    func add(name: String, min: Double, max: Double, dataset: Dataset) {
+    func add(name: String, min: Double?, max: Double?, dataset: Dataset) {
         
         let newVariable = ContinuousVariable(context: context)
         newVariable.id = UUID()
         newVariable.dataset = dataset
         newVariable.name = name
-        newVariable.min = min
-        newVariable.max = max
-        
+        if let min = min {
+            newVariable.min = min
+        }
+        if let max = max {
+            newVariable.max = max
+        }
         context.safeSave()
         
     }

@@ -14,7 +14,7 @@ class DatasetStorage: NSObject, ObservableObject {
     
     var datasets = CurrentValueSubject<[Dataset], Never>([])
     
-    private let datasetFetchController: NSFetchedResultsController<Dataset>
+    private let fetchController: NSFetchedResultsController<Dataset>
     private let context = PersistenceController.shared.container.viewContext
     
     //Singleton
@@ -25,7 +25,7 @@ class DatasetStorage: NSObject, ObservableObject {
         let fetchRequest: NSFetchRequest<Dataset> = Dataset.fetchRequest()
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Dataset.name, ascending: true)]
         
-        datasetFetchController = NSFetchedResultsController(
+        fetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
             managedObjectContext: context,
             sectionNameKeyPath: nil,
@@ -34,11 +34,11 @@ class DatasetStorage: NSObject, ObservableObject {
         
         super.init()
         
-        datasetFetchController.delegate = self
+        fetchController.delegate = self
         
         do {
-            try datasetFetchController.performFetch()
-            datasets.value = datasetFetchController.fetchedObjects ?? []
+            try fetchController.performFetch()
+            datasets.value = fetchController.fetchedObjects ?? []
         } catch {
             print("Could not fetch Dataset objects")
         }

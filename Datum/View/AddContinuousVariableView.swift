@@ -11,7 +11,7 @@ struct AddContinuousVariableView: View {
     
     let variable: ContinuousVariable
     
-    @State var newValue: String = ""
+    @Binding var newValue: String
     
     var body: some View {
         HStack {
@@ -20,13 +20,18 @@ struct AddContinuousVariableView: View {
             
             Spacer()
             
-            Text("\(variable.minString) < ")
+            if variable.min != nil {
+                Text("\(variable.minString!) < ")
+            }
             
             TextField("Value", text: $newValue)
                 .keyboardType(.decimalPad)
                 .frame(width: 100) //TODO: this should not be hardcoded
             
-            Text(" < \(variable.maxString)")
+            if variable.max != nil {
+                Text(" < \(variable.maxString!)")
+            }
+            
 
         }
     }

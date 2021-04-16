@@ -70,21 +70,29 @@ class AddVariableViewModel: ObservableObject {
             switch newVariableType {
             case .continuous:
                 
-                guard let doubleMin = Double(newVariableMin) else {
+                let optionalMin = Double(newVariableMin)
+                let optionalMax = Double(newVariableMax)
+                
+                if !newVariableMin.isEmpty && ((optionalMin?.isNaN) == nil) {
                     showAlert(message: "The minimum value you entered is not a number")
                     return
                 }
-                guard let doubleMax = Double(newVariableMax) else {
+                
+                if !newVariableMax.isEmpty && ((optionalMax?.isNaN) == nil) {
                     showAlert(message: "The maximum value you entered is not a number")
                     return
                 }
                 
-                if doubleMax - doubleMin < 0 {
-                    showAlert(message: "The minimum value is greater than the maximum value")
-                    return
+                if !newVariableMin.isEmpty && !newVariableMax.isEmpty {
+                    if (optionalMax ?? 1) - (optionalMin ?? 0) < 0 {
+                        showAlert(message: "The minimum value is greater than the maximum value")
+                        return
+                    }
                 }
-            
-                ContinuousVariableStorage.shared.add(name: newVariableName, min: doubleMin, max: doubleMax, dataset: dataset)
+                
+                //There might be a problem with adding negative numbers here
+
+                ContinuousVariableStorage.shared.add(name: newVariableName, min: optionalMin, max: optionalMax, dataset: dataset)
                 
             case .categorical:
                 

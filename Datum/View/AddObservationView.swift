@@ -14,21 +14,53 @@ struct AddObservationView: View {
     init(dataset: Dataset) {
         self.vm = AddObservationViewModel(dataset: dataset)
     }
-
+    
     var body: some View {
         
         Form {
             Section {
                 ForEach(vm.continuousVariables) { variable in
-                    AddContinuousVariableView(variable: variable)
+                    AddContinuousVariableView(variable: variable, newValue: continuousBinding(for: variable))
                 }
                 ForEach(vm.categoricalVariables) { variable in
-                    AddCategoricalVariableView(variable: variable)
+                    AddCategoricalVariableView(variable: variable, selected: categoricalBinding(for: variable))
                 }
             }
+            
+            Section {
+                Button("Done") {
+                    vm.addObservation()
+                }
+            }
+            
         }
-        
-        
+        .alert(isPresented: $vm.alertShowing) {
+            Alert(title: Text(vm.alertMessage))
+        }
+
+    }
+    
+    //Custom Bindings for dictionary values in ViewModel
+    func continuousBinding(for key: ContinuousVariable) -> Binding<String> {
+        return Binding(
+            get: {
+                return vm.continuousDict[key] ?? ""
+            },
+            set: { newValue in
+                vm.continuousDict[key] = newValue
+            }
+        )
+    }
+    
+    func categoricalBinding(for key: CategoricalVariable) -> Binding<Category> {
+        return Binding(
+            get: {
+                return vm.categoricalDict[key]!
+            },
+            set: { newValue in
+                vm.categoricalDict[key] = newValue
+            }
+        )
     }
 }
 

@@ -14,18 +14,18 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
     
     private let context = PersistenceController.shared.container.viewContext
     
-    private let categoricalFetchController: NSFetchedResultsController<CategoricalVariable>
+    private let fetchController: NSFetchedResultsController<CategoricalVariable>
     
     //Singleton
     static let shared: CategoricalVariableStorage = CategoricalVariableStorage()
     
     public override init() {
         
-        let categoricalFetchRequest: NSFetchRequest<CategoricalVariable> = CategoricalVariable.fetchRequest()
-        categoricalFetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \CategoricalVariable.name, ascending: true)]
+        let fetchRequest: NSFetchRequest<CategoricalVariable> = CategoricalVariable.fetchRequest()
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \CategoricalVariable.name, ascending: true)]
         
-        categoricalFetchController = NSFetchedResultsController(
-            fetchRequest: categoricalFetchRequest,
+        fetchController = NSFetchedResultsController(
+            fetchRequest: fetchRequest,
             managedObjectContext: context,
             sectionNameKeyPath: nil,
             cacheName: nil
@@ -33,11 +33,11 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
         
         super.init()
         
-        categoricalFetchController.delegate = self
+        fetchController.delegate = self
         
         do {
-            try categoricalFetchController.performFetch()
-            categoricalVariables.value = categoricalFetchController.fetchedObjects ?? []
+            try fetchController.performFetch()
+            categoricalVariables.value = fetchController.fetchedObjects ?? []
             
         } catch {
             print("Could not fetch variables")
