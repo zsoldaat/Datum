@@ -9,3 +9,4 @@ Datum is an app that allows users to track and visualize their own data. All dat
 - SwiftUI
 - Core Data
 - Combine
+- Core Location
