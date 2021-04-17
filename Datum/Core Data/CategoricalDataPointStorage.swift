@@ -52,6 +52,11 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
         newDataPoint.date = Date()
         newDataPoint.rowId = rowId
         
+        if let location = LocationFetcher.shared.lastKnownLocation {
+            newDataPoint.longitude = location.longitude
+            newDataPoint.latitude = location.latitude
+        }
+        
         newDataPoint.category = category
         newDataPoint.variable = variable
         

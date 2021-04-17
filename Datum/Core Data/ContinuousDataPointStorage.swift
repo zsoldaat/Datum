@@ -53,7 +53,14 @@ class ContinuousDataPointStorage: NSObject, ObservableObject {
         newDataPoint.rowId = rowId
         newDataPoint.value = value
         
+        if let location = LocationFetcher.shared.lastKnownLocation {
+            newDataPoint.longitude = location.longitude
+            newDataPoint.latitude = location.latitude
+        }
+        
         newDataPoint.variable = variable
+        
+        print(newDataPoint)
         
         context.safeSave()
         

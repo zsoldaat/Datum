@@ -3,6 +3,8 @@
     <entity name="CategoricalDataPoint" representedClassName="CategoricalDataPoint" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="rowId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="values" inverseEntity="Category"/>
         <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalVariable" inverseName="values" inverseEntity="CategoricalVariable"/>
@@ -23,6 +25,8 @@
     <entity name="ContinuousDataPoint" representedClassName="ContinuousDataPoint" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="rowId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="value" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ContinuousVariable" inverseName="values" inverseEntity="ContinuousVariable"/>
@@ -43,10 +47,10 @@
         <relationship name="continuousData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContinuousVariable" inverseName="dataset" inverseEntity="ContinuousVariable"/>
     </entity>
     <elements>
-        <element name="CategoricalDataPoint" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="CategoricalDataPoint" positionX="-54" positionY="-9" width="128" height="134"/>
         <element name="CategoricalVariable" positionX="-54" positionY="-9" width="128" height="104"/>
         <element name="Category" positionX="-45" positionY="45" width="128" height="89"/>
-        <element name="ContinuousDataPoint" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="ContinuousDataPoint" positionX="-63" positionY="-18" width="128" height="134"/>
         <element name="ContinuousVariable" positionX="-45" positionY="0" width="128" height="119"/>
         <element name="Dataset" positionX="-45" positionY="18" width="128" height="104"/>
     </elements>

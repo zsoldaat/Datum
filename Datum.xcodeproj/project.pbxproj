@@ -25,6 +25,7 @@
 		4C62F3322628C26A0075372E /* AddCategoricalVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */; };
 		4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F339262A0CD20075372E /* ContinuousDataPointStorage.swift */; };
 		4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */; };
+		4C62F352262B559A0075372E /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F351262B559A0075372E /* LocationFetcher.swift */; };
 		4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */; };
 		4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CAEB70C261DF5B900EF21E7 /* ContentView.swift */; };
 		4CAEB70F261DF5BD00EF21E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */; };
@@ -78,6 +79,7 @@
 		4C62F3312628C26A0075372E /* AddCategoricalVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoricalVariableView.swift; sourceTree = "<group>"; };
 		4C62F339262A0CD20075372E /* ContinuousDataPointStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousDataPointStorage.swift; sourceTree = "<group>"; };
 		4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoricalDataPointStorage.swift; sourceTree = "<group>"; };
+		4C62F351262B559A0075372E /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		4CAEB707261DF5B900EF21E7 /* Datum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Datum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatumApp.swift; sourceTree = "<group>"; };
 		4CAEB70C261DF5B900EF21E7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,14 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
+		4C62F350262B55730075372E /* Functionality classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C62F351262B559A0075372E /* LocationFetcher.swift */,
+			);
+			path = "Functionality classes";
+			sourceTree = "<group>";
+		};
 		4CAEB6FE261DF5B900EF21E7 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 				4C3941CE26248AD300F9F3E4 /* ViewModel */,
 				4C3941542620CA5F00F9F3E4 /* Model */,
 				4CD1AC862627489F0018CEF1 /* Core Data */,
+				4C62F350262B55730075372E /* Functionality classes */,
 				4C39411B261E4C5B00F9F3E4 /* Extensions */,
 				4CAEB715261DF5BD00EF21E7 /* Datum.xcdatamodeld */,
 				4CAEB70E261DF5BD00EF21E7 /* Assets.xcassets */,
@@ -398,6 +409,7 @@
 			files = (
 				4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */,
 				4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */,
+				4C62F352262B559A0075372E /* LocationFetcher.swift in Sources */,
 				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
 				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,

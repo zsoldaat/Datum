@@ -37,6 +37,7 @@ struct AddObservationView: View {
         .alert(isPresented: $vm.alertShowing) {
             Alert(title: Text(vm.alertMessage))
         }
+        .onAppear(perform: LocationFetcher.shared.start)
 
     }
     
