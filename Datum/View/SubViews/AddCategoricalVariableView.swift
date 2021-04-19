@@ -15,8 +15,12 @@ struct AddCategoricalVariableView: View {
     
     var body: some View {
         
-        VStack {
+        HStack {
             Text(variable.wrappedName)
+            
+            Divider()
+            
+            Spacer()
             
             List {
                 ForEach(variable.categoriesArray) { variable in
