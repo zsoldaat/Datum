@@ -21,8 +21,14 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
     }
 
     func start() {
-        manager.requestWhenInUseAuthorization()
-        manager.startUpdatingLocation()
+        
+        switch manager.authorizationStatus {
+        case .restricted, .denied:
+            print("No permission")
+        default:
+            manager.requestWhenInUseAuthorization()
+            manager.startUpdatingLocation()
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

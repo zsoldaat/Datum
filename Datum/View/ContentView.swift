@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var vm = ContentViewModel()
+    
+    
+    //Figure out why locationFetcher asks for location everytime. (maybe store answer to userdefaults or fetch the current status of the permission before asking.
+    
+    //Also, figure out why adding a categorical variable crashes if you add the last option.
 
     var body: some View {
         NavigationView {
