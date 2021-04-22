@@ -48,6 +48,10 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
     func add(variable: CategoricalVariable, category: Category, rowId: UUID) {
         
         let newDataPoint = CategoricalDataPoint(context: context)
+        newDataPoint.category = category
+        context.safeSave()
+        print("First save complete")
+        
         newDataPoint.id = UUID()
         newDataPoint.date = Date()
         newDataPoint.rowId = rowId
@@ -57,10 +61,14 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
             newDataPoint.latitude = location.latitude
         }
         
-        newDataPoint.category = category
+//        newDataPoint.category = category
         newDataPoint.variable = variable
         
         context.safeSave()
+        
+        print("Second save complete")
+        
+        print(newDataPoint)
     }
     
     func update(id: UUID) {
@@ -72,6 +80,7 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
     func delete() {
         
     }
+    
 }
 extension CategoricalDataPointStorage: NSFetchedResultsControllerDelegate {
     

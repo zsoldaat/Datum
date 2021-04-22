@@ -11,10 +11,13 @@ import CoreData
 extension NSManagedObjectContext {
     
     func safeSave() {
-        do {
-            try self.save()
-        } catch {
-            fatalError(error.localizedDescription)
+        if self.hasChanges {
+            do {
+                try self.save()
+            } catch {
+                print("ERROR")
+                fatalError(error.localizedDescription)
+            }
         }
     }
     

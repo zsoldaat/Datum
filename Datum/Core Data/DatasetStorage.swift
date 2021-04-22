@@ -49,8 +49,11 @@ class DatasetStorage: NSObject, ObservableObject {
         let newDataset = Dataset(context: context)
         newDataset.name = name
         newDataset.id = UUID()
+        newDataset.date = Date()
         
         context.safeSave()
+        
+        print(newDataset)
         
     }
     

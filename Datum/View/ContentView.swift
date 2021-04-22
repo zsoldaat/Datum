@@ -10,10 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var vm = ContentViewModel()
-    
-    
-    //Figure out why locationFetcher asks for location everytime. (maybe store answer to userdefaults or fetch the current status of the permission before asking.
-    
+
     //Also, figure out why adding a categorical variable crashes if you add the last option.
 
     var body: some View {
@@ -22,6 +19,25 @@ struct ContentView: View {
                 
                 Section {
                     Button("Add Dataset") {vm.showSheet(.addDatasetView)}
+                }
+                
+                Section {
+                    Button("Debug") {
+                        let dataset = vm.datasets.first!
+                        let catVars = dataset.categoricalData?.allObjects as! [CategoricalVariable]
+                    
+                        print("Categorical Variables: \(catVars), count: \(catVars.count)")
+                        
+                        let categories = catVars.first!.categoriesArray
+                        
+                        print("Count: \(categories.count)")
+                        
+                        for category in categories {
+                            print("Name: \(category.name!)")
+                        }
+                        
+                        
+                    }
                 }
                 
                 Section {

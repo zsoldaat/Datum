@@ -12,7 +12,6 @@ class AddObservationViewModel: ObservableObject {
     
     var dataset: Dataset
     
-    //Try to eventually only use the dictionary instead of having both of these sets of variables
     @Published var continuousVariables: [ContinuousVariable] = []
     @Published var categoricalVariables: [CategoricalVariable] = []
     
@@ -44,10 +43,13 @@ class AddObservationViewModel: ObservableObject {
         for variable in continuousVariables {
             continuousDict[variable] = ""
         }
-        
+
         for variable in categoricalVariables {
             //If you change this to not have a default value, update containsBlankValues()
-            categoricalDict[variable] = variable.categoriesArray.first
+            let categories = CategoryStorage.shared.categories.value.filter {$0.variable == variable}
+
+
+            categoricalDict[variable] = categories.first
         }
         
     }
@@ -56,14 +58,15 @@ class AddObservationViewModel: ObservableObject {
         if !containsBlankValues() && !containsInvalidInputs() && !containsValuesOutOfRange() {
             let rowId = UUID()
             
-            for dataPoint in continuousDict.keys {
-                let value = Double(continuousDict[dataPoint]!)!
-                ContinuousDataPointStorage.shared.add(variable: dataPoint, value: value, rowId: rowId)
+            for variable in continuousDict.keys {
+                let value = Double(continuousDict[variable]!)!
+                ContinuousDataPointStorage.shared.add(variable: variable, value: value, rowId: rowId)
             }
             
-            for dataPoint in categoricalDict.keys {
-                let category = categoricalDict[dataPoint]!
-                CategoricalDataPointStorage.shared.add(variable: dataPoint, category: category, rowId: rowId)
+            for variable in categoricalDict.keys {
+                let category = categoricalDict[variable]!
+                print("Selected Category: \(category.name)")
+                CategoricalDataPointStorage.shared.add(variable: variable, category: category, rowId: rowId)
             }
         }
     }

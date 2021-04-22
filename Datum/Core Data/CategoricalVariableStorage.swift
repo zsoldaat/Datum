@@ -52,21 +52,17 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
         newVariable.dataset = dataset
         newVariable.name = name
         
+        context.safeSave()
+        
+        
         for category in categories {
-            addCategory(name: category, variable: newVariable)
+            CategoryStorage.shared.add(variable: newVariable, name: category)
         }
         
         context.safeSave()
         
-    }
-    
-    func addCategory(name: String, variable: CategoricalVariable) {
-        let newCategory = Category(context: context)
-        newCategory.id = UUID()
-        newCategory.variable = variable
-        newCategory.name = name
+        print(newVariable)
         
-        context.safeSave()
     }
     
     func update(id: UUID) {

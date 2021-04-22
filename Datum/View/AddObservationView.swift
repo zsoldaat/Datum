@@ -38,28 +38,28 @@ struct AddObservationView: View {
             Alert(title: Text(vm.alertMessage))
         }
         .onAppear(perform: LocationFetcher.shared.start)
-
     }
     
     //Custom Bindings for dictionary values in ViewModel
-    func continuousBinding(for key: ContinuousVariable) -> Binding<String> {
+    func continuousBinding(for variable: ContinuousVariable) -> Binding<String> {
         return Binding(
             get: {
-                return vm.continuousDict[key] ?? ""
+                return vm.continuousDict[variable] ?? ""
             },
             set: { newValue in
-                vm.continuousDict[key] = newValue
+                vm.continuousDict[variable] = newValue
             }
         )
     }
     
-    func categoricalBinding(for key: CategoricalVariable) -> Binding<Category> {
+    func categoricalBinding(for variable: CategoricalVariable) -> Binding<Category> {
         return Binding(
             get: {
-                return vm.categoricalDict[key]!
+                return vm.categoricalDict[variable]!
             },
             set: { newValue in
-                vm.categoricalDict[key] = newValue
+                vm.categoricalDict[variable] = newValue
+                print(vm.categoricalDict[variable])
             }
         )
     }

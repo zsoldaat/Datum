@@ -16,10 +16,10 @@
         <relationship name="dataset" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dataset" inverseName="categoricalData" inverseEntity="Dataset"/>
         <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoricalDataPoint" inverseName="variable" inverseEntity="CategoricalDataPoint"/>
     </entity>
-    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+    <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <relationship name="values" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalDataPoint" inverseName="category" inverseEntity="CategoricalDataPoint"/>
+        <relationship name="values" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CategoricalDataPoint" inverseName="category" inverseEntity="CategoricalDataPoint"/>
         <relationship name="variable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CategoricalVariable" inverseName="categories" inverseEntity="CategoricalVariable"/>
     </entity>
     <entity name="ContinuousDataPoint" representedClassName="ContinuousDataPoint" syncable="YES" codeGenerationType="class">
@@ -47,11 +47,11 @@
         <relationship name="continuousData" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ContinuousVariable" inverseName="dataset" inverseEntity="ContinuousVariable"/>
     </entity>
     <elements>
-        <element name="CategoricalDataPoint" positionX="-54" positionY="-9" width="128" height="134"/>
-        <element name="CategoricalVariable" positionX="-54" positionY="-9" width="128" height="104"/>
-        <element name="Category" positionX="-45" positionY="45" width="128" height="89"/>
-        <element name="ContinuousDataPoint" positionX="-63" positionY="-18" width="128" height="134"/>
-        <element name="ContinuousVariable" positionX="-45" positionY="0" width="128" height="119"/>
-        <element name="Dataset" positionX="-45" positionY="18" width="128" height="104"/>
+        <element name="CategoricalDataPoint" positionX="-50.92919921875" positionY="148.9453735351562" width="128" height="148"/>
+        <element name="CategoricalVariable" positionX="-494.5614013671875" positionY="-148.8248596191406" width="128" height="118"/>
+        <element name="Category" positionX="-105.646240234375" positionY="-46.686767578125" width="128" height="103"/>
+        <element name="ContinuousDataPoint" positionX="194.4237670898438" positionY="-198.1871032714844" width="128" height="134"/>
+        <element name="ContinuousVariable" positionX="-14.39678955078125" positionY="-195.39306640625" width="128" height="119"/>
+        <element name="Dataset" positionX="-226.1153564453125" positionY="-301.7184295654297" width="128" height="104"/>
     </elements>
 </model>
