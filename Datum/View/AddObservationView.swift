@@ -59,7 +59,6 @@ struct AddObservationView: View {
             },
             set: { newValue in
                 vm.categoricalDict[variable] = newValue
-                print(vm.categoricalDict[variable])
             }
         )
     }

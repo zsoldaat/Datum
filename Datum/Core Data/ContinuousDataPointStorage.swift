@@ -60,8 +60,6 @@ class ContinuousDataPointStorage: NSObject, ObservableObject {
         
         newDataPoint.variable = variable
         
-        print(newDataPoint)
-        
         context.safeSave()
         
     }

@@ -53,8 +53,6 @@ class DatasetStorage: NSObject, ObservableObject {
         
         context.safeSave()
         
-        print(newDataset)
-        
     }
     
     func update(id: UUID) {

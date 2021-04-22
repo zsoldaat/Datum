@@ -65,7 +65,6 @@ class AddObservationViewModel: ObservableObject {
             
             for variable in categoricalDict.keys {
                 let category = categoricalDict[variable]!
-                print("Selected Category: \(category.name)")
                 CategoricalDataPointStorage.shared.add(variable: variable, category: category, rowId: rowId)
             }
         }
@@ -112,7 +111,6 @@ class AddObservationViewModel: ObservableObject {
         }
         
         return false
-        
         
     }
     

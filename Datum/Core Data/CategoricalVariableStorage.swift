@@ -61,8 +61,6 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
         
         context.safeSave()
         
-        print(newVariable)
-        
     }
     
     func update(id: UUID) {

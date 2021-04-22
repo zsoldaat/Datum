@@ -22,7 +22,7 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
     public override init() {
         
         let fetchRequest: NSFetchRequest<CategoricalDataPoint> = CategoricalDataPoint.fetchRequest()
-        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \CategoricalDataPoint.category, ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \CategoricalDataPoint.date, ascending: true)]
         
         fetchController = NSFetchedResultsController(
             fetchRequest: fetchRequest,
@@ -49,8 +49,6 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
         
         let newDataPoint = CategoricalDataPoint(context: context)
         newDataPoint.category = category
-        context.safeSave()
-        print("First save complete")
         
         newDataPoint.id = UUID()
         newDataPoint.date = Date()
@@ -61,14 +59,10 @@ class CategoricalDataPointStorage: NSObject, ObservableObject {
             newDataPoint.latitude = location.latitude
         }
         
-//        newDataPoint.category = category
+        newDataPoint.category = category
         newDataPoint.variable = variable
         
         context.safeSave()
-        
-        print("Second save complete")
-        
-        print(newDataPoint)
     }
     
     func update(id: UUID) {

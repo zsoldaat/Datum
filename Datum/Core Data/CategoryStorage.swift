@@ -53,8 +53,6 @@ class CategoryStorage: NSObject, ObservableObject {
         category.variable = variable
         
         context.safeSave()
-        
-        print(category)
     }
     
     func update(id: UUID) {
