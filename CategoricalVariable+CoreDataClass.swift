@@ -11,5 +11,7 @@ import CoreData
 
 @objc(CategoricalVariable)
 public class CategoricalVariable: NSManagedObject {
+    
+    public var isSelected: Bool = false
 
 }

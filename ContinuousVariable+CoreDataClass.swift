@@ -11,5 +11,7 @@ import CoreData
 
 @objc(ContinuousVariable)
 public class ContinuousVariable: NSManagedObject {
+    
+    public var isSelected: Bool = false
 
 }

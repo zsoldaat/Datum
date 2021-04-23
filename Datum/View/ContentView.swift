@@ -10,54 +10,30 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var vm = ContentViewModel()
-
-    //Also, figure out why adding a categorical variable crashes if you add the last option.
+    
+    @State private var selectedDataset: Dataset? = nil
 
     var body: some View {
         NavigationView {
             Form {
-                
-                Section {
-                    Button("Add Dataset") {vm.showSheet(.addDatasetView)}
-                }
-                
-                Section {
-                    Button("Debug") {
-                        let dataset = vm.datasets.first!
-                        let catVars = dataset.categoricalData?.allObjects as! [CategoricalVariable]
-                    
-                        print("Categorical Variables: \(catVars), count: \(catVars.count)")
-                        
-                        let categories = catVars.first!.categoriesArray
-                        
-                        print("Count: \(categories.count)")
-                        
-                        for category in categories {
-                            print("Name: \(category.name!)")
-                        }
-                        
-                        
-                    }
-                }
-                
                 Section {
                     List {
                         ForEach(vm.datasets) { dataset in
                             
-                            if vm.isInEditMode {
+                            HStack {
+                                Button {
+                                    self.selectedDataset = dataset
+                                    vm.showSheet(.addObservationView)
+                                } label: {
+                                    Image(systemName: "plus")
+                                }
+                                .buttonStyle(PlainButtonStyle())
+                                
+                                Spacer()
+                                
                                 NavigationLink(destination: DatasetView(dataset: dataset)) {
                                     HStack {
                                         Text(dataset.wrappedName)
-                                        Spacer()
-                                        Text("DatasetView").foregroundColor(.red)
-                                    }
-                                }
-                            } else {
-                                NavigationLink(destination: AddObservationView(dataset: dataset)) {
-                                    HStack {
-                                        Text(dataset.wrappedName)
-                                        Spacer()
-                                        Text("AddObservationView").foregroundColor(.red)
                                     }
                                 }
                             }
@@ -66,15 +42,17 @@ struct ContentView: View {
                     }
                 }
             }
-            .onAppear {vm.isInEditMode = false}
-            .navigationBarItems(trailing: Button(vm.isInEditMode ? "Done" : "Edit") { vm.isInEditMode.toggle()} )
+            .navigationBarItems(trailing: Button("Add Dataset") {vm.showSheet(.addDatasetView)})
             .sheet(isPresented: $vm.showingSheet) {
                 switch vm.destination {
                 case .addDatasetView:
                     AddDatasetView()
+                case .addObservationView:
+                    AddObservationView(dataset: selectedDataset!)
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func deleteItems(offsets: IndexSet) {

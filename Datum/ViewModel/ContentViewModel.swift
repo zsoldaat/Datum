@@ -15,8 +15,6 @@ class ContentViewModel: ObservableObject {
     @Published var destination = SheetDestination.addDatasetView
     @Published var showingSheet = false
     
-    @Published var isInEditMode = false
-    
     private var cancellable: AnyCancellable?
     
     init(datasetPublisher: AnyPublisher<[Dataset], Never> = DatasetStorage.shared.datasets.eraseToAnyPublisher()) {
@@ -36,6 +34,6 @@ class ContentViewModel: ObservableObject {
     }
 
     enum SheetDestination {
-        case addDatasetView
+        case addDatasetView, addObservationView
     }
 }

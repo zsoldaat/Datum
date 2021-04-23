@@ -119,6 +119,4 @@ class AddObservationViewModel: ObservableObject {
         alertShowing = true
     }
     
-    
-    
 }
