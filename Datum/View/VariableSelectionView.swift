@@ -19,6 +19,11 @@ struct VariableSelectionView: View {
         Form {
             List {
                 
+                NavigationLink(destination: ScatterplotView(variables: vm.selectedContinuousVariables)) {
+                    Text("See the chart")
+                }
+                .disabled(!vm.correctNumberSelected)
+                
                 Text("Selected continuous variables: \(vm.continuousCount)/\(vm.chart.continuousVariablesRequired)")
                 Text("Selected categorical variables: \(vm.categoricalCount)/\(vm.chart.categoricalVariablesRequired)")
                 
@@ -57,6 +62,7 @@ struct VariableSelectionView: View {
                 }
             }
         }
+        .navigationBarTitle("Select Variables")
     }
 }
 

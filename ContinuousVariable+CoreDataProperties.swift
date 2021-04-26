@@ -82,6 +82,15 @@ extension ContinuousVariable {
             return nil
         }
     }
+    
+    public var valuesArray: [ContinuousDataPoint] {
+        
+        let datapoints = self.values?.allObjects as! [ContinuousDataPoint]
+        
+        return datapoints.sorted {$0.value < $1.value}
+        
+        
+    }
 
 
 }

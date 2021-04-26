@@ -34,6 +34,7 @@ struct ChartTypesView: View {
                 }
             }
         }
+        .navigationBarTitle("Chart Types")
     }
 }
 

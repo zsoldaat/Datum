@@ -44,6 +44,12 @@ class VariableSelectionViewModel: ObservableObject {
         }
     }
     
+    var correctNumberSelected: Bool {
+        let continuousCorrect = self.chart.continuousVariablesRequired == self.continuousCount
+        let categoricalCorrect = self.chart.categoricalVariablesRequired == self.categoricalCount
+        return continuousCorrect && categoricalCorrect
+    }
+    
     
     
 }

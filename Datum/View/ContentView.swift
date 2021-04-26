@@ -51,8 +51,8 @@ struct ContentView: View {
                     AddObservationView(dataset: selectedDataset!)
                 }
             }
+            .navigationBarTitle("All Datasets")
         }
-        .navigationViewStyle(StackNavigationViewStyle())
     }
     
     func deleteItems(offsets: IndexSet) {
