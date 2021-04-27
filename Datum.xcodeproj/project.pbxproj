@@ -76,12 +76,12 @@
 		4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSManagedObjectContext-Save.swift"; sourceTree = "<group>"; };
 		4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDatasetView.swift; sourceTree = "<group>"; };
 		4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVariableView.swift; sourceTree = "<group>"; };
-		4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dataset+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dataset+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContinuousVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContinuousVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
-		4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoricalVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dataset+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/Dataset+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Dataset+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/Dataset+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ContinuousVariable+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/ContinuousVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ContinuousVariable+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/ContinuousVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CategoricalVariable+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/CategoricalVariable+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CategoricalVariable+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/CategoricalVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4C4BF3172633127A00DE9D6F /* ChartTypesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTypesView.swift; sourceTree = "<group>"; };
 		4C4BF31C263312CA00DE9D6F /* ChartTypesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTypesViewModel.swift; sourceTree = "<group>"; };
 		4C4BF3242633167A00DE9D6F /* VariableSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView.swift; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 		4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetViewModel.swift; sourceTree = "<group>"; };
 		4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousVariableStorage.swift; sourceTree = "<group>"; };
 		4CDD51D1261E21F400B625F6 /* DatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetView.swift; sourceTree = "<group>"; };
-		4CF588D926320854002F2841 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		4CF588D926320854002F2841 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,14 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				4C4BF34726389C1000DE9D6F /* InitialTabView.swift */,
-				4CAEB70C261DF5B900EF21E7 /* ContentView.swift */,
-				4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */,
-				4CDD51D1261E21F400B625F6 /* DatasetView.swift */,
-				4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */,
-				4C62F31D2628AA610075372E /* AddObservationView.swift */,
-				4C4BF3172633127A00DE9D6F /* ChartTypesView.swift */,
-				4C4BF3242633167A00DE9D6F /* VariableSelectionView.swift */,
-				4C62F346262A1D050075372E /* SubViews */,
+				4C4BF34F26389EA200DE9D6F /* Record Data */,
+				4C4BF35026389EAB00DE9D6F /* Visualize Data */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,15 +170,9 @@
 		4C3941542620CA5F00F9F3E4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4C4BF35426389F2700DE9D6F /* NSManagedObject classes */,
+				4CD1AC862627489F0018CEF1 /* Fetch CoreData Objects Classes */,
 				4C4BF334263317F300DE9D6F /* Non-CoreData classes */,
-				4CF588D926320854002F2841 /* Category+CoreDataClass.swift */,
-				4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */,
-				4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */,
-				4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */,
-				4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */,
-				4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */,
-				4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */,
-				4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +197,44 @@
 				4C4BF3352633180A00DE9D6F /* Chart.swift */,
 			);
 			path = "Non-CoreData classes";
+			sourceTree = "<group>";
+		};
+		4C4BF34F26389EA200DE9D6F /* Record Data */ = {
+			isa = PBXGroup;
+			children = (
+				4CAEB70C261DF5B900EF21E7 /* ContentView.swift */,
+				4C39413F261E68C300F9F3E4 /* AddDatasetView.swift */,
+				4CDD51D1261E21F400B625F6 /* DatasetView.swift */,
+				4C39414C261F4F6600F9F3E4 /* AddVariableView.swift */,
+				4C62F31D2628AA610075372E /* AddObservationView.swift */,
+				4C62F346262A1D050075372E /* SubViews */,
+			);
+			path = "Record Data";
+			sourceTree = "<group>";
+		};
+		4C4BF35026389EAB00DE9D6F /* Visualize Data */ = {
+			isa = PBXGroup;
+			children = (
+				4C4BF3172633127A00DE9D6F /* ChartTypesView.swift */,
+				4C4BF3242633167A00DE9D6F /* VariableSelectionView.swift */,
+				4CAEB73D261DF6BB00EF21E7 /* Charts Views */,
+			);
+			path = "Visualize Data";
+			sourceTree = "<group>";
+		};
+		4C4BF35426389F2700DE9D6F /* NSManagedObject classes */ = {
+			isa = PBXGroup;
+			children = (
+				4CF588D926320854002F2841 /* Category+CoreDataClass.swift */,
+				4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */,
+				4C3941C72620FCAB00F9F3E4 /* CategoricalVariable+CoreDataClass.swift */,
+				4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */,
+				4C3941B72620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift */,
+				4C3941B82620FC6D00F9F3E4 /* Dataset+CoreDataProperties.swift */,
+				4C3941B92620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift */,
+				4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */,
+			);
+			path = "NSManagedObject classes";
 			sourceTree = "<group>";
 		};
 		4C62F346262A1D050075372E /* SubViews */ = {
@@ -254,10 +280,8 @@
 				4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */,
 				4CAEB713261DF5BD00EF21E7 /* Persistence.swift */,
 				4C3539E02625E31300F312F5 /* View */,
-				4CAEB73D261DF6BB00EF21E7 /* Charts Views */,
 				4C3941CE26248AD300F9F3E4 /* ViewModel */,
 				4C3941542620CA5F00F9F3E4 /* Model */,
-				4CD1AC862627489F0018CEF1 /* Core Data */,
 				4C62F350262B55730075372E /* Functionality classes */,
 				4C39411B261E4C5B00F9F3E4 /* Extensions */,
 				4CAEB715261DF5BD00EF21E7 /* Datum.xcdatamodeld */,
@@ -303,7 +327,7 @@
 			path = "Charts Views";
 			sourceTree = "<group>";
 		};
-		4CD1AC862627489F0018CEF1 /* Core Data */ = {
+		4CD1AC862627489F0018CEF1 /* Fetch CoreData Objects Classes */ = {
 			isa = PBXGroup;
 			children = (
 				4CD1AC87262748BF0018CEF1 /* DatasetStorage.swift */,
@@ -313,7 +337,7 @@
 				4C54C0762631F581006C356C /* CategoryStorage.swift */,
 				4C62F341262A0DE80075372E /* CategoricalDataPointStorage.swift */,
 			);
-			path = "Core Data";
+			path = "Fetch CoreData Objects Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
