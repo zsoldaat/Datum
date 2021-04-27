@@ -19,7 +19,6 @@ struct ContentView: View {
                 Section {
                     List {
                         ForEach(vm.datasets) { dataset in
-                            
                             HStack {
                                 Button {
                                     self.selectedDataset = dataset

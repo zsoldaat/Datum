@@ -14,7 +14,7 @@ struct DatumApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            InitialTabView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

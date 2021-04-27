@@ -22,7 +22,14 @@ struct BarchartView: View {
     
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            
+            ForEach(categoricalVariable!.categoriesArray) { category in
+                Text(category.name!)
+            }
+            
+            
+        }
     }
 }
 
