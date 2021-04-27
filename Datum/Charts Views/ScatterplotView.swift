@@ -10,10 +10,10 @@ import SwiftUI
 struct ScatterplotView: View {
     
     var dataPoints: [Point]
-//    var xmin: Double
-//    var xmax: Double
-//    var ymin: Double
-//    var ymax: Double
+    var xmin: Double?
+    var xmax: Double?
+    var ymin: Double?
+    var ymax: Double?
     
     
     init(variables: [ContinuousVariable]) {
@@ -41,41 +41,43 @@ struct ScatterplotView: View {
             let point = Point(id: UUID(), xValue: x, yValue: y)
             dataPoints.append(point)
             
-//            //Only assisnging these so it has a default value that the min function can compare with, this is also jank
-//            self.xmin = point.xValue.value
-//            self.xmax = point.xValue.value
-//            self.ymin = point.yValue.value
-//            self.ymax = point.yValue.value
-//
-//            self.xmin = min(xmin, point.xValue.value)
-//            self.xmax = max(xmax, point.xValue.value)
-//            self.ymin = min(ymin, point.yValue.value)
-//            self.ymax = min(ymax, point.yValue.value)
+            //            //Only assisnging these so it has a default value that the min function can compare with, this is also jank
+            self.xmin = point.xValue.value
+            self.xmax = point.xValue.value * 1.33
+            self.ymin = point.yValue.value
+            self.ymax = point.yValue.value * 1.33
+            
+            self.xmin = min(xmin!, point.xValue.value)
+            self.xmax = max(xmax!, point.xValue.value)
+            self.ymin = min(ymin!, point.yValue.value)
+            self.ymax = min(ymax!, point.yValue.value)
             
         }
-        
-        
-
     }
     
     var body: some View {
-        HStack {
-            ForEach(dataPoints) { point in
-                Circle()
-                    .position(x: CGFloat(point.xValue.value), y: -CGFloat(point.yValue.value))
-                    .frame(width: 10)
-                    .onTapGesture {
-                        print(point.xValue.value, point.yValue.value)
+        ZStack {
+            HStack {
+                ForEach(0..<10) { _ in
+                    Group {
+                        Divider().background(Color.gray)
+                        Spacer()
                     }
-                    
+                }
+                Divider().background(Color.gray)
+            }
+            
+            GeometryReader { geometry in
+                ForEach(dataPoints) { point in
+                    Circle()
+                        .position(x: geometry.size.width * (CGFloat(point.xValue.value)/CGFloat(self.xmax!)), y: geometry.size.width - geometry.size.width * (CGFloat(point.xValue.value)/CGFloat(self.ymax!)))
+                        .frame(width: 15)
+                        .onTapGesture {
+                            print(point.xValue.value, point.yValue.value)
+                        }
+                }
             }
         }
-        
-//        List {
-//            ForEach(dataPoints) {point in
-//                Text("X: \(point.xValue.value), Y: \(point.yValue.value)")
-//            }
-//        }
     }
     
 }

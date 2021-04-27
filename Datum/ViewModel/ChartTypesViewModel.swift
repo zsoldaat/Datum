@@ -28,7 +28,9 @@ class ChartTypesViewModel: ObservableObject {
             chartList.append(Chart(type: .scatterplot))
         }
         
-        
+        if categoricalVariableCount > 0 {
+            chartList.append(Chart(type: .barchart))
+        }
         
     }
     

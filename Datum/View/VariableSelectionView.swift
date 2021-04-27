@@ -19,7 +19,19 @@ struct VariableSelectionView: View {
         Form {
             List {
                 
-                NavigationLink(destination: ScatterplotView(variables: vm.selectedContinuousVariables)) {
+                NavigationLink(destination: {
+                    
+                    VStack {
+                        
+                        if vm.chart.type == .scatterplot {
+                            ScatterplotView(variables: vm.selectedContinuousVariables)
+                        } else {
+                            BarchartView(categoricalVariables: vm.selectedCategoricalVariables)
+                        }
+                        
+                    }
+
+                }()) {
                     Text("See the chart")
                 }
                 .disabled(!vm.correctNumberSelected)
@@ -63,6 +75,7 @@ struct VariableSelectionView: View {
             }
         }
         .navigationBarTitle("Select Variables")
+        .onDisappear(perform: vm.deselectVariables)
     }
 }
 

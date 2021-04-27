@@ -23,6 +23,7 @@
 		4C4BF3252633167A00DE9D6F /* VariableSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF3242633167A00DE9D6F /* VariableSelectionView.swift */; };
 		4C4BF32A263316B700DE9D6F /* VariableSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF329263316B700DE9D6F /* VariableSelectionViewModel.swift */; };
 		4C4BF3362633180A00DE9D6F /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF3352633180A00DE9D6F /* Chart.swift */; };
+		4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF34226388F3100DE9D6F /* BarchartView.swift */; };
 		4C54C0772631F581006C356C /* CategoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54C0762631F581006C356C /* CategoryStorage.swift */; };
 		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
 		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
@@ -85,6 +86,7 @@
 		4C4BF3242633167A00DE9D6F /* VariableSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView.swift; sourceTree = "<group>"; };
 		4C4BF329263316B700DE9D6F /* VariableSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionViewModel.swift; sourceTree = "<group>"; };
 		4C4BF3352633180A00DE9D6F /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		4C4BF34226388F3100DE9D6F /* BarchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarchartView.swift; sourceTree = "<group>"; };
 		4C54C0762631F581006C356C /* CategoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStorage.swift; sourceTree = "<group>"; };
 		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
 		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			isa = PBXGroup;
 			children = (
 				4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */,
+				4C4BF34226388F3100DE9D6F /* BarchartView.swift */,
 			);
 			path = "Charts Views";
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
 				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
+				4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */,
 				4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */,
 				4CAEB714261DF5BD00EF21E7 /* Persistence.swift in Sources */,
 				4CD1AC97262758C80018CEF1 /* DatasetViewModel.swift in Sources */,

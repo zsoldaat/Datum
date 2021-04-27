@@ -35,6 +35,7 @@ class VariableSelectionViewModel: ObservableObject {
     }
     
     func selectCategoricalVariable(variable: CategoricalVariable) {
+        variable.isSelected.toggle()
         if variable.isSelected {
             categoricalCount += 1
             selectedCategoricalVariables.append(variable)
@@ -44,12 +45,19 @@ class VariableSelectionViewModel: ObservableObject {
         }
     }
     
+    func deselectVariables() {
+        for variable in selectedContinuousVariables {
+            variable.isSelected = false
+        }
+        for variable in selectedCategoricalVariables {
+            variable.isSelected = false
+        }
+    }
+    
     var correctNumberSelected: Bool {
         let continuousCorrect = self.chart.continuousVariablesRequired == self.continuousCount
         let categoricalCorrect = self.chart.categoricalVariablesRequired == self.categoricalCount
         return continuousCorrect && categoricalCorrect
     }
-    
-    
     
 }
