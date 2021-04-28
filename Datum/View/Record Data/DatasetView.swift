@@ -19,13 +19,13 @@ struct DatasetView: View {
     var body: some View {
         Form {
             List {
-                Section {
-                    NavigationLink(
-                        destination: ChartTypesView(dataset: vm.dataset),
-                        label: {
-                            Text("Visualize")
-                        })
-                }
+//                Section {
+//                    NavigationLink(
+//                        destination: ChartTypesView(dataset: vm.dataset),
+//                        label: {
+//                            Text("Visualize")
+//                        })
+//                }
                 
                 Section(header: Text("Continuous Variables")) {
                     ForEach(vm.continuousVariables) { variable in

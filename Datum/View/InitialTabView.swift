@@ -12,8 +12,13 @@ struct InitialTabView: View {
         TabView {
             ContentView()
                 .tabItem {
-                    Image(systemName: "1.square.fill")
+                    Image(systemName: "pencil")
                     Text("Record Data")
+                }
+            DatasetAndChartSelectionView()
+                .tabItem {
+                    Image(systemName: "chart.pie.fill")
+                    Text("Visualize Data")
                 }
         }
     }

@@ -16,29 +16,27 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section {
-                    List {
-                        ForEach(vm.datasets) { dataset in
-                            HStack {
-                                Button {
-                                    self.selectedDataset = dataset
-                                    vm.showSheet(.addObservationView)
-                                } label: {
-                                    Image(systemName: "plus")
-                                }
-                                .buttonStyle(PlainButtonStyle())
-                                
-                                Spacer()
-                                
-                                NavigationLink(destination: DatasetView(dataset: dataset)) {
-                                    HStack {
-                                        Text(dataset.wrappedName)
-                                    }
+                List {
+                    ForEach(vm.datasets) { dataset in
+                        HStack {
+                            Button {
+                                self.selectedDataset = dataset
+                                vm.showSheet(.addObservationView)
+                            } label: {
+                                Image(systemName: "plus")
+                            }
+                            .buttonStyle(PlainButtonStyle())
+                            
+                            Spacer()
+                            
+                            NavigationLink(destination: DatasetView(dataset: dataset)) {
+                                HStack {
+                                    Text(dataset.wrappedName)
                                 }
                             }
                         }
-                        .onDelete(perform: deleteItems)
                     }
+                    .onDelete(perform: deleteItems)
                 }
             }
             .navigationBarItems(trailing: Button("Add Dataset") {vm.showSheet(.addDatasetView)})

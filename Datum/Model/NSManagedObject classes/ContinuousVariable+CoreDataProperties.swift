@@ -115,3 +115,7 @@ extension ContinuousVariable {
 extension ContinuousVariable : Identifiable {
 
 }
+
+extension ContinuousVariable: Variable {
+    
+}

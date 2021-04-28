@@ -12,9 +12,9 @@ class Chart {
     var name: String
     var continuousVariablesRequired: Int
     var categoricalVariablesRequired: Int
-    var type: ChartTypes
+    var type: ChartType
     
-    init(type: ChartTypes) {
+    init(type: ChartType) {
         self.name = type.rawValue.capitalized
         self.type = type
         
@@ -28,7 +28,8 @@ class Chart {
         }
     }
     
-    enum ChartTypes: String {
+    enum ChartType: String, CaseIterable, Identifiable {
+        var id: ChartType {self}
         case scatterplot, barchart
     }
     

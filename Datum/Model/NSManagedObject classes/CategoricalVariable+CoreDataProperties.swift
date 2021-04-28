@@ -73,3 +73,7 @@ extension CategoricalVariable {
 extension CategoricalVariable : Identifiable {
 
 }
+
+extension CategoricalVariable: Variable {
+    
+}

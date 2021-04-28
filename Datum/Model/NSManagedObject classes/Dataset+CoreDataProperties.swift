@@ -35,6 +35,14 @@ extension Dataset {
         let set = continuousData as? Set<ContinuousVariable> ?? []
         return set.sorted {$0.wrappedName > $1.wrappedName}
     }
+    
+    public var hasCategoricalVariables: Bool {
+        categoricalArray.count > 0
+    }
+    
+    public var hasContinuousVariables: Bool {
+        continuousArray.count > 0
+    }
 
 }
 
