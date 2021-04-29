@@ -20,18 +20,14 @@ class DatasetAndChartSelectionViewModel: ObservableObject {
     @Published var destination: Destination = .variableSelection
     
     init() {
-        
         self.chartTypes = Chart.ChartType.allCases
         self.allDatasets = DatasetStorage.shared.datasets.value
     }
     
     enum Destination: String, CaseIterable, Identifiable {
-        var id: Destination {self}
         case chartTypeSelection, variableSelection
+        var id: Destination {self}
+
     }
-    
-    
-    
-    
     
 }

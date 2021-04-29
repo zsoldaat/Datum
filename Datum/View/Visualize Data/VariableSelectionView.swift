@@ -13,28 +13,41 @@ struct VariableSelectionView: View {
     
     @Binding var visualizationManager: VisualizationManager
     
+    //Since I'm only wanting one dataset selected at a time, this could be changed to hold just one dataset. Leaving it for now in case things change.
     @State private var selection: Set<Dataset> = []
     
     var body: some View {
-        ScrollView {
-            ForEach(datasets) { dataset in
-                DatasetCellView(visualizationManager: $visualizationManager, dataset: dataset, isExpanded: selection.contains(dataset))
-                    .onTapGesture {
-                        visualizationManager.dataset = dataset
-                        selectDeselect(dataset)
-                    }
-                    .modifier(ListRowModifier())
-                    .animation(.linear(duration: 0.3))
+        
+        VStack {
+            Text("\(visualizationManager.selectedContinuous.count) / \(visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
+            
+            Text("\(visualizationManager.selectedCategorical.count) / \(visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
+            
+            ScrollView {
+                ForEach(datasets) { dataset in
+                    DatasetCellView(visualizationManager: $visualizationManager, dataset: dataset, isExpanded: selection.contains(dataset))
+                        .onTapGesture {
+                            visualizationManager.dataset = dataset
+                            selectDeselect(dataset)
+                        }
+                        .modifier(ListRowModifier())
+                        .animation(.linear(duration: 0.3))
+                }
             }
         }
+        
+        
     }
     
     private func selectDeselect(_ dataset: Dataset) {
-        if selection.contains(dataset) {
-            selection.remove(dataset)
-        } else {
-            selection.insert(dataset)
-        }
+        selection.removeAll()
+        selection.insert(dataset)
+        
+//        if selection.contains(dataset) {
+//            selection.remove(dataset)
+//        } else {
+//            selection.insert(dataset)
+//        }
     }
     
     struct ListRowModifier: ViewModifier {

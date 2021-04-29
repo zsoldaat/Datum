@@ -34,30 +34,50 @@ struct DatasetAndChartSelectionView: View {
                             }
                     }
                     
-                    Section(header: Text("Continuous Variables")) {
-                        ForEach(vm.visualizationManager.selectedContinuous) { continuous in
-                            Text(continuous.wrappedName)
+                    if !vm.visualizationManager.selectedContinuous.isEmpty {
+                        Section(header: Text("Continuous Variables")) {
+                            ForEach(vm.visualizationManager.selectedContinuous) { continuous in
+                                Text(continuous.wrappedName)
+                            }
                         }
                     }
                     
-                    Section(header: Text("Categorical Variables")) {
-                        ForEach(vm.visualizationManager.selectedCategorical) { categorical in
-                            Text(categorical.wrappedName)
+                    if !vm.visualizationManager.selectedCategorical.isEmpty {
+                        Section(header: Text("Categorical Variables")) {
+                            ForEach(vm.visualizationManager.selectedCategorical) { categorical in
+                                Text(categorical.wrappedName)
+                            }
                         }
                     }
+                    
+                    NavigationLink(destination: navigationLinkDestination()) {
+                        Text("Done")
+                    }.disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
+                    
                 }
             }
             .sheet(isPresented: $sheetPresented) {
                 switch vm.destination {
-                
                 case .chartTypeSelection:
                     ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
                 case .variableSelection:
                     VariableSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
+                        .padding()
                 }
             }
+            .navigationTitle("Visualize")
         }
     }
+    
+    @ViewBuilder func navigationLinkDestination() -> some View {
+        switch vm.visualizationManager.chart.type {
+        case .barchart:
+            BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
+        case .scatterplot:
+            ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
+        }
+    }
+
 }
 
 struct DatasetAndChartSelectionView_Previews: PreviewProvider {

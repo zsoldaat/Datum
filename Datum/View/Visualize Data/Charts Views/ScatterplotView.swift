@@ -16,32 +16,22 @@ struct ScatterplotView: View {
     var ymax: Double?
     
     
-    init(variables: [ContinuousVariable]) {
+    init(xvar: ContinuousVariable?, yvar: ContinuousVariable?) {
         
         dataPoints = []
         
-        let xvar: [ContinuousDataPoint]
-        let yvar: [ContinuousDataPoint]
+        let x: [ContinuousDataPoint]
+        let y: [ContinuousDataPoint]
+
+        x = xvar?.valuesArray ?? []
+        y = yvar?.valuesArray ?? []
         
-        //This stuff is jank, the only reason I'm unwrapping optionals is because this view is actually created in the previous screen before variables are selected. Leaving this because it can possible fix itself once I change the UI, but otherwise there should be a more permanent solution.
-        if let x = variables.first {
-            xvar = x.valuesArray
-        } else {
-            xvar = []
-        }
-        
-        if let y = variables.last {
-            yvar = y.valuesArray
-        } else {
-            yvar = []
-        }
-        
-        for (x, y) in zip(xvar, yvar) {
+        for (x, y) in zip(x, y) {
             
             let point = Point(id: UUID(), xValue: x, yValue: y)
             dataPoints.append(point)
             
-            //            //Only assisnging these so it has a default value that the min function can compare with, this is also jank
+            //Only assisnging these so it has a default value that the min function can compare with, this is also jank
             self.xmin = point.xValue.value
             self.xmax = point.xValue.value * 1.33
             self.ymin = point.yValue.value

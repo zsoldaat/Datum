@@ -20,6 +20,11 @@ extension Category {
     @NSManaged public var name: String?
     @NSManaged public var values: NSSet?
     @NSManaged public var variable: CategoricalVariable?
+    
+    public var valuesArray: [CategoricalDataPoint] {
+        let set = values as? Set<CategoricalDataPoint> ?? []
+        return set.sorted {$0.date! > $1.date!}
+    }
 
 }
 

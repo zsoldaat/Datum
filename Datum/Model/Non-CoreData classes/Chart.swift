@@ -10,9 +10,9 @@ import Foundation
 class Chart {
     
     var name: String
+    var type: ChartType
     var continuousVariablesRequired: Int
     var categoricalVariablesRequired: Int
-    var type: ChartType
     
     init(type: ChartType) {
         self.name = type.rawValue.capitalized
@@ -29,13 +29,11 @@ class Chart {
     }
     
     enum ChartType: String, CaseIterable, Identifiable {
-        var id: ChartType {self}
         case scatterplot, barchart
+        var id: ChartType {self}
     }
     
 }
-
-
 
 extension Chart: Identifiable {
     
