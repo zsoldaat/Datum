@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChartTypeSelectionView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @Binding var visualizationManager: VisualizationManager
     
     var body: some View {
@@ -17,6 +19,9 @@ struct ChartTypeSelectionView: View {
                 Text(chart.rawValue.capitalized)
             }
         }
+        
+        Button("Done") {presentationMode.wrappedValue.dismiss()}
+        
     }
 }
 

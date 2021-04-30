@@ -50,33 +50,48 @@ struct DatasetAndChartSelectionView: View {
                         }
                     }
                     
-                    NavigationLink(destination: navigationLinkDestination()) {
-                        Text("Done")
+                    Button("Done") {
+                        showChart(chart: vm.visualizationManager.chart.type)
                     }.disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
                     
                 }
             }
-            .sheet(isPresented: $sheetPresented) {
+            .fullScreenCover(isPresented: $sheetPresented) {
                 switch vm.destination {
                 case .chartTypeSelection:
                     ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
                 case .variableSelection:
                     VariableSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
                         .padding()
+                case .barchart:
+                    BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
+                case .scatterplot:
+                    ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
                 }
             }
             .navigationTitle("Visualize")
         }
     }
     
-    @ViewBuilder func navigationLinkDestination() -> some View {
-        switch vm.visualizationManager.chart.type {
+    func showChart(chart: Chart.ChartType) {
+        switch chart {
         case .barchart:
-            BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
+            vm.destination = DatasetAndChartSelectionViewModel.Destination.barchart
         case .scatterplot:
-            ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
+            vm.destination = DatasetAndChartSelectionViewModel.Destination.scatterplot
         }
+        sheetPresented = true
     }
+
+//
+//    @ViewBuilder func navigationLinkDestination() -> some View {
+//        switch vm.visualizationManager.chart.type {
+//        case .barchart:
+//            BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
+//        case .scatterplot:
+//            ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
+//        }
+//    }
 
 }
 

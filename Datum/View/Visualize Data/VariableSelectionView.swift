@@ -9,6 +9,8 @@ import SwiftUI
 
 struct VariableSelectionView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let datasets: [Dataset]
     
     @Binding var visualizationManager: VisualizationManager
@@ -34,6 +36,8 @@ struct VariableSelectionView: View {
                         .animation(.linear(duration: 0.3))
                 }
             }
+            
+            Button("Done") {presentationMode.wrappedValue.dismiss()}
         }
         
         
