@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ScatterplotView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var dataPoints: [Point]
     var xmin: Double?
     var xmax: Double?
@@ -33,9 +35,9 @@ struct ScatterplotView: View {
             
             //Only assisnging these so it has a default value that the min function can compare with, this is also jank
             self.xmin = point.xValue.value
-            self.xmax = point.xValue.value * 1.33
+            self.xmax = point.xValue.value
             self.ymin = point.yValue.value
-            self.ymax = point.yValue.value * 1.33
+            self.ymax = point.yValue.value
             
             self.xmin = min(xmin!, point.xValue.value)
             self.xmax = max(xmax!, point.xValue.value)
@@ -46,28 +48,68 @@ struct ScatterplotView: View {
     }
     
     var body: some View {
-        ZStack {
-            HStack {
-                ForEach(0..<10) { _ in
-                    Group {
-                        Divider().background(Color.gray)
-                        Spacer()
-                    }
-                }
-                Divider().background(Color.gray)
-            }
-            
-            GeometryReader { geometry in
+        GeometryReader { geometry in
+            ZStack {
+                
+                //Scatterplot
                 ForEach(dataPoints) { point in
                     Circle()
-                        .position(x: geometry.size.width * (CGFloat(point.xValue.value)/CGFloat(self.xmax!)), y: geometry.size.width - geometry.size.width * (CGFloat(point.xValue.value)/CGFloat(self.ymax!)))
-                        .frame(width: 15)
+                        .frame(width: 10)
+                        .foregroundColor(.blue)
+                        .position(
+                            x: geometry.size.width * CGFloat(point.xValue.value / xmax!),
+                            y: geometry.size.height - geometry.size.height * CGFloat(point.yValue.value / ymax!)
+                        )
                         .onTapGesture {
                             print(point.xValue.value, point.yValue.value)
                         }
                 }
+                
+                //Horizontal Grid
+                ForEach(0..<Int(ymax!+1)) {number in
+                    ZStack {
+                        Text("\(number)")
+                            .offset(x:-geometry.size.width/2 - 10, y:0)
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray)
+
+                    }
+                    .position(
+                        x: geometry.size.width / 2,
+                        y: geometry.size.height - CGFloat(number) * geometry.size.height / CGFloat(ymax!)
+                    )
+                }
+                
+                //Vertical Grid
+                ForEach(0..<Int(xmax!+1)) {number in
+                    ZStack {
+                        Text(number != 0 ? "\(number)" : "")
+                            .offset(x:0, y: geometry.size.height/2 + 10)
+                        Rectangle()
+                            .frame(width: 1)
+                            .foregroundColor(.gray)
+
+                    }
+                    .position(
+                        x: CGFloat(number) * geometry.size.width / CGFloat(xmax!),
+                        y: geometry.size.height / 2
+                    )
+                }
+                
+                //Visual Guide
+//                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
+                
+                Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
+                    Image(systemName: "x.circle")
+                })
+                .position(
+                    x: geometry.size.width - 20,
+                    y: 20
+                )
             }
         }
+        .padding()
     }
     
 }

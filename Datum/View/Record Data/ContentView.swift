@@ -39,7 +39,13 @@ struct ContentView: View {
                     .onDelete(perform: deleteItems)
                 }
             }
-            .navigationBarItems(trailing: Button("Add Dataset") {vm.showSheet(.addDatasetView)})
+            .navigationBarItems(trailing:
+                                    Button(
+                                        action: {vm.showSheet(.addDatasetView)}
+                                    ){
+                                        Image(systemName: "plus")
+                                    }
+            )
             .sheet(isPresented: $vm.showingSheet) {
                 switch vm.destination {
                 case .addDatasetView:

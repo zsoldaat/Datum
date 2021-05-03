@@ -52,7 +52,8 @@ struct DatasetAndChartSelectionView: View {
                     
                     Button("Done") {
                         showChart(chart: vm.visualizationManager.chart.type)
-                    }.disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
+                    }
+                    .disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
                     
                 }
             }
@@ -62,7 +63,6 @@ struct DatasetAndChartSelectionView: View {
                     ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
                 case .variableSelection:
                     VariableSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
-                        .padding()
                 case .barchart:
                     BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
                 case .scatterplot:

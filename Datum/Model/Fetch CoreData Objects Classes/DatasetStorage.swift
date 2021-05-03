@@ -65,6 +65,7 @@ class DatasetStorage: NSObject, ObservableObject {
         context.delete(dataset)
         context.safeSave()
     }
+    
 }
 extension DatasetStorage: NSFetchedResultsControllerDelegate {
     

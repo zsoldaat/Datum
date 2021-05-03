@@ -9,7 +9,7 @@ import Foundation
 
 struct VisualizationManager {
     
-    var chart: Chart = Chart(type: .barchart)
+    var chart: Chart = Chart(type: .scatterplot)
     var dataset: Dataset? = nil {
         didSet {
             updateSelected()
@@ -18,8 +18,8 @@ struct VisualizationManager {
     
     //Notes for next time: Once the user selects the chart type, create the actual Chart object. This will populate the values for the required number of variables. Once we know what types of variables are required, we can then let the user choose which variables they want. 
     
-    let allDatasets = DatasetStorage.shared.datasets.value
-    var selectedChartType: Chart.ChartType = .barchart {
+    var allDatasets = DatasetStorage.shared.datasets.value
+    var selectedChartType: Chart.ChartType = .scatterplot {
         didSet {
             self.chart = Chart(type: selectedChartType)
         }
@@ -44,14 +44,14 @@ struct VisualizationManager {
     }
     
     var correctNumberOfVarsSelected: Bool {
-        
         let correctContinuous = selectedContinuous.count == chart.continuousVariablesRequired
         let correctCategorical = selectedCategorical.count == chart.categoricalVariablesRequired
         
         return correctContinuous && correctCategorical
-        
-        
-        
+    }
+    
+    mutating func refreshDatasets() {
+        allDatasets = DatasetStorage.shared.datasets.value
     }
     
 }

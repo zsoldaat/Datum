@@ -21,11 +21,21 @@ struct VariableSelectionView: View {
     var body: some View {
         
         VStack {
-            Text("\(visualizationManager.selectedContinuous.count) / \(visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
+            if visualizationManager.chart.continuousVariablesRequired > 0 {
+                Text("\(visualizationManager.selectedContinuous.count) / \(visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
+            }
             
-            Text("\(visualizationManager.selectedCategorical.count) / \(visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
+            if visualizationManager.chart.categoricalVariablesRequired > 0 {
+                Text("\(visualizationManager.selectedCategorical.count) / \(visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
+            }
             
             ScrollView {
+                
+                Text("Datasets")
+                    .font(.title)
+                
+                Divider()
+                
                 ForEach(datasets) { dataset in
                     DatasetCellView(visualizationManager: $visualizationManager, dataset: dataset, isExpanded: selection.contains(dataset))
                         .onTapGesture {
@@ -36,30 +46,7 @@ struct VariableSelectionView: View {
                         .animation(.linear(duration: 0.3))
                 }
             }
-            
             Button("Done") {presentationMode.wrappedValue.dismiss()}
-        }
-        
-        
-    }
-    
-    private func selectDeselect(_ dataset: Dataset) {
-        selection.removeAll()
-        selection.insert(dataset)
-        
-//        if selection.contains(dataset) {
-//            selection.remove(dataset)
-//        } else {
-//            selection.insert(dataset)
-//        }
-    }
-    
-    struct ListRowModifier: ViewModifier {
-        func body(content: Content) -> some View {
-            Group {
-                content
-                Divider()
-            }.offset(x: 20)
         }
     }
     
@@ -81,16 +68,17 @@ struct VariableSelectionView: View {
         
         private var content: some View {
             VStack(alignment: .leading) {
-                Text(dataset.wrappedName).font(.headline)
+                Text(dataset.wrappedName)
+                    .font(.title2)
+                    .foregroundColor(.blue)
                 
                 if isExpanded {
-                    if dataset.hasCategoricalVariables {
-                        Text("Categorical Variables")
-                    }
-                    
                     ForEach(dataset.categoricalArray) { categorical in
                         HStack {
                             Text(categorical.wrappedName)
+                            Text("Categorical")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                             Spacer()
                             Text(categorical.isSelected ? "Selected" : "")
                         }
@@ -99,13 +87,12 @@ struct VariableSelectionView: View {
                         }
                     }
                     
-                    if dataset.hasContinuousVariables {
-                        Text("Continuous Variables")
-                    }
-                    
                     ForEach(dataset.continuousArray) { continuous in
                         HStack {
                             Text(continuous.wrappedName)
+                            Text("Continuous")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
                             Spacer()
                             Text(continuous.isSelected ? "Selected" : "")
                         }
@@ -116,7 +103,25 @@ struct VariableSelectionView: View {
                 }
             }
         }
-        
+    }
+    
+    private func selectDeselect(_ dataset: Dataset) {
+        selection.removeAll()
+        selection.insert(dataset)
+//        if selection.contains(dataset) {
+//            selection.remove(dataset)
+//        } else {
+//            selection.insert(dataset)
+//        }
+    }
+    
+    struct ListRowModifier: ViewModifier {
+        func body(content: Content) -> some View {
+            Group {
+                content
+                Divider()
+            }.offset(x: 20)
+        }
     }
 }
 

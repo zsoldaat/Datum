@@ -69,7 +69,7 @@ struct BarchartView: View {
                 }
                 
                 //Just to outline the bounds of the view
-                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
+//                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
                 Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
                     Image(systemName: "x.circle")
