@@ -25,11 +25,14 @@ class Chart {
         case .barchart:
             self.continuousVariablesRequired = 0
             self.categoricalVariablesRequired = 1
+        case .mapView:
+            self.continuousVariablesRequired = 0
+            self.categoricalVariablesRequired = 0
         }
     }
     
     enum ChartType: String, CaseIterable, Identifiable {
-        case scatterplot, barchart
+        case scatterplot, barchart, mapView
         var id: ChartType {self}
     }
     

@@ -25,7 +25,7 @@ class DatasetAndChartSelectionViewModel: ObservableObject {
     }
     
     enum Destination: String, CaseIterable, Identifiable {
-        case chartTypeSelection, variableSelection, scatterplot, barchart
+        case chartTypeSelection, variableSelection, scatterplot, barchart, mapView
         var id: Destination {self}
 
     }

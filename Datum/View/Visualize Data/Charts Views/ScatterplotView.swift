@@ -66,7 +66,7 @@ struct ScatterplotView: View {
                 }
                 
                 //Horizontal Grid
-                ForEach(0..<Int(ymax!+1)) {number in
+                ForEach(0..<Int(ymax!+1)) { number in
                     ZStack {
                         Text("\(number)")
                             .offset(x:-geometry.size.width/2 - 10, y:0)
@@ -82,7 +82,7 @@ struct ScatterplotView: View {
                 }
                 
                 //Vertical Grid
-                ForEach(0..<Int(xmax!+1)) {number in
+                ForEach(0..<Int(xmax!+1)) { number in
                     ZStack {
                         Text(number != 0 ? "\(number)" : "")
                             .offset(x:0, y: geometry.size.height/2 + 10)

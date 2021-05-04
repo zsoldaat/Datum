@@ -67,6 +67,8 @@ struct DatasetAndChartSelectionView: View {
                     BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
                 case .scatterplot:
                     ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
+                case .mapView:
+                    DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
                 }
             }
             .navigationTitle("Visualize")
@@ -79,6 +81,8 @@ struct DatasetAndChartSelectionView: View {
             vm.destination = DatasetAndChartSelectionViewModel.Destination.barchart
         case .scatterplot:
             vm.destination = DatasetAndChartSelectionViewModel.Destination.scatterplot
+        case .mapView:
+            vm.destination = DatasetAndChartSelectionViewModel.Destination.mapView
         }
         sheetPresented = true
     }
