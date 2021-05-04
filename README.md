@@ -10,3 +10,4 @@ Datum is an app that allows users to track and visualize their own data. All dat
 - Core Data
 - Combine
 - Core Location
+- Map Kit
