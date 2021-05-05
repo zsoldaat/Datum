@@ -10,15 +10,36 @@ import MapKit
 
 struct DatapointMapView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let locations: [Location]
     
     @State var region: MKCoordinateRegion
     
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: locations) { location in
-            MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                DatapointDetailView(location: location)
+        ZStack {
+            Map(coordinateRegion: $region, annotationItems: locations) { location in
+                MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
+                    DatapointDetailView(location: location)
+                }
             }
+            
+            HStack {
+                Spacer()
+                VStack {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "x.circle")
+                            .resizable()
+                            .frame(width: 30, height: 30)
+                    }
+                    .padding()
+                    Spacer()
+                }
+            }
+            
+            
         }
     }
     

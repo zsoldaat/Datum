@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddObservationView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var vm: AddObservationViewModel
     
     init(dataset: Dataset) {
@@ -30,6 +32,7 @@ struct AddObservationView: View {
             Section {
                 Button("Done") {
                     vm.addObservation()
+                    presentationMode.wrappedValue.dismiss()
                 }
             }
             
