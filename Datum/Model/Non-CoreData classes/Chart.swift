@@ -11,23 +11,31 @@ class Chart {
     
     var name: String
     var type: ChartType
-    var continuousVariablesRequired: Int
-    var categoricalVariablesRequired: Int
     
     init(type: ChartType) {
         self.name = type.rawValue.capitalized
         self.type = type
-        
+    }
+    
+    var continuousVariablesRequired: Int {
         switch type {
         case .scatterplot:
-            self.continuousVariablesRequired = 2
-            self.categoricalVariablesRequired = 0
+            return 2
         case .barchart:
-            self.continuousVariablesRequired = 0
-            self.categoricalVariablesRequired = 1
+            return 0
         case .mapView:
-            self.continuousVariablesRequired = 0
-            self.categoricalVariablesRequired = 0
+            return 0
+        }
+    }
+    
+    var categoricalVariablesRequired: Int {
+        switch type {
+        case .scatterplot:
+            return 0
+        case .barchart:
+            return 1
+        case .mapView:
+            return 0
         }
     }
     
