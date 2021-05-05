@@ -23,15 +23,35 @@ struct ContentView: View {
                                 self.selectedDataset = dataset
                                 vm.showSheet(.addObservationView)
                             } label: {
-                                Image(systemName: "plus")
+                                VStack {
+                                    Image(systemName: "plus")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 50, height: 50)
+                                    Text("New Data")
+                                        .font(.footnote)
+                                }
+                                    
                             }
+                            .frame(width: 75, height: 75)
                             .buttonStyle(PlainButtonStyle())
                             
                             Spacer()
                             
                             NavigationLink(destination: DatasetView(dataset: dataset)) {
-                                HStack {
+                                VStack(alignment: .leading) {
                                     Text(dataset.wrappedName)
+                                        .font(.title)
+                                    ForEach(dataset.continuousArray) { continuous in
+                                        Text(continuous.wrappedName)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    ForEach(dataset.categoricalArray) { categorical in
+                                        Text(categorical.wrappedName)
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                             }
                         }
