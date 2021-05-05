@@ -12,5 +12,8 @@ struct Location: Identifiable {
     var id = UUID()
     var coordinate: CLLocationCoordinate2D
     
+    var categoricalData: [CategoricalDataPoint] = []
+    var continuousData: [ContinuousDataPoint] = []
+    
     
 }

@@ -50,38 +50,37 @@ struct VisualizationManager {
     }
     
     var locationCoordinates: [Location] {
-        var locations: [Location] = []
-        var seenRowIds: [UUID] = []
+        
+        var locationDict: [UUID: Location] = [:]
         
         let continuous = ContinuousDataPointStorage.shared.continuousDataPoints.value.filter {$0.variable?.dataset == self.dataset}
         let categorical = CategoricalDataPointStorage.shared.categoricalDataPoints.value.filter {$0.variable?.dataset == self.dataset}
         
-        for variable in continuous {
+        for datapoint in continuous {
+            let rowId = datapoint.rowId!
             
-            if !seenRowIds.contains(variable.rowId!) {
-                let coordinate = CLLocationCoordinate2D(latitude: variable.latitude, longitude: variable.longitude)
-                let location = Location(coordinate: coordinate)
-                locations.append(location)
-            } else {
-                seenRowIds.append(variable.rowId!)
+            if !locationDict.keys.contains(rowId) {
+                locationDict[rowId] = Location(coordinate: CLLocationCoordinate2D(latitude: datapoint.latitude, longitude: datapoint.longitude))
             }
+            
+            locationDict[rowId]?.continuousData.append(datapoint)
         }
         
-        for variable in categorical {
-            if !seenRowIds.contains(variable.rowId!) {
-                let coordinate = CLLocationCoordinate2D(latitude: variable.latitude, longitude: variable.longitude)
-                let location = Location(coordinate: coordinate)
-                locations.append(location)
-            } else {
-                seenRowIds.append(variable.rowId!)
+        for datapoint in categorical {
+            
+            let rowId = datapoint.rowId!
+            
+            if !locationDict.keys.contains(rowId) {
+                locationDict[rowId] = Location(coordinate: CLLocationCoordinate2D(latitude: datapoint.latitude, longitude: datapoint.longitude))
             }
+            
+            locationDict[rowId]?.categoricalData.append(datapoint)
         }
         
-        return locations
+        return Array(locationDict.values)
     }
     
     var centerLocation: Location {
-        
         var longitude: Double = 0
         var latitude: Double = 0
         
@@ -100,7 +99,7 @@ struct VisualizationManager {
     var mapRegion: MKCoordinateRegion {
         MKCoordinateRegion(
             center: centerLocation.coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+            span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
         )
     }
     
