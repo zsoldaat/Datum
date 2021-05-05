@@ -11,6 +11,8 @@ struct BarchartView: View {
     
     @Environment(\.presentationMode) var presentationMode
     
+    @State private var availableColors: [Color] = [Color.blue, Color.red, Color.orange, Color.green, Color.pink, Color.purple, Color.yellow]
+    
     var categoriesAndCounts: [Category:Int]
     var numberOfCategories: CGFloat
     var maxValue: CGFloat = 0
@@ -43,7 +45,7 @@ struct BarchartView: View {
                     ForEach(Array(categoriesAndCounts.keys)) { category in
                         ZStack(alignment: .bottom) {
                             Rectangle()
-                                .foregroundColor(Color.random()) //make color a property of the category and assign it randomly upon creation
+                                .foregroundColor(Color.random()) //change this to use some sort of colour scheme once I start working on that stuff
                                 .frame(
                                     width: (geometry.size.width / numberOfCategories / 1.5),
                                     height: geometry.size.height / maxValue * CGFloat(categoriesAndCounts[category]!)
@@ -73,6 +75,8 @@ struct BarchartView: View {
                 
                 Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
                     Image(systemName: "x.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                 })
                 .position(
                     x: geometry.size.width - 20,
@@ -83,6 +87,7 @@ struct BarchartView: View {
         }
         .padding()
     }
+
 }
 
 //struct BarchartView_Previews: PreviewProvider {

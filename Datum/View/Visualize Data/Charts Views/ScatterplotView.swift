@@ -102,6 +102,8 @@ struct ScatterplotView: View {
                 
                 Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
                     Image(systemName: "x.circle")
+                        .resizable()
+                        .frame(width: 30, height: 30)
                 })
                 .position(
                     x: geometry.size.width - 20,
