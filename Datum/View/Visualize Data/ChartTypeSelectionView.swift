@@ -14,7 +14,7 @@ struct ChartTypeSelectionView: View {
     @Binding var visualizationManager: VisualizationManager
     
     var body: some View {
-        Picker("Chart Type", selection: $visualizationManager.selectedChartType) {
+        Picker("Chart Type", selection: $visualizationManager.chart.type) {
             ForEach(Chart.ChartType.allCases) { chart in
                 Text(chart.rawValue.capitalized)
             }

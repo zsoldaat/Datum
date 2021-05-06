@@ -9,17 +9,23 @@ import Foundation
 
 class DatasetAndChartSelectionViewModel: ObservableObject {
     
-    @Published var visualizationManager = VisualizationManager()
+    @Published var visualizationManager: VisualizationManager
     
     @Published var chartTypes: [Chart.ChartType]
     @Published var allDatasets: [Dataset]
     
-    @Published var selectedChart: Chart.ChartType = .scatterplot
+    @Published var selectedChart: Chart.ChartType
 //    @Published var selectedDataset: Dataset?
     
     @Published var destination: Destination = .variableSelection
     
     init() {
+        
+        let visualizationManager = VisualizationManager()
+        self.visualizationManager = visualizationManager
+        self.selectedChart = visualizationManager.chart.type
+        
+        
         self.chartTypes = Chart.ChartType.allCases
         self.allDatasets = DatasetStorage.shared.datasets.value
     }

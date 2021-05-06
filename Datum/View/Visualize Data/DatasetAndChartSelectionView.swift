@@ -19,7 +19,7 @@ struct DatasetAndChartSelectionView: View {
             VStack {
                 List {
                     Section(header: Text("Chart Type")) {
-                        Text(vm.visualizationManager.selectedChartType.rawValue.capitalized)
+                        Text(vm.visualizationManager.chart.type.rawValue.capitalized)
                             .onTapGesture {
                                 vm.destination = .chartTypeSelection
                                 sheetPresented = true

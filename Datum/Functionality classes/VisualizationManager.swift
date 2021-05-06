@@ -18,12 +18,6 @@ struct VisualizationManager {
     }
     
     var allDatasets = DatasetStorage.shared.datasets.value
-    //get rid of selected chart type, use the chart property instead
-    var selectedChartType: Chart.ChartType = .scatterplot {
-        didSet {
-            self.chart = Chart(type: selectedChartType)
-        }
-    }
     var selectedContinuous = [ContinuousVariable]()
     var selectedCategorical = [CategoricalVariable]()
     
