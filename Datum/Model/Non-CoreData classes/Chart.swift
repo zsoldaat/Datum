@@ -25,6 +25,8 @@ class Chart {
             return 0
         case .mapView:
             return 0
+        case .calendarView:
+            return 1
         }
     }
     
@@ -36,11 +38,13 @@ class Chart {
             return 1
         case .mapView:
             return 0
+        case .calendarView:
+            return 0
         }
     }
     
     enum ChartType: String, CaseIterable, Identifiable {
-        case scatterplot, barchart, mapView
+        case scatterplot, barchart, mapView, calendarView
         var id: ChartType {self}
     }
     

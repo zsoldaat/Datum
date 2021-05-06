@@ -24,6 +24,12 @@
 		4C54C0772631F581006C356C /* CategoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C54C0762631F581006C356C /* CategoryStorage.swift */; };
 		4C5B61502641DAA700B6B1BE /* DatapointMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B614F2641DAA700B6B1BE /* DatapointMapView.swift */; };
 		4C5B61542641E37F00B6B1BE /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61532641E37F00B6B1BE /* Location.swift */; };
+		4C5B61562644490C00B6B1BE /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61552644490C00B6B1BE /* CalendarView.swift */; };
+		4C5B615826444DED00B6B1BE /* MonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B615726444DED00B6B1BE /* MonthView.swift */; };
+		4C5B615A2644500800B6B1BE /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61592644500800B6B1BE /* WeekView.swift */; };
+		4C5B615C2644531600B6B1BE /* RootCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B615B2644531600B6B1BE /* RootCalendarView.swift */; };
+		4C5B615F2644552700B6B1BE /* DateFormatter-MonthAndYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */; };
+		4C5B61612644555300B6B1BE /* Calendar-GenerateDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */; };
 		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
 		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
 		4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3272628B3420075372E /* AddContinuousVariableView.swift */; };
@@ -94,6 +100,12 @@
 		4C54C0762631F581006C356C /* CategoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryStorage.swift; sourceTree = "<group>"; };
 		4C5B614F2641DAA700B6B1BE /* DatapointMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapointMapView.swift; sourceTree = "<group>"; };
 		4C5B61532641E37F00B6B1BE /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		4C5B61552644490C00B6B1BE /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		4C5B615726444DED00B6B1BE /* MonthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthView.swift; sourceTree = "<group>"; };
+		4C5B61592644500800B6B1BE /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		4C5B615B2644531600B6B1BE /* RootCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCalendarView.swift; sourceTree = "<group>"; };
+		4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter-MonthAndYear.swift"; sourceTree = "<group>"; };
+		4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-GenerateDates.swift"; sourceTree = "<group>"; };
 		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
 		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
 		4C62F3272628B3420075372E /* AddContinuousVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContinuousVariableView.swift; sourceTree = "<group>"; };
@@ -177,6 +189,8 @@
 				4C39411C261E4C7800F9F3E4 /* NSManagedObjectContext-Save.swift */,
 				4C62F32C2628B9900075372E /* Double-removeZerosFromEnd.swift */,
 				4C6A49F4263B371600B08203 /* Color-Random.swift */,
+				4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */,
+				4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -246,6 +260,17 @@
 				4C3941BA2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift */,
 			);
 			path = "NSManagedObject classes";
+			sourceTree = "<group>";
+		};
+		4C5B615D264453E400B6B1BE /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				4C5B615B2644531600B6B1BE /* RootCalendarView.swift */,
+				4C5B61552644490C00B6B1BE /* CalendarView.swift */,
+				4C5B615726444DED00B6B1BE /* MonthView.swift */,
+				4C5B61592644500800B6B1BE /* WeekView.swift */,
+			);
+			path = CalendarView;
 			sourceTree = "<group>";
 		};
 		4C62F346262A1D050075372E /* SubViews */ = {
@@ -373,6 +398,7 @@
 				4CAEB73E261DF6CF00EF21E7 /* ScatterplotView.swift */,
 				4C4BF34226388F3100DE9D6F /* BarchartView.swift */,
 				4C5B614F2641DAA700B6B1BE /* DatapointMapView.swift */,
+				4C5B615D264453E400B6B1BE /* CalendarView */,
 			);
 			path = "Charts Views";
 			sourceTree = "<group>";
@@ -522,7 +548,9 @@
 				4C4BF3362633180A00DE9D6F /* Chart.swift in Sources */,
 				4C6C3D87263A04D4000CB10D /* Variable.swift in Sources */,
 				4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */,
+				4C5B615A2644500800B6B1BE /* WeekView.swift in Sources */,
 				4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */,
+				4C5B61562644490C00B6B1BE /* CalendarView.swift in Sources */,
 				4C62F352262B559A0075372E /* LocationFetcher.swift in Sources */,
 				4C6C3D762639F968000CB10D /* ChartTypeSelectionView.swift in Sources */,
 				4C6A49F5263B371600B08203 /* Color-Random.swift in Sources */,
@@ -541,6 +569,7 @@
 				4CAEB717261DF5BD00EF21E7 /* Datum.xcdatamodeld in Sources */,
 				4C3941CA2620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift in Sources */,
 				4C3941BD2620FC6D00F9F3E4 /* Dataset+CoreDataClass.swift in Sources */,
+				4C5B615C2644531600B6B1BE /* RootCalendarView.swift in Sources */,
 				4C54C0772631F581006C356C /* CategoryStorage.swift in Sources */,
 				4C0A8C9526272FB00078F09B /* ContentViewModel.swift in Sources */,
 				4C39414D261F4F6600F9F3E4 /* AddVariableView.swift in Sources */,
@@ -557,10 +586,13 @@
 				4CD1AC8D26274EF50018CEF1 /* AddDatasetViewModel.swift in Sources */,
 				4CAEB70D261DF5B900EF21E7 /* ContentView.swift in Sources */,
 				4C5B61502641DAA700B6B1BE /* DatapointMapView.swift in Sources */,
+				4C5B615F2644552700B6B1BE /* DateFormatter-MonthAndYear.swift in Sources */,
 				4C95E1E32639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift in Sources */,
 				4CF588DC26320854002F2841 /* Category+CoreDataProperties.swift in Sources */,
 				4C95E1DC2639AD4A005D12BA /* DatasetAndChartSelectionView.swift in Sources */,
 				4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */,
+				4C5B61612644555300B6B1BE /* Calendar-GenerateDates.swift in Sources */,
+				4C5B615826444DED00B6B1BE /* MonthView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
 				4C6C3D7E2639F97C000CB10D /* VariableSelectionView.swift in Sources */,
 				4CD1AC88262748BF0018CEF1 /* DatasetStorage.swift in Sources */,

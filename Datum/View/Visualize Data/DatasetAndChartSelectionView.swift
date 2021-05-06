@@ -69,6 +69,8 @@ struct DatasetAndChartSelectionView: View {
                     ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
                 case .mapView:
                     DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
+                case .calendarView:
+                    RootCalendarView()
                 }
             }
             .navigationTitle("Visualize")
@@ -83,6 +85,8 @@ struct DatasetAndChartSelectionView: View {
             vm.destination = DatasetAndChartSelectionViewModel.Destination.scatterplot
         case .mapView:
             vm.destination = DatasetAndChartSelectionViewModel.Destination.mapView
+        case .calendarView:
+            vm.destination = DatasetAndChartSelectionViewModel.Destination.calendarView
         }
         sheetPresented = true
     }
