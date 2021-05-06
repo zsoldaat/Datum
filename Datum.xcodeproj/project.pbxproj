@@ -30,6 +30,7 @@
 		4C5B615C2644531600B6B1BE /* RootCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B615B2644531600B6B1BE /* RootCalendarView.swift */; };
 		4C5B615F2644552700B6B1BE /* DateFormatter-MonthAndYear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */; };
 		4C5B61612644555300B6B1BE /* Calendar-GenerateDates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */; };
+		4C5B61632644873700B6B1BE /* Date-getComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61622644873700B6B1BE /* Date-getComponents.swift */; };
 		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
 		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
 		4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3272628B3420075372E /* AddContinuousVariableView.swift */; };
@@ -106,6 +107,7 @@
 		4C5B615B2644531600B6B1BE /* RootCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCalendarView.swift; sourceTree = "<group>"; };
 		4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter-MonthAndYear.swift"; sourceTree = "<group>"; };
 		4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar-GenerateDates.swift"; sourceTree = "<group>"; };
+		4C5B61622644873700B6B1BE /* Date-getComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-getComponents.swift"; sourceTree = "<group>"; };
 		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
 		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
 		4C62F3272628B3420075372E /* AddContinuousVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContinuousVariableView.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				4C6A49F4263B371600B08203 /* Color-Random.swift */,
 				4C5B615E2644552700B6B1BE /* DateFormatter-MonthAndYear.swift */,
 				4C5B61602644555300B6B1BE /* Calendar-GenerateDates.swift */,
+				4C5B61622644873700B6B1BE /* Date-getComponents.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */,
 				4C394140261E68C300F9F3E4 /* AddDatasetView.swift in Sources */,
 				4C95E1D42639A887005D12BA /* VisualizationManager.swift in Sources */,
+				4C5B61632644873700B6B1BE /* Date-getComponents.swift in Sources */,
 				4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */,
 				4C62F32D2628B9900075372E /* Double-removeZerosFromEnd.swift in Sources */,
 				4C62F3322628C26A0075372E /* AddCategoricalVariableView.swift in Sources */,

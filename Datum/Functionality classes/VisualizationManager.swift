@@ -44,6 +44,8 @@ struct VisualizationManager {
         return correctContinuous && correctCategorical
     }
     
+    //MARK: - MapView Variables
+    
     var locationCoordinates: [Location] {
         
         var locationDict: [UUID: Location] = [:]
@@ -98,4 +100,36 @@ struct VisualizationManager {
         )
     }
     
+    //MARK: - CalendarView Variables
+    
+    var averageValuesByDate: [DateComponents: Double] {
+        
+        guard let variable = selectedContinuous.first else {return [:]}
+        
+        let valuesSetForDates = Dictionary(grouping: variable.valuesArray, by: {$0.date!.getComponents(.day, .month, .year)})
+        
+        for key in valuesSetForDates.keys {
+            print(key)
+            for value in valuesSetForDates[key]! {
+                print(value.value)
+            }
+        }
+        
+        //Apparently explicitly declaring a type here is necessary so don't change it
+        let valuesForDates: [DateComponents:Double] = valuesSetForDates.mapValues { datapoints in
+            
+            var total: Double = 0
+            
+            for datapoint in datapoints {
+                total += datapoint.value
+            }
+            
+            let average = total/Double(datapoints.count)
+            return average
+            
+        }
+        
+        return valuesForDates
+    }
+
 }

@@ -70,7 +70,7 @@ struct DatasetAndChartSelectionView: View {
                 case .mapView:
                     DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
                 case .calendarView:
-                    RootCalendarView()
+                    RootCalendarView(datesAndValues: vm.visualizationManager.averageValuesByDate)
                 }
             }
             .navigationTitle("Visualize")
