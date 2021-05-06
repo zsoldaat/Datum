@@ -24,18 +24,30 @@ struct RootCalendarView: View {
             Text("30")
                 .hidden()
                 .padding(8)
-                .background(Color.blue)
+                //move this shit to a view model also
+                .background(Color(getGradient(date: date)))
                 .clipShape(Circle())
                 .padding(.vertical, 4)
                 .overlay(
-//                    Text(String(self.calendar.component(.day, from: date)))
-                    //Move this logic to a view model
-                    Text(datesAndValues[date.getComponents(.day, .month, .year)]?.removeZerosFromEnd() ?? "No")
+                    ZStack {
+                        Circle().stroke(lineWidth: 1)
+                        Text(String(self.calendar.component(.day, from: date)))
+                    }
                 )
-                .onTapGesture {
-                    print(date)
-                    print(datesAndValues.keys.first)
-                }
+        }
+    }
+    
+    //move this function to a vm
+    func getGradient(date: Date) -> UIColor {
+        
+        let colors: [UIColor] = [.white, .red]
+        
+        let components = date.getComponents(.day, .month, .year)
+        
+        if let value = datesAndValues[components] {
+            return colors.intermediate(percentage: CGFloat(value))
+        } else {
+            return .white
         }
     }
 }

@@ -116,7 +116,7 @@ struct VisualizationManager {
         }
         
         //Apparently explicitly declaring a type here is necessary so don't change it
-        let valuesForDates: [DateComponents:Double] = valuesSetForDates.mapValues { datapoints in
+        var valuesForDates: [DateComponents:Double] = valuesSetForDates.mapValues { datapoints in
             
             var total: Double = 0
             
@@ -129,7 +129,22 @@ struct VisualizationManager {
             
         }
         
+        let maxValue = valuesForDates.values.max()! as Double
+        
+        valuesForDates = valuesForDates.mapValues { value in
+            value/maxValue
+        }
+        
+        
         return valuesForDates
     }
+    
+    //This code should eventully live here, or in the CalendarView VM, but it does not currently live here
+//    func getGradient(value: CGFloat) -> UIColor {
+//
+//        let colors: [UIColor] = [.white, .red]
+//
+//        return colors.intermediate(percentage: value)
+//    }
 
 }
