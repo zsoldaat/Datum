@@ -14,25 +14,45 @@ struct AddContinuousVariableView: View {
     @Binding var newValue: String
     
     var body: some View {
-        HStack {
+        VStack(alignment: .leading) {
             
-            Text(variable.wrappedName)
+            Text("\(variable.wrappedName):")
+                .font(.headline)
+                
             
-            Spacer()
-            
-            if variable.min != nil {
-                Text("\(variable.minString!) < ")
+            HStack {
+                
+                TextField("Value", text: $newValue)
+                    .keyboardType(.decimalPad)
+                
+                VStack(alignment: .leading) {
+                    if variable.min != nil {
+                        HStack {
+                            Text("Minimum: ")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            Text("\(variable.minString!)")
+                                .font(.subheadline)
+                        }
+                    }
+                    if variable.max != nil {
+                        HStack {
+                            Text("Maximum: ")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            Text("\(variable.maxString!)")
+                                .font(.subheadline)
+                        }
+                    }
+                }
+                .padding(.horizontal)
+                .frame(height: 40)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.blue, lineWidth: variable.max != nil || variable.min != nil ? 1 : 0)
+                )
             }
-            
-            TextField("Value", text: $newValue)
-                .keyboardType(.decimalPad)
-                .frame(width: 100) //TODO: this should not be hardcoded
-            
-            if variable.max != nil {
-                Text(" < \(variable.maxString!)")
-            }
-            
-
+            .frame(height: 50)
         }
     }
 }

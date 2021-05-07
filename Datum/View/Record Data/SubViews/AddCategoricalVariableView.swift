@@ -15,24 +15,35 @@ struct AddCategoricalVariableView: View {
     
     var body: some View {
         
-        HStack {
-            Text(variable.wrappedName)
+        VStack {
+            HStack {
+                Text("\(variable.wrappedName):")
+                    .font(.headline)
+                Spacer()
+            }
             
-            Divider()
-            
-            Spacer()
-            
-            List {
-                ForEach(variable.categoriesArray) { variable in
-                    
-                    HStack {
-                        Text(variable.name!).foregroundColor(variable == selected ? .blue : .black)
-                    }
-                    .onTapGesture {
-                        selected = variable
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(variable.categoriesArray) { variable in
+                        
+                        Text(variable.name!)
+                            .font(.subheadline)
+                            .foregroundColor(variable == selected ? .accentColor : .black)
+                            .onTapGesture {
+                                selected = variable
+                            }
+                            .padding(.horizontal)
+                            .overlay(
+                                Capsule(style: .circular)
+                                    .stroke(variable == selected ? Color.accentColor : Color.black, lineWidth: 1)
+                                    .frame(height: 40)
+                            )
                     }
                 }
+                .frame(height: 50)
             }
+            
+            
         }
         
     }

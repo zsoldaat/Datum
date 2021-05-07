@@ -27,13 +27,12 @@ struct ContentView: View {
                                     Image(systemName: "plus")
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 50, height: 50)
-                                    Text("New Data")
-                                        .font(.footnote)
+                                        .frame(width: 22, height: 22)
+                                        .foregroundColor(.accentColor)
                                 }
                                     
                             }
-                            .frame(width: 75, height: 75)
+                            .frame(width: 44, height: 44)
                             .buttonStyle(PlainButtonStyle())
                             
                             Spacer()
@@ -41,7 +40,7 @@ struct ContentView: View {
                             NavigationLink(destination: DatasetView(dataset: dataset)) {
                                 VStack(alignment: .leading) {
                                     Text(dataset.wrappedName)
-                                        .font(.title)
+                                        .font(.headline)
                                     ForEach(dataset.continuousArray) { continuous in
                                         Text(continuous.wrappedName)
                                             .font(.subheadline)
@@ -52,6 +51,7 @@ struct ContentView: View {
                                             .font(.subheadline)
                                             .foregroundColor(.secondary)
                                     }
+                                    Spacer()
                                 }
                             }
                         }
