@@ -10,8 +10,6 @@ import MapKit
 
 struct DatapointMapView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    
     let locations: [Location]
     
     @State var region: MKCoordinateRegion
@@ -24,22 +22,7 @@ struct DatapointMapView: View {
                 }
             }
             
-            HStack {
-                Spacer()
-                VStack {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Image(systemName: "x.circle")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }
-                    .padding()
-                    Spacer()
-                }
-            }
-            
-            
+            FloatingCloseButton()
         }
     }
     

@@ -9,8 +9,6 @@ import SwiftUI
 
 struct BarchartView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    
     @State private var availableColors: [Color] = [Color.blue, Color.red, Color.orange, Color.green, Color.pink, Color.purple, Color.yellow]
     
     var categoriesAndCounts: [Category:Int]
@@ -73,15 +71,7 @@ struct BarchartView: View {
                 //Just to outline the bounds of the view
 //                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
-                Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                    Image(systemName: "x.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                })
-                .position(
-                    x: geometry.size.width - 20,
-                    y: 20
-                )
+                FloatingCloseButton()
                     
             }
         }

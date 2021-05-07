@@ -20,20 +20,24 @@ struct RootCalendarView: View {
     }
     
     var body: some View {
-        CalendarView(interval: year) { date in
-            Text("30")
-                .hidden()
-                .padding(8)
-                //move this shit to a view model also
-                .background(Color(getGradient(date: date)))
-                .clipShape(Circle())
-                .padding(.vertical, 4)
-                .overlay(
-                    ZStack {
-                        Circle().stroke(lineWidth: 1)
-                        Text(String(self.calendar.component(.day, from: date)))
-                    }
-                )
+        ZStack {
+            CalendarView(interval: year) { date in
+                Text("30")
+                    .hidden()
+                    .padding(8)
+                    //move this shit to a view model also
+                    .background(Color(getGradient(date: date)))
+                    .clipShape(Circle())
+                    .padding(.vertical, 4)
+                    .overlay(
+                        ZStack {
+                            Circle().stroke(lineWidth: 1)
+                            Text(String(self.calendar.component(.day, from: date)))
+                        }
+                    )
+            }
+            
+            FloatingCloseButton()
         }
     }
     

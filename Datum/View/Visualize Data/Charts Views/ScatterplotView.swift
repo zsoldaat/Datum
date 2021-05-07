@@ -9,8 +9,6 @@ import SwiftUI
 
 struct ScatterplotView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    
     var dataPoints: [Point]
     var xmin: Double?
     var xmax: Double?
@@ -100,15 +98,7 @@ struct ScatterplotView: View {
                 //Visual Guide
 //                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
-                Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                    Image(systemName: "x.circle")
-                        .resizable()
-                        .frame(width: 30, height: 30)
-                })
-                .position(
-                    x: geometry.size.width - 20,
-                    y: 20
-                )
+                FloatingCloseButton()
             }
         }
         .padding()
