@@ -46,7 +46,9 @@ struct VariableSelectionView: View {
                         .animation(.linear(duration: 0.3))
                 }
             }
-            Button("Done") {presentationMode.wrappedValue.dismiss()}
+            
+            DoneButton {presentationMode.wrappedValue.dismiss()}
+
         }
     }
     

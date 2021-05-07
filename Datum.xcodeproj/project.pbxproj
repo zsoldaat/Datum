@@ -33,6 +33,7 @@
 		4C5B61632644873700B6B1BE /* Date-getComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61622644873700B6B1BE /* Date-getComponents.swift */; };
 		4C5B61652644938800B6B1BE /* Array-ColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B61642644938800B6B1BE /* Array-ColorGradient.swift */; };
 		4C5B616B2645E1ED00B6B1BE /* FloatingCloseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B616A2645E1ED00B6B1BE /* FloatingCloseButton.swift */; };
+		4C5B616D2645EA4900B6B1BE /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5B616C2645EA4900B6B1BE /* DoneButton.swift */; };
 		4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F31D2628AA610075372E /* AddObservationView.swift */; };
 		4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3222628AD110075372E /* AddObservationViewModel.swift */; };
 		4C62F3282628B3420075372E /* AddContinuousVariableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C62F3272628B3420075372E /* AddContinuousVariableView.swift */; };
@@ -112,6 +113,7 @@
 		4C5B61622644873700B6B1BE /* Date-getComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date-getComponents.swift"; sourceTree = "<group>"; };
 		4C5B61642644938800B6B1BE /* Array-ColorGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array-ColorGradient.swift"; sourceTree = "<group>"; };
 		4C5B616A2645E1ED00B6B1BE /* FloatingCloseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingCloseButton.swift; sourceTree = "<group>"; };
+		4C5B616C2645EA4900B6B1BE /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4C62F31D2628AA610075372E /* AddObservationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationView.swift; sourceTree = "<group>"; };
 		4C62F3222628AD110075372E /* AddObservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddObservationViewModel.swift; sourceTree = "<group>"; };
 		4C62F3272628B3420075372E /* AddContinuousVariableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContinuousVariableView.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			children = (
 				4C6A49EF263B20EB00B08203 /* DynamicNavigationLink.swift */,
 				4C5B616A2645E1ED00B6B1BE /* FloatingCloseButton.swift */,
+				4C5B616C2645EA4900B6B1BE /* DoneButton.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -607,6 +610,7 @@
 				4C5B615826444DED00B6B1BE /* MonthView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
 				4C6C3D7E2639F97C000CB10D /* VariableSelectionView.swift in Sources */,
+				4C5B616D2645EA4900B6B1BE /* DoneButton.swift in Sources */,
 				4CD1AC88262748BF0018CEF1 /* DatasetStorage.swift in Sources */,
 				4C3941BF2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift in Sources */,
 			);

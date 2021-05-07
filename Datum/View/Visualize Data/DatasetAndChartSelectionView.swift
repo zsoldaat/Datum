@@ -18,7 +18,7 @@ struct DatasetAndChartSelectionView: View {
         NavigationView {
             VStack {
                 List {
-                    Section(header: Text("Chart Type")) {
+                    Section(header: Text("Chart Type").foregroundColor(.accentColor)) {
                         Text(vm.visualizationManager.chart.type.rawValue.capitalized)
                             .onTapGesture {
                                 vm.destination = .chartTypeSelection
@@ -26,7 +26,7 @@ struct DatasetAndChartSelectionView: View {
                             }
                     }
                     
-                    Section(header: Text("Dataset")) {
+                    Section(header: Text("Dataset").foregroundColor(.accentColor)) {
                         Text(vm.visualizationManager.dataset?.wrappedName ?? "Select a dataset")
                             .onTapGesture {
                                 vm.destination = .variableSelection
@@ -34,28 +34,42 @@ struct DatasetAndChartSelectionView: View {
                             }
                     }
                     
-                    if !vm.visualizationManager.selectedContinuous.isEmpty {
-                        Section(header: Text("Continuous Variables")) {
+                    if vm.visualizationManager.hasVariablesSelected {
+                        Section(header: Text("Variables")) {
                             ForEach(vm.visualizationManager.selectedContinuous) { continuous in
-                                Text(continuous.wrappedName)
+                                HStack {
+                                    Text(continuous.wrappedName)
+                                    Spacer()
+                                    Text("Continuous")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
                             }
-                        }
-                    }
-                    
-                    if !vm.visualizationManager.selectedCategorical.isEmpty {
-                        Section(header: Text("Categorical Variables")) {
+                            
                             ForEach(vm.visualizationManager.selectedCategorical) { categorical in
-                                Text(categorical.wrappedName)
+                                HStack {
+                                    Text(categorical.wrappedName)
+                                    Spacer()
+                                    Text("Categorical")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
                             }
                         }
+                        
+                        
                     }
                     
-                    Button("Done") {
-                        showChart(chart: vm.visualizationManager.chart.type)
-                    }
-                    .disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
+                    
                     
                 }
+                .listStyle(InsetGroupedListStyle())
+                
+                DoneButton{
+                    showChart(chart: vm.visualizationManager.chart.type)
+                }
+                .disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
+                
             }
             .fullScreenCover(isPresented: $sheetPresented) {
                 switch vm.destination {
@@ -74,6 +88,7 @@ struct DatasetAndChartSelectionView: View {
                 }
             }
             .navigationTitle("Visualize")
+
         }
     }
     

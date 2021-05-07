@@ -44,6 +44,14 @@ struct VisualizationManager {
         return correctContinuous && correctCategorical
     }
     
+    var hasVariablesSelected: Bool {
+        if selectedContinuous.count > 0 || selectedCategorical.count > 0 {
+            return true
+        }
+        
+        return false
+    }
+    
     //MARK: - MapView Variables
     
     var locationCoordinates: [Location] {

@@ -20,7 +20,7 @@ struct ChartTypeSelectionView: View {
             }
         }
         
-        Button("Done") {presentationMode.wrappedValue.dismiss()}
+        DoneButton{presentationMode.wrappedValue.dismiss()}
         
     }
 }
