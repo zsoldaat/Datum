@@ -45,11 +45,7 @@ struct VisualizationManager {
     }
     
     var hasVariablesSelected: Bool {
-        if selectedContinuous.count > 0 || selectedCategorical.count > 0 {
-            return true
-        }
-        
-        return false
+        selectedContinuous.count > 0 || selectedCategorical.count > 0
     }
     
     //MARK: - MapView Variables
