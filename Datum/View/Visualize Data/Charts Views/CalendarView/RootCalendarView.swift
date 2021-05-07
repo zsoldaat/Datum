@@ -33,6 +33,7 @@ struct RootCalendarView: View {
                         ZStack {
                             Circle().stroke(lineWidth: 1)
                             Text(String(self.calendar.component(.day, from: date)))
+                                .foregroundColor(Color(UIColor.systemBackground))
                         }
                     )
             }
