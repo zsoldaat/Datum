@@ -46,6 +46,19 @@ class Chart {
     enum ChartType: String, CaseIterable, Identifiable {
         case scatterplot, barchart, mapView, calendarView
         var id: ChartType {self}
+        
+        var properName: String {
+            switch self {
+            case .barchart:
+                return "Barchart"
+            case .calendarView:
+                return "Calendar Heat Map"
+            case .mapView:
+                return "Map View"
+            case .scatterplot:
+                return "Scatterplot"
+            }
+        }
     }
     
 }

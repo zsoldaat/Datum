@@ -14,63 +14,55 @@ struct ChartTypeSelectionView: View {
     @Binding var visualizationManager: VisualizationManager
     
     var body: some View {
-//        Picker("Chart Type", selection: $visualizationManager.chart.type) {
-//            ForEach(Chart.ChartType.allCases) { chart in
-//                Text(chart.rawValue.capitalized)
-//            }
-//        }
         
-        List {
+        ChartSelectionPickerView(selection: $visualizationManager.chart.type)
+
+        DoneButton{presentationMode.wrappedValue.dismiss()}
+        
+    }
+    
+    struct ChartSelectionPickerView: View {
+        
+        @Binding var selection: Chart.ChartType
+        
+        var body: some View {
+            ScrollView {
+                ForEach(Chart.ChartType.allCases) { chart in
+                    ChartTypeSelectionView.ChartTypeSelectionViewCell(chartType: chart)
+                        .onTapGesture {
+                            selection = chart
+                        }
+                }
+            }
+        }
+    }
+    
+    struct ChartTypeSelectionViewCell: View {
+
+        let chartType: Chart.ChartType
+        
+        var body: some View {
             
             VStack {
-                BarchartView(categoricalVariable: ExampleData.exampleCategoricalVariable)
-                    .frame(height: 200)
-//                    .allowsHitTesting(false)
-                Text("Barchart")
+                cellFor(chartType)
+                .frame(height: 200)
+                Text(chartType.properName)
             }
-            .onTapGesture {
-                visualizationManager.chart.type = .barchart
-                print("Hello")
-            }
-            
-            VStack {
-                ScatterplotView(xvar: ExampleData.exampleContinuousVariables.first, yvar: ExampleData.exampleContinuousVariables.last)
-                    .frame(height: 200)
-//                    .allowsHitTesting(false)
-                Text("Scatterplot")
-            }
-            .onTapGesture { visualizationManager.chart.type = .scatterplot }
-            
-            VStack {
-                DatapointMapView(locations: ExampleData.locations, region: ExampleData.mapRegion)
-                    .frame(height: 200)
-                    .allowsHitTesting(false)
-                Text("Map View")
-            }
-            .onTapGesture { visualizationManager.chart.type = .mapView }
-            
-            VStack {
-                RootCalendarView(datesAndValues: ExampleData.averageValuesByDate)
-                    .frame(height: 200)
-                Text("Calendar Heat Map")
-            }
-            .onTapGesture {
-                visualizationManager.chart.type = .calendarView
-            }
-            
-            
-            
-            
-            
-            
-            
             
         }
         
-        
-        
-        DoneButton{presentationMode.wrappedValue.dismiss()}
-        
+        @ViewBuilder func cellFor(_ type: Chart.ChartType) -> some View {
+            switch type {
+            case .barchart:
+                BarchartView(categoricalVariable: ExampleData.exampleCategoricalVariable, exampleMode: true)
+            case .scatterplot:
+                ScatterplotView(xvar: ExampleData.exampleContinuousVariables.first, yvar: ExampleData.exampleContinuousVariables.last, exampleMode: true)
+            case .mapView:
+                DatapointMapView(locations: ExampleData.locations, region: ExampleData.mapRegion, exampleMode: true)
+            case .calendarView:
+                RootCalendarView(datesAndValues: ExampleData.averageValuesByDate, exampleMode: true)
+            }
+        }
     }
 }
 

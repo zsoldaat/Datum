@@ -13,7 +13,14 @@ struct RootCalendarView: View {
     
     @Environment(\.calendar) var calendar
     
+    let exampleMode: Bool
+    
     var datesAndValues: [DateComponents: Double]
+    
+    init(datesAndValues: [DateComponents: Double], exampleMode: Bool = false) {
+        self.datesAndValues = datesAndValues
+        self.exampleMode = exampleMode
+    }
     
     private var year: DateInterval {
         calendar.dateInterval(of: .year, for: Date())!
@@ -38,7 +45,9 @@ struct RootCalendarView: View {
                     )
             }
             
-            FloatingCloseButton()
+            if !exampleMode {
+                FloatingCloseButton()
+            }
         }
     }
     

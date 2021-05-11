@@ -9,13 +9,15 @@ import SwiftUI
 
 struct BarchartView: View {
     
+    let exampleMode: Bool
+    
     @State private var availableColors: [Color] = [Color.blue, Color.red, Color.orange, Color.green, Color.pink, Color.purple, Color.yellow]
     
     var categoriesAndCounts: [Category:Int]
     var numberOfCategories: CGFloat
     var maxValue: CGFloat = 0
     
-    init(categoricalVariable: CategoricalVariable?) {
+    init(categoricalVariable: CategoricalVariable?, exampleMode: Bool = false) {
         
         self.categoriesAndCounts = [Category: Int]()
         
@@ -30,6 +32,8 @@ struct BarchartView: View {
         maxValue += 1
         
         self.numberOfCategories = CGFloat(categoriesAndCounts.count)
+        
+        self.exampleMode = exampleMode
         
     }
     
@@ -71,7 +75,9 @@ struct BarchartView: View {
                 //Just to outline the bounds of the view
 //                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
-                FloatingCloseButton()
+                if !exampleMode {
+                    FloatingCloseButton()
+                }
                     
             }
         }

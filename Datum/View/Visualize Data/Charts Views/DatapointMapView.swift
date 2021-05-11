@@ -10,9 +10,17 @@ import MapKit
 
 struct DatapointMapView: View {
     
+    let exampleMode: Bool
+    
     let locations: [Location]
     
     @State var region: MKCoordinateRegion
+    
+    init(locations: [Location], region: MKCoordinateRegion, exampleMode: Bool = false) {
+        self.locations = locations
+        self.region = region
+        self.exampleMode = exampleMode
+    }
     
     var body: some View {
         ZStack {
@@ -22,7 +30,9 @@ struct DatapointMapView: View {
                 }
             }
             
-            FloatingCloseButton()
+            if !exampleMode {
+                FloatingCloseButton()
+            }
         }
     }
     

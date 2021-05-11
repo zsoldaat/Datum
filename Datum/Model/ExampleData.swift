@@ -79,7 +79,7 @@ class ExampleData {
         for i in 1...10 {
             let datapoint = ContinuousDataPoint(context: context)
             datapoint.id = UUID()
-            datapoint.date = Date()
+            datapoint.date = Calendar.current.date(byAdding: .day, value: Int.random(in: -5...5), to: Date())
             datapoint.rowId = rowID
             datapoint.value = Double(i)
             datapoint.variable = variable1
@@ -146,13 +146,6 @@ class ExampleData {
         guard let variable = exampleContinuousVariables.first else {return [:]}
         
         let valuesSetForDates = Dictionary(grouping: variable.valuesArray, by: {$0.date!.getComponents(.day, .month, .year)})
-        
-        for key in valuesSetForDates.keys {
-            print(key)
-            for value in valuesSetForDates[key]! {
-                print(value.value)
-            }
-        }
         
         //Apparently explicitly declaring a type here is necessary so don't change it
         var valuesForDates: [DateComponents:Double] = valuesSetForDates.mapValues { datapoints in

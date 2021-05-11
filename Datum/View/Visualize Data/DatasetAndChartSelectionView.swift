@@ -19,7 +19,7 @@ struct DatasetAndChartSelectionView: View {
             VStack {
                 List {
                     Section(header: Text("Chart Type").foregroundColor(.accentColor)) {
-                        Text(vm.visualizationManager.chart.type.rawValue.capitalized)
+                        Text(vm.visualizationManager.chart.type.properName)
                             .onTapGesture {
                                 vm.destination = .chartTypeSelection
                                 sheetPresented = true
@@ -56,12 +56,7 @@ struct DatasetAndChartSelectionView: View {
                                 }
                             }
                         }
-                        
-                        
                     }
-                    
-                    
-                    
                 }
                 .listStyle(InsetGroupedListStyle())
                 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ScatterplotView: View {
     
+    let exampleMode: Bool
+    
     var dataPoints: [Point]
     var xmin: Double?
     var xmax: Double?
@@ -16,7 +18,7 @@ struct ScatterplotView: View {
     var ymax: Double?
     
     
-    init(xvar: ContinuousVariable?, yvar: ContinuousVariable?) {
+    init(xvar: ContinuousVariable?, yvar: ContinuousVariable?, exampleMode: Bool = false) {
         
         dataPoints = []
         
@@ -43,6 +45,8 @@ struct ScatterplotView: View {
             self.ymax = min(ymax!, point.yValue.value)
             
         }
+        
+        self.exampleMode = exampleMode
     }
     
     var body: some View {
@@ -99,7 +103,9 @@ struct ScatterplotView: View {
                 //Visual Guide
 //                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
-                FloatingCloseButton()
+                if !exampleMode {
+                    FloatingCloseButton()
+                }
             }
         }
         .padding()
