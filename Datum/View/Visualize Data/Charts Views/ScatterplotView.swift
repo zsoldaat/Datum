@@ -59,7 +59,8 @@ struct ScatterplotView: View {
                             y: geometry.size.height - geometry.size.height * CGFloat(point.yValue.value / ymax!)
                         )
                         .onTapGesture {
-                            print(point.xValue.value, point.yValue.value)
+                            //Change this to actually display the point on screen
+//                            print(point.xValue.value, point.yValue.value)
                         }
                 }
                 

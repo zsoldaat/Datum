@@ -13,8 +13,6 @@ struct ChartTypeSelectionView: View {
     
     @Binding var visualizationManager: VisualizationManager
     
-    @State private var selection: Chart.ChartType = .barchart
-    
     var body: some View {
 //        Picker("Chart Type", selection: $visualizationManager.chart.type) {
 //            ForEach(Chart.ChartType.allCases) { chart in
@@ -25,16 +23,39 @@ struct ChartTypeSelectionView: View {
         List {
             
             VStack {
-                BarchartView(categoricalVariable: CategoricalVariableStorage.exampleCategoricalVariable)
+                BarchartView(categoricalVariable: ExampleData.exampleCategoricalVariable)
                     .frame(height: 200)
+//                    .allowsHitTesting(false)
                 Text("Barchart")
             }
-            .onTapGesture { self.selection = .barchart }
+            .onTapGesture {
+                visualizationManager.chart.type = .barchart
+                print("Hello")
+            }
             
             VStack {
-                ScatterplotView(xvar: ContinuousVariableStorage.exampleVariables.first, yvar: ContinuousVariableStorage.exampleVariables.last)
+                ScatterplotView(xvar: ExampleData.exampleContinuousVariables.first, yvar: ExampleData.exampleContinuousVariables.last)
                     .frame(height: 200)
+//                    .allowsHitTesting(false)
                 Text("Scatterplot")
+            }
+            .onTapGesture { visualizationManager.chart.type = .scatterplot }
+            
+            VStack {
+                DatapointMapView(locations: ExampleData.locations, region: ExampleData.mapRegion)
+                    .frame(height: 200)
+                    .allowsHitTesting(false)
+                Text("Map View")
+            }
+            .onTapGesture { visualizationManager.chart.type = .mapView }
+            
+            VStack {
+                RootCalendarView(datesAndValues: ExampleData.averageValuesByDate)
+                    .frame(height: 200)
+                Text("Calendar Heat Map")
+            }
+            .onTapGesture {
+                visualizationManager.chart.type = .calendarView
             }
             
             

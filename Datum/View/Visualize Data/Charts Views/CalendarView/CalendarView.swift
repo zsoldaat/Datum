@@ -26,11 +26,16 @@ struct CalendarView<DateView>: View where DateView: View {
     }
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack {
-                ForEach(months, id: \.self) { month in
-                    MonthView(month: month, content: self.content)
+        ScrollViewReader { scrollView in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack {
+                    ForEach(months, id: \.self) { month in
+                        MonthView(month: month, content: self.content)
+                    }
                 }
+            }
+            .onAppear {
+                scrollView.scrollTo(months[Calendar.current.dateComponents([.month], from: Date()).month!-1])
             }
         }
     }

@@ -48,7 +48,7 @@ struct BarchartView: View {
                                     width: (geometry.size.width / numberOfCategories / 1.5),
                                     height: geometry.size.height / maxValue * CGFloat(categoriesAndCounts[category]!)
                                 )
-                            Text("\(category.name!), \(categoriesAndCounts[category]!)")
+                            Text("\(category.name!)")
                                 .padding()
                         }
                     }
