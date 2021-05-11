@@ -72,40 +72,6 @@ class ContinuousVariableStorage: NSObject, ObservableObject {
         context.safeSave()
     }
     
-    static var exampleVariables: [ContinuousVariable] {
-        
-        let context = PersistenceController.shared.container.viewContext
-        
-        let variable1 = ContinuousVariable(context: context)
-        variable1.id = UUID()
-        variable1.name = "Variable 1"
-        
-        let rowID = UUID()
-        
-        for i in 1...10 {
-            let datapoint = ContinuousDataPoint(context: context)
-            datapoint.id = UUID()
-            datapoint.date = Date()
-            datapoint.rowId = rowID
-            datapoint.value = Double(i)
-            datapoint.variable = variable1
-        }
-        
-        let variable2 = ContinuousVariable(context: context)
-        variable2.id = UUID()
-        variable2.name = "Variable 2"
-        
-        for i in 1...10 {
-            let datapoint = ContinuousDataPoint(context: context)
-            datapoint.id = UUID()
-            datapoint.date = Date()
-            datapoint.rowId = rowID
-            datapoint.value = Double(i)
-            datapoint.variable = variable2
-        }
-        
-        return [variable1, variable2]
-    }
     
 }
 extension ContinuousVariableStorage: NSFetchedResultsControllerDelegate {

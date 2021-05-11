@@ -74,44 +74,6 @@ class CategoricalVariableStorage: NSObject, ObservableObject {
         context.safeSave()
     }
     
-    static var exampleCategoricalVariable: CategoricalVariable {
-        
-        let context = PersistenceController.shared.container.viewContext
-        
-        let variable = CategoricalVariable(context: context)
-        variable.id = UUID()
-        variable.name = "Example"
-        
-        let category1 = Category(context: context)
-        category1.id = UUID()
-        category1.name = "First Category"
-        category1.variable = variable
-        
-        for _ in 1...3 {
-            let value = CategoricalDataPoint(context: context)
-            value.id = UUID()
-            value.date = Date()
-            value.category = category1
-            value.variable = variable
-        }
-        
-        let category2 = Category(context: context)
-        category2.id = UUID()
-        category2.name = "Second Category"
-        category2.variable = variable
-        
-        for _ in 1...4 {
-            let value = CategoricalDataPoint(context: context)
-            value.id = UUID()
-            value.date = Date()
-            value.category = category2
-            value.variable = variable
-        }
-
-        return variable
-        
-    }
-    
     
 }
 extension CategoricalVariableStorage: NSFetchedResultsControllerDelegate {
