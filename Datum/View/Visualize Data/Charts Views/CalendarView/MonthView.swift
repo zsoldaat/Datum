@@ -12,15 +12,18 @@ struct MonthView<DateView>: View where DateView: View {
 
     let month: Date
     let showHeader: Bool
+    let exampleMode: Bool
     let content: (Date) -> DateView
 
     init(
         month: Date,
         showHeader: Bool = true,
+        exampleMode: Bool,
         @ViewBuilder content: @escaping (Date) -> DateView
     ) {
         self.month = month
         self.content = content
+        self.exampleMode = exampleMode
         self.showHeader = showHeader
     }
 
@@ -44,7 +47,7 @@ struct MonthView<DateView>: View where DateView: View {
 
     var body: some View {
         VStack {
-            if showHeader {
+            if showHeader && !exampleMode {
                 header
             }
 

@@ -28,17 +28,23 @@ struct ChartTypeSelectionView: View {
         var body: some View {
             ScrollView {
                 ForEach(Chart.ChartType.allCases) { chart in
-                    ChartTypeSelectionView.ChartTypeSelectionViewCell(chartType: chart)
-                        .padding()
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 15)
-                                .stroke(selection == chart ? Color.accentColor : Color.clear, lineWidth: 2)
-                        )
-                        .onTapGesture {
-                            selection = chart
-                        }
-                        .padding(.horizontal)
-                        .contentShape(Rectangle())
+                    ZStack {
+                        ChartTypeSelectionView.ChartTypeSelectionViewCell(chartType: chart)
+                            .padding()
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 15)
+                                    .stroke(selection == chart ? Color.accentColor : Color.clear, lineWidth: 2)
+                            )
+                            
+                        //This rectangle was added to act as a seperate area to register touches for these views since I kept having issues with the underlying views registering touches instead. This can be removed if I find a more elegant way to disable scrolling and touches on other views
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.clear, lineWidth: 2)
+                            .contentShape(RoundedRectangle(cornerRadius: 15))
+                            .onTapGesture {
+                                selection = chart
+                            }
+                    }
+                    .padding(.horizontal)
                 }
             }
         }

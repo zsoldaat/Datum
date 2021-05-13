@@ -23,7 +23,8 @@ struct RootCalendarView: View {
     }
     
     private var year: DateInterval {
-        calendar.dateInterval(of: .year, for: Date())!
+        
+        calendar.dateInterval(of: exampleMode ? .month : .year, for: Date())!
     }
     
     var body: some View {
@@ -46,7 +47,6 @@ struct RootCalendarView: View {
                     
             }
             
-            .allowsHitTesting(!exampleMode)
             
             if !exampleMode {
                 FloatingCloseButton()
