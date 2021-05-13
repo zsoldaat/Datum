@@ -101,16 +101,6 @@ struct DatasetAndChartSelectionView: View {
         sheetPresented = true
     }
 
-//
-//    @ViewBuilder func navigationLinkDestination() -> some View {
-//        switch vm.visualizationManager.chart.type {
-//        case .barchart:
-//            BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
-//        case .scatterplot:
-//            ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
-//        }
-//    }
-
 }
 
 struct DatasetAndChartSelectionView_Previews: PreviewProvider {

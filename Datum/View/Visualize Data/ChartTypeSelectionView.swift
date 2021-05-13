@@ -29,9 +29,16 @@ struct ChartTypeSelectionView: View {
             ScrollView {
                 ForEach(Chart.ChartType.allCases) { chart in
                     ChartTypeSelectionView.ChartTypeSelectionViewCell(chartType: chart)
+                        .padding()
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 15)
+                                .stroke(selection == chart ? Color.accentColor : Color.clear, lineWidth: 2)
+                        )
                         .onTapGesture {
                             selection = chart
                         }
+                        .padding(.horizontal)
+                        .contentShape(Rectangle())
                 }
             }
         }

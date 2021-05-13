@@ -12,10 +12,12 @@ struct CalendarView<DateView>: View where DateView: View {
 
     let interval: DateInterval
     let content: (Date) -> DateView
+    let exampleMode: Bool
 
-    init(interval: DateInterval, @ViewBuilder content: @escaping (Date) -> DateView) {
+    init(interval: DateInterval, exampleMode: Bool, @ViewBuilder content: @escaping (Date) -> DateView) {
         self.interval = interval
         self.content = content
+        self.exampleMode = exampleMode
     }
 
     private var months: [Date] {

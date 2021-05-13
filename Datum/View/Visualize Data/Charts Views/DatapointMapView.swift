@@ -29,6 +29,7 @@ struct DatapointMapView: View {
                     DatapointDetailView(location: location)
                 }
             }
+            .allowsHitTesting(!exampleMode)
             
             if !exampleMode {
                 FloatingCloseButton()

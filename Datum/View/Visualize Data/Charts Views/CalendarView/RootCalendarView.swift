@@ -28,7 +28,7 @@ struct RootCalendarView: View {
     
     var body: some View {
         ZStack {
-            CalendarView(interval: year) { date in
+            CalendarView(interval: year, exampleMode: exampleMode) { date in
                 Text("30")
                     .hidden()
                     .padding(8)
@@ -43,7 +43,10 @@ struct RootCalendarView: View {
                                 .foregroundColor(Color(UIColor.systemBackground))
                         }
                     )
+                    
             }
+            
+            .allowsHitTesting(!exampleMode)
             
             if !exampleMode {
                 FloatingCloseButton()
