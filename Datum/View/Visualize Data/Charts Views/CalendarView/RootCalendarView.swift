@@ -13,6 +13,8 @@ struct RootCalendarView: View {
     
     @Environment(\.calendar) var calendar
     
+    @Environment(\.colorScheme) var colorScheme
+    
     let exampleMode: Bool
     
     var datesAndValues: [DateComponents: Double]
@@ -41,7 +43,7 @@ struct RootCalendarView: View {
                         ZStack {
                             Circle().stroke(lineWidth: 1)
                             Text(String(self.calendar.component(.day, from: date)))
-                                .foregroundColor(Color(UIColor.systemBackground))
+                                .foregroundColor(colorScheme == .dark ? .white : .black)
                         }
                     )
                     
