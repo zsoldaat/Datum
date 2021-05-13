@@ -53,15 +53,15 @@ struct BarchartView: View {
                                     height: geometry.size.height / maxValue * CGFloat(categoriesAndCounts[category]!)
                                 )
                             Text("\(category.name!)")
-                                .padding()
+                                .offset(x: 0, y: 20)
                         }
                     }
                 }
                 //Grid
                 ForEach(0..<Int(maxValue+1)) { number in
-                        HStack {
+                        ZStack {
                             Text(number != 0 ? "\(number)" : "")
-                                .padding(.leading)
+                                .offset(x:-geometry.size.width/2 - 10, y:0)
                             Rectangle()
                                 .frame(height: 1)
                                 
