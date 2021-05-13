@@ -10,7 +10,7 @@ import MapKit
 
 class ExampleData {
     
-    static let context = PersistenceController.shared.container.viewContext
+    static let context = PersistenceController.preview.container.viewContext
     
     static var rowID = UUID()
     

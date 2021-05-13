@@ -43,7 +43,7 @@ struct RootCalendarView: View {
                         ZStack {
                             Circle().stroke(lineWidth: 1)
                             Text(String(self.calendar.component(.day, from: date)))
-                                .foregroundColor(colorScheme == .dark ? .white : .black)
+                                .foregroundColor(.black)
                         }
                     )
                     
