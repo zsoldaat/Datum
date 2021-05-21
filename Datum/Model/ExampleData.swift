@@ -12,6 +12,7 @@ class ExampleData {
     
     static let context = PersistenceController.preview.container.viewContext
     
+    //This rowID implementation is not correct. This rowID is shared for every datapoint, rowIDs should only be shared between variables on a single observation. If the test data causes problems eventually, this is why. You should probably change this if you want to start using these test data for previews. 
     static var rowID = UUID()
     
     static var exampleDataset: Dataset {
