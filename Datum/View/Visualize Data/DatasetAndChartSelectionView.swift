@@ -71,7 +71,7 @@ struct DatasetAndChartSelectionView: View {
                 case .chartTypeSelection:
                     ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
                 case .variableSelection:
-                    VariableSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
+                    VariableSelectionView2(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
                 case .barchart:
                     BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
                 case .scatterplot:

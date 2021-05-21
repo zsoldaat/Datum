@@ -66,6 +66,7 @@
 		4CD1AC97262758C80018CEF1 /* DatasetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */; };
 		4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */; };
 		4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD51D1261E21F400B625F6 /* DatasetView.swift */; };
+		4CF21305265835E8009180EC /* VariableSelectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF21304265835E8009180EC /* VariableSelectionView2.swift */; };
 		4CF588DB26320854002F2841 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF588D926320854002F2841 /* Category+CoreDataClass.swift */; };
 		4CF588DC26320854002F2841 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -153,6 +154,7 @@
 		4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetViewModel.swift; sourceTree = "<group>"; };
 		4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousVariableStorage.swift; sourceTree = "<group>"; };
 		4CDD51D1261E21F400B625F6 /* DatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetView.swift; sourceTree = "<group>"; };
+		4CF21304265835E8009180EC /* VariableSelectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView2.swift; sourceTree = "<group>"; };
 		4CF588D926320854002F2841 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -254,6 +256,7 @@
 			children = (
 				4C95E1DB2639AD4A005D12BA /* DatasetAndChartSelectionView.swift */,
 				4C6C3D752639F968000CB10D /* ChartTypeSelectionView.swift */,
+				4CF21304265835E8009180EC /* VariableSelectionView2.swift */,
 				4C6C3D7D2639F97C000CB10D /* VariableSelectionView.swift */,
 				4CAEB73D261DF6BB00EF21E7 /* Charts Views */,
 			);
@@ -564,6 +567,7 @@
 				4C6C3D87263A04D4000CB10D /* Variable.swift in Sources */,
 				4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */,
 				4C5B615A2644500800B6B1BE /* WeekView.swift in Sources */,
+				4CF21305265835E8009180EC /* VariableSelectionView2.swift in Sources */,
 				4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */,
 				4C5B616B2645E1ED00B6B1BE /* FloatingCloseButton.swift in Sources */,
 				4C5B61562644490C00B6B1BE /* CalendarView.swift in Sources */,
