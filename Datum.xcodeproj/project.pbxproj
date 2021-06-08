@@ -364,7 +364,6 @@
 		4CAEB6FE261DF5B900EF21E7 = {
 			isa = PBXGroup;
 			children = (
-				4C7E8484266FC2EB005997C4 /* Demo Gifs */,
 				4CAEB709261DF5B900EF21E7 /* Datum */,
 				4CAEB720261DF5BE00EF21E7 /* DatumTests */,
 				4CAEB72B261DF5BE00EF21E7 /* DatumUITests */,
@@ -385,6 +384,7 @@
 		4CAEB709261DF5B900EF21E7 /* Datum */ = {
 			isa = PBXGroup;
 			children = (
+				4C7E8484266FC2EB005997C4 /* Demo Gifs */,
 				4CAEB70A261DF5B900EF21E7 /* DatumApp.swift */,
 				4CAEB713261DF5BD00EF21E7 /* Persistence.swift */,
 				4C3539E02625E31300F312F5 /* View */,
