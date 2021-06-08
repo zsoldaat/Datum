@@ -19,10 +19,10 @@ struct DoneButton: View {
     var body: some View {
         Button(action: action) {
             Text("Done")
-                .frame(width: 200)
+                .frame(width: 200, height: 25)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 15)
+                    RoundedRectangle(cornerRadius: 25)
                         .stroke(lineWidth: 2)
                         .foregroundColor(.accentColor)
                         
