@@ -80,6 +80,7 @@ struct VariableSelectionView2: View {
             } label: {
                 Text(dataset.wrappedName)
                     .font(.title)
+                    .foregroundColor(visualizationManager.dataset == dataset ? .accentColor : .white)
             }
         }
     }

@@ -13,6 +13,7 @@ struct VisualizationManager {
     var chart: Chart = Chart(type: .calendarView)
     var dataset: Dataset? = nil {
         didSet {
+            clearSelected()
             updateSelected()
             print("Dataset Selected")
         }
@@ -31,6 +32,13 @@ struct VisualizationManager {
             categorical.isSelected.toggle()
         }
         updateSelected()
+    }
+    
+    mutating func clearSelected() {
+        for dataset in allDatasets {
+            dataset.categoricalArray.forEach {$0.isSelected = false}
+            dataset.continuousArray.forEach {$0.isSelected = false}
+        }
     }
     
     mutating func updateSelected() {
