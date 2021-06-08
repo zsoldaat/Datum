@@ -14,6 +14,7 @@ struct VisualizationManager {
     var dataset: Dataset? = nil {
         didSet {
             updateSelected()
+            print("Dataset Selected")
         }
     }
     

@@ -13,6 +13,7 @@ struct VariableSelectionView2: View {
     
     @Binding var visualizationManager: VisualizationManager
     
+    //This variable was going to be used to only allow one dataset to be open at a time
     @State var selectedDataset: Dataset?
     
     var body: some View {
@@ -27,9 +28,10 @@ struct VariableSelectionView2: View {
             }
             List {
                 ForEach(datasets) { dataset in
-                    DatasetCellView(dataset: dataset, selectedDataset: $selectedDataset)
+                    DatasetCellView(dataset: dataset, selectedDataset: $selectedDataset, visualizationManager: $visualizationManager)
                         .onTapGesture {
                             selectedDataset = dataset
+                            visualizationManager.dataset = dataset
                         }
                         .animation(.linear)
                 }
@@ -45,6 +47,8 @@ struct VariableSelectionView2: View {
         
         @Binding var selectedDataset: Dataset?
         
+        @Binding var visualizationManager: VisualizationManager
+        
         var body: some View {
             DisclosureGroup {
                 VStack {
@@ -52,22 +56,24 @@ struct VariableSelectionView2: View {
                         HStack {
                             Text(categorical.wrappedName)
                                 .font(.body)
+                                .foregroundColor(categorical.isSelected ? .accentColor : .white)
                                 .onTapGesture {
-                                    categorical.isSelected.toggle()
+                                    visualizationManager.selectVariable(categorical)
                                     print("Hello")
                                 }
-                            Image(categorical.isSelected ? "checkmark" : "")
+//                            Image(categorical.isSelected ? "checkmark" : "")
                         }
                     }
                     ForEach(dataset.continuousArray) { continuous in
                         HStack {
                             Text(continuous.wrappedName)
                                 .font(.body)
+                                .foregroundColor(continuous.isSelected ? .accentColor : .white)
                                 .onTapGesture {
-                                    continuous.isSelected.toggle()
+                                    visualizationManager.selectVariable(continuous)
                                     print("Hello")
                                 }
-                            Image(continuous.isSelected ? "checkmark" : "")
+//                            Image(continuous.isSelected ? "checkmark" : "")
                         }
                     }
                 }
