@@ -10,12 +10,11 @@ import MapKit
 
 struct VisualizationManager {
     
-    var chart: Chart = Chart(type: .calendarView)
+    var chart: Chart = Chart(type: .scatterplot)
     var dataset: Dataset? = nil {
         didSet {
             clearSelected()
             updateSelected()
-            print("Dataset Selected")
         }
     }
     

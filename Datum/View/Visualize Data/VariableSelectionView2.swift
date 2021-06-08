@@ -9,6 +9,8 @@ import SwiftUI
 
 struct VariableSelectionView2: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     let datasets: [Dataset]
     
     @Binding var visualizationManager: VisualizationManager
@@ -37,6 +39,8 @@ struct VariableSelectionView2: View {
                 }
             }
             .listStyle(InsetGroupedListStyle())
+            
+            DoneButton {presentationMode.wrappedValue.dismiss()}
         }
 
     }
@@ -51,7 +55,7 @@ struct VariableSelectionView2: View {
         
         var body: some View {
             DisclosureGroup {
-                VStack {
+                VStack(alignment: .leading) {
                     ForEach(dataset.categoricalArray) { categorical in
                         HStack {
                             Text(categorical.wrappedName)
@@ -59,8 +63,13 @@ struct VariableSelectionView2: View {
                                 .foregroundColor(categorical.isSelected ? .accentColor : .white)
                                 .onTapGesture {
                                     visualizationManager.selectVariable(categorical)
-                                    print("Hello")
                                 }
+                            
+                            Spacer()
+                            
+                            Text("Categorical")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
 //                            Image(categorical.isSelected ? "checkmark" : "")
                         }
                     }
@@ -71,8 +80,14 @@ struct VariableSelectionView2: View {
                                 .foregroundColor(continuous.isSelected ? .accentColor : .white)
                                 .onTapGesture {
                                     visualizationManager.selectVariable(continuous)
-                                    print("Hello")
                                 }
+                            
+                            Spacer()
+                            
+                            Text("Continuous")
+                                .font(.subheadline)
+                                .foregroundColor(.secondary)
+                            
 //                            Image(continuous.isSelected ? "checkmark" : "")
                         }
                     }
