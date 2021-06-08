@@ -12,6 +12,6 @@ Datum is an app that allows users to track and visualize their own data. All dat
 
 # Demo
 
-![Create Data Model](https://github.com/zsoldaat/Datum/blob/main/Datum/Demo%20Gifs/Create%20Data%20Model.gif | width = 100)
+![Create Data Model](https://github.com/zsoldaat/Datum/blob/main/Datum/Demo%20Gifs/Create%20Data%20Model.gif = 400x100)
 ![Add Test Data](https://github.com/zsoldaat/Datum/blob/main/Datum/Demo%20Gifs/Add%20Test%20Data.gif)
 ![Visualize Test Data](https://github.com/zsoldaat/Datum/blob/main/Datum/Demo%20Gifs/Visualize%20Test%20Data.gif)
