@@ -12,4 +12,4 @@ Datum is an app that allows users to track and visualize their own data. All dat
 
 # Demo
 
-![Add Test Data](/Datum/Demo Gifs/Add Test Data.gif)
+![Add Test Data](https://github.com/zsoldaat/Datum/blob/main/Datum/Demo%20Gifs/Add%20Test%20Data.gif)
