@@ -36,16 +36,16 @@ extension Dataset {
         return set.sorted {$0.wrappedName > $1.wrappedName}
     }
     
-    public var variableArray: [Any] {
-        [continuousArray, categoricalArray]
-    }
-    
     public var hasCategoricalVariables: Bool {
         categoricalArray.count > 0
     }
     
     public var hasContinuousVariables: Bool {
         continuousArray.count > 0
+    }
+    
+    public var hasVariables: Bool {
+        continuousArray.count > 0 || categoricalArray.count > 0
     }
 
 }

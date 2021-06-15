@@ -51,7 +51,7 @@
 		4C7E8488266FC30D005997C4 /* Create Data Model.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E8485266FC30A005997C4 /* Create Data Model.gif */; };
 		4C7E8489266FC30D005997C4 /* Visualize Test Data.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E8486266FC30C005997C4 /* Visualize Test Data.gif */; };
 		4C7E848A266FC30D005997C4 /* Add Test Data.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E8487266FC30D005997C4 /* Add Test Data.gif */; };
-		4C7E848C2677CA64005997C4 /* VariableSelectionView3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E848B2677CA64005997C4 /* VariableSelectionView3.swift */; };
+		4C7E848C2677CA64005997C4 /* DatasetSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E848B2677CA64005997C4 /* DatasetSelectionView.swift */; };
 		4C95E1D42639A887005D12BA /* VisualizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95E1D32639A887005D12BA /* VisualizationManager.swift */; };
 		4C95E1DC2639AD4A005D12BA /* DatasetAndChartSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95E1DB2639AD4A005D12BA /* DatasetAndChartSelectionView.swift */; };
 		4C95E1E32639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95E1E22639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift */; };
@@ -137,7 +137,7 @@
 		4C7E8485266FC30A005997C4 /* Create Data Model.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Create Data Model.gif"; sourceTree = "<group>"; };
 		4C7E8486266FC30C005997C4 /* Visualize Test Data.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Visualize Test Data.gif"; sourceTree = "<group>"; };
 		4C7E8487266FC30D005997C4 /* Add Test Data.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Add Test Data.gif"; sourceTree = "<group>"; };
-		4C7E848B2677CA64005997C4 /* VariableSelectionView3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView3.swift; sourceTree = "<group>"; };
+		4C7E848B2677CA64005997C4 /* DatasetSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetSelectionView.swift; sourceTree = "<group>"; };
 		4C95E1D32639A887005D12BA /* VisualizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualizationManager.swift; sourceTree = "<group>"; };
 		4C95E1DB2639AD4A005D12BA /* DatasetAndChartSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetAndChartSelectionView.swift; sourceTree = "<group>"; };
 		4C95E1E22639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetAndChartSelectionViewModel.swift; sourceTree = "<group>"; };
@@ -265,7 +265,7 @@
 				4C95E1DB2639AD4A005D12BA /* DatasetAndChartSelectionView.swift */,
 				4C6C3D752639F968000CB10D /* ChartTypeSelectionView.swift */,
 				4CF21304265835E8009180EC /* VariableSelectionView2.swift */,
-				4C7E848B2677CA64005997C4 /* VariableSelectionView3.swift */,
+				4C7E848B2677CA64005997C4 /* DatasetSelectionView.swift */,
 				4C6C3D7D2639F97C000CB10D /* VariableSelectionView.swift */,
 				4CAEB73D261DF6BB00EF21E7 /* Charts Views */,
 			);
@@ -639,7 +639,7 @@
 				4C62F31E2628AA610075372E /* AddObservationView.swift in Sources */,
 				4C5B61612644555300B6B1BE /* Calendar-GenerateDates.swift in Sources */,
 				4C5B615826444DED00B6B1BE /* MonthView.swift in Sources */,
-				4C7E848C2677CA64005997C4 /* VariableSelectionView3.swift in Sources */,
+				4C7E848C2677CA64005997C4 /* DatasetSelectionView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
 				4C6C3D7E2639F97C000CB10D /* VariableSelectionView.swift in Sources */,
 				4C5B616D2645EA4900B6B1BE /* DoneButton.swift in Sources */,
