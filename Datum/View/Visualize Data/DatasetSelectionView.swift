@@ -24,18 +24,18 @@ struct DatasetSelectionView: View {
                     ForEach(datasets) { dataset in
                         HStack {
                             Text(dataset.wrappedName)
-                                .foregroundColor(dataset.hasVariables ? .black : .secondary)
+                                .foregroundColor(dataset.hasData ? .black : .secondary)
                                 .onTapGesture {
                                     selectedDataset = dataset
                                     visualizationManager.dataset = dataset
                                 }
-                                .disabled(!dataset.hasVariables)
+                                .disabled(!dataset.hasData)
                             Spacer()
                             
                             Image(systemName: selectedDataset == dataset ? "checkmark" : "")
                                 .foregroundColor(.accentColor)
                             
-                            if !dataset.hasVariables {
+                            if !dataset.hasData {
                                 Text("No Data")
                                     .foregroundColor(.secondary)
                             }

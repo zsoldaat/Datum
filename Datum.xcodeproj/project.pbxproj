@@ -46,7 +46,6 @@
 		4C6A49F0263B20EB00B08203 /* DynamicNavigationLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A49EF263B20EB00B08203 /* DynamicNavigationLink.swift */; };
 		4C6A49F5263B371600B08203 /* Color-Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6A49F4263B371600B08203 /* Color-Random.swift */; };
 		4C6C3D762639F968000CB10D /* ChartTypeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C3D752639F968000CB10D /* ChartTypeSelectionView.swift */; };
-		4C6C3D7E2639F97C000CB10D /* VariableSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C3D7D2639F97C000CB10D /* VariableSelectionView.swift */; };
 		4C6C3D87263A04D4000CB10D /* Variable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6C3D86263A04D4000CB10D /* Variable.swift */; };
 		4C7E8488266FC30D005997C4 /* Create Data Model.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E8485266FC30A005997C4 /* Create Data Model.gif */; };
 		4C7E8489266FC30D005997C4 /* Visualize Test Data.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C7E8486266FC30C005997C4 /* Visualize Test Data.gif */; };
@@ -70,7 +69,6 @@
 		4CD1AC97262758C80018CEF1 /* DatasetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */; };
 		4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */; };
 		4CDD51D2261E21F400B625F6 /* DatasetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDD51D1261E21F400B625F6 /* DatasetView.swift */; };
-		4CF21305265835E8009180EC /* VariableSelectionView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF21304265835E8009180EC /* VariableSelectionView2.swift */; };
 		4CF588DB26320854002F2841 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF588D926320854002F2841 /* Category+CoreDataClass.swift */; };
 		4CF588DC26320854002F2841 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
@@ -132,7 +130,6 @@
 		4C6A49EF263B20EB00B08203 /* DynamicNavigationLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicNavigationLink.swift; sourceTree = "<group>"; };
 		4C6A49F4263B371600B08203 /* Color-Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color-Random.swift"; sourceTree = "<group>"; };
 		4C6C3D752639F968000CB10D /* ChartTypeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartTypeSelectionView.swift; sourceTree = "<group>"; };
-		4C6C3D7D2639F97C000CB10D /* VariableSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView.swift; sourceTree = "<group>"; };
 		4C6C3D86263A04D4000CB10D /* Variable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Variable.swift; sourceTree = "<group>"; };
 		4C7E8485266FC30A005997C4 /* Create Data Model.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Create Data Model.gif"; sourceTree = "<group>"; };
 		4C7E8486266FC30C005997C4 /* Visualize Test Data.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "Visualize Test Data.gif"; sourceTree = "<group>"; };
@@ -162,7 +159,6 @@
 		4CD1AC96262758C80018CEF1 /* DatasetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetViewModel.swift; sourceTree = "<group>"; };
 		4CD1ACA026276FA90018CEF1 /* ContinuousVariableStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinuousVariableStorage.swift; sourceTree = "<group>"; };
 		4CDD51D1261E21F400B625F6 /* DatasetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatasetView.swift; sourceTree = "<group>"; };
-		4CF21304265835E8009180EC /* VariableSelectionView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableSelectionView2.swift; sourceTree = "<group>"; };
 		4CF588D926320854002F2841 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataClass.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		4CF588DA26320854002F2841 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/Category+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -264,9 +260,7 @@
 			children = (
 				4C95E1DB2639AD4A005D12BA /* DatasetAndChartSelectionView.swift */,
 				4C6C3D752639F968000CB10D /* ChartTypeSelectionView.swift */,
-				4CF21304265835E8009180EC /* VariableSelectionView2.swift */,
 				4C7E848B2677CA64005997C4 /* DatasetSelectionView.swift */,
-				4C6C3D7D2639F97C000CB10D /* VariableSelectionView.swift */,
 				4CAEB73D261DF6BB00EF21E7 /* Charts Views */,
 			);
 			path = "Visualize Data";
@@ -590,7 +584,6 @@
 				4C6C3D87263A04D4000CB10D /* Variable.swift in Sources */,
 				4C62F33A262A0CD20075372E /* ContinuousDataPointStorage.swift in Sources */,
 				4C5B615A2644500800B6B1BE /* WeekView.swift in Sources */,
-				4CF21305265835E8009180EC /* VariableSelectionView2.swift in Sources */,
 				4C62F342262A0DE80075372E /* CategoricalDataPointStorage.swift in Sources */,
 				4C5B616B2645E1ED00B6B1BE /* FloatingCloseButton.swift in Sources */,
 				4C5B61562644490C00B6B1BE /* CalendarView.swift in Sources */,
@@ -641,7 +634,6 @@
 				4C5B615826444DED00B6B1BE /* MonthView.swift in Sources */,
 				4C7E848C2677CA64005997C4 /* DatasetSelectionView.swift in Sources */,
 				4CAEB70B261DF5B900EF21E7 /* DatumApp.swift in Sources */,
-				4C6C3D7E2639F97C000CB10D /* VariableSelectionView.swift in Sources */,
 				4C5B616D2645EA4900B6B1BE /* DoneButton.swift in Sources */,
 				4CD1AC88262748BF0018CEF1 /* DatasetStorage.swift in Sources */,
 				4C3941BF2620FC6D00F9F3E4 /* ContinuousVariable+CoreDataClass.swift in Sources */,

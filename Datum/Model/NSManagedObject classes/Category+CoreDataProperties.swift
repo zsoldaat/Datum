@@ -25,6 +25,10 @@ extension Category {
         let set = values as? Set<CategoricalDataPoint> ?? []
         return set.sorted {$0.date! > $1.date!}
     }
+    
+    public var hasData: Bool {
+        valuesArray.count > 0
+    }
 
 }
 

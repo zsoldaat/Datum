@@ -33,6 +33,10 @@ extension CategoricalVariable {
             $0.name ?? "No name" > $1.name ?? "No name"
         }
     }
+    
+    public var hasCategories: Bool {
+        categoriesArray.count > 0
+    }
 
 }
 

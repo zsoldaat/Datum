@@ -88,8 +88,10 @@ extension ContinuousVariable {
         let datapoints = self.values?.allObjects as! [ContinuousDataPoint]
         
         return datapoints.sorted {$0.value < $1.value}
-        
-        
+    }
+    
+    public var hasData: Bool {
+        valuesArray.count > 0
     }
 
 

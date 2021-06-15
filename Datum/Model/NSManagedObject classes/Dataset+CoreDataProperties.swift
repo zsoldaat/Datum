@@ -47,6 +47,30 @@ extension Dataset {
     public var hasVariables: Bool {
         continuousArray.count > 0 || categoricalArray.count > 0
     }
+    
+    public var hasData: Bool {
+        
+        //This can be optimized pretty easily just too lazy
+        var continuousData: [ContinuousDataPoint] = []
+        var categoricalData: [CategoricalDataPoint] = []
+        
+        for continuous in continuousArray {
+            for point in continuous.valuesArray {
+                continuousData.append(point)
+            }
+        }
+        
+        for categorical in categoricalArray {
+            for category in categorical.categoriesArray {
+                for point in category.valuesArray {
+                    categoricalData.append(point)
+                }
+            }
+        }
+        
+        return continuousData.count > 0 || categoricalData.count > 0
+        
+    }
 
 }
 
