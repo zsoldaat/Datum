@@ -19,13 +19,13 @@ struct VariableSelectionView3: View {
 
     var body: some View {
         Form {
-            if visualizationManager.chart.continuousVariablesRequired > 0 {
-                Text("\(visualizationManager.selectedContinuous.count) / \(visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
-            }
-            
-            if visualizationManager.chart.categoricalVariablesRequired > 0 {
-                Text("\(visualizationManager.selectedCategorical.count) / \(visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
-            }
+//            if visualizationManager.chart.continuousVariablesRequired > 0 {
+//                Text("\(visualizationManager.selectedContinuous.count) / \(visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
+//            }
+//
+//            if visualizationManager.chart.categoricalVariablesRequired > 0 {
+//                Text("\(visualizationManager.selectedCategorical.count) / \(visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
+//            }
             
             Section(header: Text("Datasets")) {
                 List {
@@ -41,33 +41,35 @@ struct VariableSelectionView3: View {
                 
             }
             
-            Section(header: Text("Variables")) {
-                List {
-                    ForEach(selectedDataset?.continuousArray ?? []) { continuous in
-                        HStack {
-                            Text(continuous.wrappedName)
-                                .foregroundColor(continuous.isSelected ? .accentColor : .black)
-                            Spacer()
-                            Text("Continuous")
-                        }
-                        .onTapGesture {
-                            visualizationManager.selectVariable(continuous)
-                        }
-                    }
-
-                    ForEach(selectedDataset?.categoricalArray ?? []) { categorical in
-                        HStack {
-                            Text(categorical.wrappedName)
-                                .foregroundColor(categorical.isSelected ? .accentColor : .black)
-                            Spacer()
-                            Text("Categorical")
-                        }
-                        .onTapGesture {
-                            visualizationManager.selectVariable(categorical)
-                        }
-                    }
-                }
-            }
+            //animate this when the dataset changes, might have to do it by creating a new array that will contain the variables of the selected dataset
+            
+//            Section(header: Text("Variables")) {
+//                List {
+//                    ForEach(selectedDataset?.continuousArray ?? []) { continuous in
+//                        HStack {
+//                            Text(continuous.wrappedName)
+//                                .foregroundColor(continuous.isSelected ? .accentColor : .black)
+//                            Spacer()
+//                            Text("Continuous")
+//                        }
+//                        .onTapGesture {
+//                            visualizationManager.selectVariable(continuous)
+//                        }
+//                    }
+//
+//                    ForEach(selectedDataset?.categoricalArray ?? []) { categorical in
+//                        HStack {
+//                            Text(categorical.wrappedName)
+//                                .foregroundColor(categorical.isSelected ? .accentColor : .black)
+//                            Spacer()
+//                            Text("Categorical")
+//                        }
+//                        .onTapGesture {
+//                            visualizationManager.selectVariable(categorical)
+//                        }
+//                    }
+//                }
+//            }
             
             DoneButton {presentationMode.wrappedValue.dismiss()}
         }

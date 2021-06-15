@@ -56,6 +56,10 @@ struct VisualizationManager {
         selectedContinuous.count > 0 || selectedCategorical.count > 0
     }
     
+    var hasDatasetSelected: Bool {
+        return dataset != nil
+    }
+    
     //MARK: - MapView Variables
     
     var locationCoordinates: [Location] {

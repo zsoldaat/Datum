@@ -18,6 +18,7 @@ struct DatasetAndChartSelectionView: View {
         NavigationView {
             VStack {
                 List {
+                    
                     Section(header: Text("Chart Type").foregroundColor(.accentColor)) {
                         Text(vm.visualizationManager.chart.type.properName)
                             .onTapGesture {
@@ -33,57 +34,79 @@ struct DatasetAndChartSelectionView: View {
                                 sheetPresented = true
                             }
                     }
+
+                    Section {
+                        if vm.visualizationManager.chart.continuousVariablesRequired > 0 {
+                            Text("\(vm.visualizationManager.selectedContinuous.count) / \(vm.visualizationManager.chart.continuousVariablesRequired) continuous variables selected.")
+                        }
+                        
+                        if vm.visualizationManager.chart.categoricalVariablesRequired > 0 {
+                            Text("\(vm.visualizationManager.selectedCategorical.count) / \(vm.visualizationManager.chart.categoricalVariablesRequired) categorical variables selected.")
+                        }
+                    }
                     
-                    if vm.visualizationManager.hasVariablesSelected {
-                        Section(header: Text("Variables")) {
-                            ForEach(vm.visualizationManager.selectedContinuous) { continuous in
-                                HStack {
-                                    Text(continuous.wrappedName)
-                                    Spacer()
-                                    Text("Continuous")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                    if vm.visualizationManager.hasDatasetSelected {
+                        Section(header: Text("Available Variables")) {
+                            
+                            if vm.visualizationManager.chart.continuousVariablesRequired > 0 {
+                                ForEach(vm.visualizationManager.dataset?.continuousArray ?? []) { continuous in
+                                    HStack {
+                                        Text(continuous.wrappedName)
+                                        Spacer()
+                                        Text("Continuous")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .foregroundColor(continuous.isSelected ? .accentColor : .black)
+                                    .onTapGesture {
+                                        vm.visualizationManager.selectVariable(continuous)
+                                    }
                                 }
                             }
                             
-                            ForEach(vm.visualizationManager.selectedCategorical) { categorical in
-                                HStack {
-                                    Text(categorical.wrappedName)
-                                    Spacer()
-                                    Text("Categorical")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
+                            if vm.visualizationManager.chart.categoricalVariablesRequired > 0 {
+                                ForEach(vm.visualizationManager.dataset?.categoricalArray ?? []) { categorical in
+                                    HStack {
+                                        Text(categorical.wrappedName)
+                                        Spacer()
+                                        Text("Categorical")
+                                            .font(.subheadline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .foregroundColor(categorical.isSelected ? .accentColor : .black)
+                                    .onTapGesture {
+                                        vm.visualizationManager.selectVariable(categorical)
+                                    }
                                 }
                             }
                         }
                     }
                 }
                 .listStyle(InsetGroupedListStyle())
+                .fullScreenCover(isPresented: $sheetPresented) {
+                    switch vm.destination {
+                    case .chartTypeSelection:
+                        ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
+                    case .variableSelection:
+                        VariableSelectionView3(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
+                    case .barchart:
+                        BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
+                    case .scatterplot:
+                        ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
+                    case .mapView:
+                        DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
+                    case .calendarView:
+                        RootCalendarView(datesAndValues: vm.visualizationManager.averageValuesByDate)
+                    }
+                }
+                .navigationTitle("Visualize")
                 
                 DoneButton{
                     showChart(chart: vm.visualizationManager.chart.type)
                 }
                 .disabled(!vm.visualizationManager.correctNumberOfVarsSelected)
-                
             }
-            .fullScreenCover(isPresented: $sheetPresented) {
-                switch vm.destination {
-                case .chartTypeSelection:
-                    ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
-                case .variableSelection:
-                    VariableSelectionView3(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
-                case .barchart:
-                    BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
-                case .scatterplot:
-                    ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
-                case .mapView:
-                    DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
-                case .calendarView:
-                    RootCalendarView(datesAndValues: vm.visualizationManager.averageValuesByDate)
-                }
-            }
-            .navigationTitle("Visualize")
-
+            
         }
     }
     
@@ -100,7 +123,7 @@ struct DatasetAndChartSelectionView: View {
         }
         sheetPresented = true
     }
-
+    
 }
 
 struct DatasetAndChartSelectionView_Previews: PreviewProvider {
