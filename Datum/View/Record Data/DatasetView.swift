@@ -19,23 +19,20 @@ struct DatasetView: View {
     var body: some View {
         Form {
             List {
-//                Section {
-//                    NavigationLink(
-//                        destination: ChartTypesView(dataset: vm.dataset),
-//                        label: {
-//                            Text("Visualize")
-//                        })
-//                }
                 
-                Section(header: Text("Continuous Variables")) {
-                    ForEach(vm.continuousVariables) { variable in
-                        Text(variable.wrappedName)
+                if vm.dataset.hasVariables {
+                    Section(header: Text("Continuous Variables")) {
+                        ForEach(vm.continuousVariables) { variable in
+                            Text(variable.wrappedName)
+                        }
                     }
-                }
-                Section(header: Text("Categorical Variables")) {
-                    ForEach(vm.categoricalVariables) { variable in
-                        Text(variable.wrappedName)
+                    Section(header: Text("Categorical Variables")) {
+                        ForEach(vm.categoricalVariables) { variable in
+                            Text(variable.wrappedName)
+                        }
                     }
+                } else {
+                    Text("This dataset has no variables. Add some variables to see them displayed here")
                 }
                 
                 

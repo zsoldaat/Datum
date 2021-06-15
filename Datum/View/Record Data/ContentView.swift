@@ -34,6 +34,7 @@ struct ContentView: View {
                             }
                             .frame(width: 44, height: 44)
                             .buttonStyle(PlainButtonStyle())
+                            .disabled(!dataset.hasVariables)
                             
                             Spacer()
                             
