@@ -20,19 +20,16 @@ struct DatasetAndChartSelectionView: View {
                 List {
                     
                     Section(header: Text("Chart Type").foregroundColor(.accentColor)) {
-                        Text(vm.visualizationManager.chart.type.properName)
-                            .onTapGesture {
-                                vm.destination = .chartTypeSelection
-                                sheetPresented = true
-                            }
+                        NavigationLink(destination: ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)) {
+                            Text(vm.visualizationManager.chart.type.properName)
+                        }
+                        
                     }
                     
                     Section(header: Text("Dataset").foregroundColor(.accentColor)) {
-                        Text(vm.visualizationManager.dataset?.wrappedName ?? "Select a dataset")
-                            .onTapGesture {
-                                vm.destination = .variableSelection
-                                sheetPresented = true
-                            }
+                        NavigationLink(destination: DatasetSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)) {
+                            Text(vm.visualizationManager.dataset?.wrappedName ?? "Select a dataset")
+                        }
                     }
 
                     Section {
