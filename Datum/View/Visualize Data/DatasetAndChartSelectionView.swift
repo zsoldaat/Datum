@@ -87,7 +87,7 @@ struct DatasetAndChartSelectionView: View {
                     case .scatterplot:
                         ScatterplotView(xvar: vm.visualizationManager.selectedContinuous.first, yvar: vm.visualizationManager.selectedContinuous.last)
                     case .mapView:
-                        DatapointMapView(locations: vm.visualizationManager.locationCoordinates, region: vm.visualizationManager.mapRegion)
+                        DatapointMapView(dataset: vm.visualizationManager.dataset)
                     case .calendarView:
                         RootCalendarView(datesAndValues: vm.visualizationManager.averageValuesByDate)
                     }

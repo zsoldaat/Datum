@@ -107,40 +107,42 @@ class ExampleData {
         return [variable1, variable2]
     }
     
-    static var locations: [Location] {
-        
-        var locations: [Location] = []
-        
-        for datapoint in exampleCategoricalVariable.categoriesArray.first!.valuesArray {
-            let location = Location(coordinate: CLLocationCoordinate2D(latitude: datapoint.latitude, longitude: datapoint.longitude))
-            locations.append(location)
-        }
-        
-        return locations
-    }
+    //The variables were moved to the MapViewVM. If map seems to be working fine after testing on a real device, these comments can be removed. 
     
-    static var centerLocation: Location {
-        var longitude: Double = 0
-        var latitude: Double = 0
-        
-        for location in locations {
-            latitude += location.coordinate.latitude
-            longitude += location.coordinate.longitude
-        }
-        
-        latitude = latitude/Double(locations.count)
-        longitude = longitude/Double(locations.count)
-        
-        return Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-        
-    }
-    
-    static var mapRegion: MKCoordinateRegion {
-        MKCoordinateRegion(
-            center: centerLocation.coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        )
-    }
+//    static var locations: [Location] {
+//
+//        var locations: [Location] = []
+//
+//        for datapoint in exampleCategoricalVariable.categoriesArray.first!.valuesArray {
+//            let location = Location(coordinate: CLLocationCoordinate2D(latitude: datapoint.latitude, longitude: datapoint.longitude))
+//            locations.append(location)
+//        }
+//
+//        return locations
+//    }
+//
+//    static var centerLocation: Location {
+//        var longitude: Double = 0
+//        var latitude: Double = 0
+//
+//        for location in locations {
+//            latitude += location.coordinate.latitude
+//            longitude += location.coordinate.longitude
+//        }
+//
+//        latitude = latitude/Double(locations.count)
+//        longitude = longitude/Double(locations.count)
+//
+//        return Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+//
+//    }
+//
+//    static var mapRegion: MKCoordinateRegion {
+//        MKCoordinateRegion(
+//            center: centerLocation.coordinate,
+//            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+//        )
+//    }
     
     static var averageValuesByDate: [DateComponents: Double] {
         

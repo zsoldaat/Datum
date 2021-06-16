@@ -12,19 +12,16 @@ struct DatapointMapView: View {
     
     let exampleMode: Bool
     
-    let locations: [Location]
+    @ObservedObject var vm: DatapointMapViewViewModel
     
-    @State var region: MKCoordinateRegion
-    
-    init(locations: [Location], region: MKCoordinateRegion, exampleMode: Bool = false) {
-        self.locations = locations
-        self.region = region
+    init(dataset: Dataset?, exampleMode: Bool = false) {
+        self.vm = DatapointMapViewViewModel(dataset: dataset!, exampleMode: exampleMode)
         self.exampleMode = exampleMode
     }
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $region, annotationItems: locations) { location in
+            Map(coordinateRegion: $vm.mapRegion, annotationItems: vm.locationCoordinates) { location in
                 MapAnnotation(coordinate: location.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
                     DatapointDetailView(location: location)
                 }

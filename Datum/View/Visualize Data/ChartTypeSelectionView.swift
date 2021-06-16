@@ -71,7 +71,7 @@ struct ChartTypeSelectionView: View {
             case .scatterplot:
                 ScatterplotView(xvar: ExampleData.exampleContinuousVariables.first, yvar: ExampleData.exampleContinuousVariables.last, exampleMode: true)
             case .mapView:
-                DatapointMapView(locations: ExampleData.locations, region: ExampleData.mapRegion, exampleMode: true)
+                DatapointMapView(dataset: ExampleData.exampleDataset, exampleMode: true)
             case .calendarView:
                 RootCalendarView(datesAndValues: ExampleData.averageValuesByDate, exampleMode: true)
             }
