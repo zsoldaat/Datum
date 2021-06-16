@@ -11,8 +11,6 @@ struct BarchartView: View {
     
     let exampleMode: Bool
     
-    @State private var availableColors: [Color] = [Color.blue, Color.red, Color.orange, Color.green, Color.pink, Color.purple, Color.yellow]
-    
     var categoriesAndCounts: [Category:Int]
     var numberOfCategories: CGFloat
     var maxValue: CGFloat = 0
@@ -72,9 +70,6 @@ struct BarchartView: View {
                         )
                 }
                 
-                //Just to outline the bounds of the view
-//                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
-                
                 if !exampleMode {
                     FloatingCloseButton()
                 }
@@ -89,36 +84,5 @@ struct BarchartView: View {
 //struct BarchartView_Previews: PreviewProvider {
 //
 //    static var previews: some View {
-//
-//        let context = PersistenceController.shared.container.viewContext
-//
-//        let variable = CategoricalVariable(context: context)
-//        variable.id = UUID()
-//        variable.name = "Barchar test"
-//
-//        let category1 = Category(context: context)
-//        category1.id = UUID()
-//        category1.name = "First"
-//
-//        let category2 = Category(context: context)
-//        category2.id = UUID()
-//        category2.name = "Second"
-//
-//        let point1 = CategoricalDataPoint(context: context)
-//        point1.id = UUID()
-//        point1.category = category1
-//
-//        let point2 = CategoricalDataPoint(context: context)
-//        point2.id = UUID()
-//        point2.category = category1
-//
-//        let point3 = CategoricalDataPoint(context: context)
-//        point3.id = UUID()
-//        point3.category = category2
-//
-//        variable.addToCategories(category1)
-//        variable.addToCategories(category2)
-//
-//        return BarchartView(categoricalVariable: variable)
 //    }
 //}
