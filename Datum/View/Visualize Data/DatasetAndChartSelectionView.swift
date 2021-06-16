@@ -82,10 +82,6 @@ struct DatasetAndChartSelectionView: View {
                 .listStyle(InsetGroupedListStyle())
                 .fullScreenCover(isPresented: $sheetPresented) {
                     switch vm.destination {
-                    case .chartTypeSelection:
-                        ChartTypeSelectionView(visualizationManager: $vm.visualizationManager)
-                    case .variableSelection:
-                        DatasetSelectionView(datasets: vm.allDatasets, visualizationManager: $vm.visualizationManager)
                     case .barchart:
                         BarchartView(categoricalVariable: vm.visualizationManager.selectedCategorical.first)
                     case .scatterplot:
