@@ -20,6 +20,7 @@
 		4C3941CA2620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */; };
 		4C40D018264ADD01007F722C /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40D017264ADD01007F722C /* ExampleData.swift */; };
 		4C456133267A760C009BA11C /* BarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C456132267A760C009BA11C /* BarChartViewModel.swift */; };
+		4C456135267A83D4009BA11C /* DatapointMapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */; };
 		4C4BF3362633180A00DE9D6F /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF3352633180A00DE9D6F /* Chart.swift */; };
 		4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF34226388F3100DE9D6F /* BarchartView.swift */; };
 		4C4BF34826389C1000DE9D6F /* InitialTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF34726389C1000DE9D6F /* InitialTabView.swift */; };
@@ -105,6 +106,7 @@
 		4C3941C82620FCAB00F9F3E4 /* CategoricalVariable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CategoricalVariable+CoreDataProperties.swift"; path = "Datum/Model/NSManagedObject classes/CategoricalVariable+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		4C40D017264ADD01007F722C /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		4C456132267A760C009BA11C /* BarChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewModel.swift; sourceTree = "<group>"; };
+		4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapointMapViewViewModel.swift; sourceTree = "<group>"; };
 		4C4BF3352633180A00DE9D6F /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		4C4BF34226388F3100DE9D6F /* BarchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarchartView.swift; sourceTree = "<group>"; };
 		4C4BF34726389C1000DE9D6F /* InitialTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialTabView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 			children = (
 				4C95E1E22639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift */,
 				4C456132267A760C009BA11C /* BarChartViewModel.swift */,
+				4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */,
 			);
 			path = "Visualize Data";
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				4C6C3D762639F968000CB10D /* ChartTypeSelectionView.swift in Sources */,
 				4C6A49F5263B371600B08203 /* Color-Random.swift in Sources */,
 				4CD1AC92262757B60018CEF1 /* CategoricalVariableStorage.swift in Sources */,
+				4C456135267A83D4009BA11C /* DatapointMapViewViewModel.swift in Sources */,
 				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
 				4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */,
