@@ -11,28 +11,11 @@ struct BarchartView: View {
     
     let exampleMode: Bool
     
-    var categoriesAndCounts: [Category:Int]
-    var numberOfCategories: CGFloat
-    var maxValue: CGFloat = 0
+    let vm: BarChartViewModel
     
     init(categoricalVariable: CategoricalVariable?, exampleMode: Bool = false) {
-        
-        self.categoriesAndCounts = [Category: Int]()
-        
-        if let variable = categoricalVariable {
-            for category in variable.categoriesArray {
-                self.categoriesAndCounts[category] = category.valuesArray.count
-                self.maxValue = max(maxValue, CGFloat(category.valuesArray.count))
-            }
-        }
-        
-        //This is to give the chart some headroom.
-        maxValue += 1
-        
-        self.numberOfCategories = CGFloat(categoriesAndCounts.count)
-        
+        self.vm = BarChartViewModel(categoricalVariable: categoricalVariable!)
         self.exampleMode = exampleMode
-        
     }
     
     var body: some View {
@@ -41,14 +24,13 @@ struct BarchartView: View {
             ZStack(alignment: .bottom) {
                 //Chart
                 HStack(alignment: .bottom) {
-//                    Spacer(minLength: geometry.size.width / 20)
-                    ForEach(Array(categoriesAndCounts.keys)) { category in
+                    ForEach(vm.categories) { category in
                         ZStack(alignment: .bottom) {
                             Rectangle()
                                 .foregroundColor(Color.random()) //change this to use some sort of colour scheme once I start working on that stuff
                                 .frame(
-                                    width: (geometry.size.width / numberOfCategories / 1.5),
-                                    height: geometry.size.height / maxValue * CGFloat(categoriesAndCounts[category]!)
+                                    width: (geometry.size.width / vm.numberOfCategories / 1.5),
+                                    height: geometry.size.height / vm.maxValue * CGFloat(vm.categoriesAndCounts[category]!)
                                 )
                             Text("\(category.name!)")
                                 .offset(x: 0, y: 20)
@@ -56,9 +38,9 @@ struct BarchartView: View {
                     }
                 }
                 //Grid
-                ForEach(0..<Int(maxValue+1)) { number in
+                ForEach(0..<6) { number in
                         ZStack {
-                            Text(number != 0 ? "\(number)" : "")
+                            Text(number != 0 ? "\(number * (Int(vm.maxValue)/5))" : "")
                                 .offset(x:-geometry.size.width/2 - 10, y:0)
                             Rectangle()
                                 .frame(height: 1)
@@ -66,19 +48,17 @@ struct BarchartView: View {
                         }
                         .position(
                             x: geometry.size.width / 2,
-                            y: geometry.size.height - CGFloat(number)*(geometry.size.height/maxValue)
+                            y: geometry.size.height - (geometry.size.height/5) * CGFloat(number)
                         )
                 }
                 
                 if !exampleMode {
                     FloatingCloseButton()
                 }
-                    
             }
         }
         .padding()
     }
-
 }
 
 //struct BarchartView_Previews: PreviewProvider {

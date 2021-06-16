@@ -10,7 +10,7 @@ import MapKit
 
 struct VisualizationManager {
     
-    var chart: Chart = Chart(type: .scatterplot)
+    var chart: Chart = Chart(type: .barchart)
     var dataset: Dataset? = nil {
         didSet {
             clearSelected()
