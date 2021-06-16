@@ -10,18 +10,17 @@ import MapKit
 
 class DatapointMapViewViewModel: ObservableObject {
     
-    let dataset: Dataset
+    var locationCoordinates: [Location]
+    var centerLocation: Location
+    @Published var mapRegion: MKCoordinateRegion
     
     init(dataset: Dataset) {
-        self.dataset = dataset
-    }
-    
-    var locationCoordinates: [Location] {
         
+        //Creating locationCoordinates
         var locationDict: [UUID: Location] = [:]
         
-        let continuous = ContinuousDataPointStorage.shared.continuousDataPoints.value.filter {$0.variable?.dataset == self.dataset}
-        let categorical = CategoricalDataPointStorage.shared.categoricalDataPoints.value.filter {$0.variable?.dataset == self.dataset}
+        let continuous = ContinuousDataPointStorage.shared.continuousDataPoints.value.filter {$0.variable?.dataset == dataset}
+        let categorical = CategoricalDataPointStorage.shared.categoricalDataPoints.value.filter {$0.variable?.dataset == dataset}
         
         for datapoint in continuous {
             let rowId = datapoint.rowId!
@@ -44,10 +43,9 @@ class DatapointMapViewViewModel: ObservableObject {
             locationDict[rowId]?.categoricalData.append(datapoint)
         }
         
-        return Array(locationDict.values)
-    }
-    
-    var centerLocation: Location {
+        locationCoordinates = Array(locationDict.values)
+        
+        //Creating centerLocation
         var longitude: Double = 0
         var latitude: Double = 0
         
@@ -59,12 +57,10 @@ class DatapointMapViewViewModel: ObservableObject {
         latitude = latitude/Double(locationCoordinates.count)
         longitude = longitude/Double(locationCoordinates.count)
         
-        return Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+        centerLocation = Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         
-    }
-    
-    var mapRegion: MKCoordinateRegion {
-        MKCoordinateRegion(
+        //Creating MapRegion
+        mapRegion = MKCoordinateRegion(
             center: centerLocation.coordinate,
             span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
         )
