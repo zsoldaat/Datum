@@ -14,11 +14,7 @@ struct ChartTypeSelectionView: View {
     @Binding var visualizationManager: VisualizationManager
     
     var body: some View {
-        
         ChartSelectionPickerView(selection: $visualizationManager.chart.type)
-
-        DoneButton{presentationMode.wrappedValue.dismiss()}
-        
     }
     
     struct ChartSelectionPickerView: View {

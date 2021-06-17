@@ -44,8 +44,6 @@ struct DatasetSelectionView: View {
                 }
                 
             }
-            
-            DoneButton {presentationMode.wrappedValue.dismiss()}
         }
     }
 }
