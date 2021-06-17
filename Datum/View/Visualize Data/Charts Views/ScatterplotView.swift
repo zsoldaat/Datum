@@ -28,6 +28,8 @@ struct ScatterplotView: View {
         x = xvar?.valuesArray ?? []
         y = yvar?.valuesArray ?? []
         
+        
+        
         for (x, y) in zip(x, y) {
             
             let point = Point(id: UUID(), xValue: x, yValue: y)

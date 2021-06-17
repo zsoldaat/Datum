@@ -21,6 +21,7 @@
 		4C40D018264ADD01007F722C /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C40D017264ADD01007F722C /* ExampleData.swift */; };
 		4C456133267A760C009BA11C /* BarChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C456132267A760C009BA11C /* BarChartViewModel.swift */; };
 		4C456135267A83D4009BA11C /* DatapointMapViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */; };
+		4C456138267BDC90009BA11C /* ScatterplotViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C456137267BDC90009BA11C /* ScatterplotViewModel.swift */; };
 		4C4BF3362633180A00DE9D6F /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF3352633180A00DE9D6F /* Chart.swift */; };
 		4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF34226388F3100DE9D6F /* BarchartView.swift */; };
 		4C4BF34826389C1000DE9D6F /* InitialTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4BF34726389C1000DE9D6F /* InitialTabView.swift */; };
@@ -107,6 +108,7 @@
 		4C40D017264ADD01007F722C /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		4C456132267A760C009BA11C /* BarChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewModel.swift; sourceTree = "<group>"; };
 		4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatapointMapViewViewModel.swift; sourceTree = "<group>"; };
+		4C456137267BDC90009BA11C /* ScatterplotViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterplotViewModel.swift; sourceTree = "<group>"; };
 		4C4BF3352633180A00DE9D6F /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		4C4BF34226388F3100DE9D6F /* BarchartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarchartView.swift; sourceTree = "<group>"; };
 		4C4BF34726389C1000DE9D6F /* InitialTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialTabView.swift; sourceTree = "<group>"; };
@@ -237,6 +239,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4C456136267BDC4E009BA11C /* Chart ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */,
+				4C456132267A760C009BA11C /* BarChartViewModel.swift */,
+				4C456137267BDC90009BA11C /* ScatterplotViewModel.swift */,
+			);
+			path = "Chart ViewModels";
+			sourceTree = "<group>";
+		};
 		4C4BF334263317F300DE9D6F /* Non-CoreData classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,8 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				4C95E1E22639ADE9005D12BA /* DatasetAndChartSelectionViewModel.swift */,
-				4C456132267A760C009BA11C /* BarChartViewModel.swift */,
-				4C456134267A83D4009BA11C /* DatapointMapViewViewModel.swift */,
+				4C456136267BDC4E009BA11C /* Chart ViewModels */,
 			);
 			path = "Visualize Data";
 			sourceTree = "<group>";
@@ -600,6 +611,7 @@
 				4C456135267A83D4009BA11C /* DatapointMapViewViewModel.swift in Sources */,
 				4C62F3232628AD110075372E /* AddObservationViewModel.swift in Sources */,
 				4C3941C02620FC6D00F9F3E4 /* ContinuousVariable+CoreDataProperties.swift in Sources */,
+				4C456138267BDC90009BA11C /* ScatterplotViewModel.swift in Sources */,
 				4C4BF34326388F3100DE9D6F /* BarchartView.swift in Sources */,
 				4CD1ACA126276FA90018CEF1 /* ContinuousVariableStorage.swift in Sources */,
 				4C4BF34826389C1000DE9D6F /* InitialTabView.swift in Sources */,
