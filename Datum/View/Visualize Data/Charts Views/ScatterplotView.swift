@@ -37,9 +37,9 @@ struct ScatterplotView: View {
                 }
                 
                 //Horizontal Grid
-                ForEach(0..<Int(vm.ymax+1)) { number in
+                ForEach(0..<6) { number in
                     ZStack {
-                        Text("\(number)")
+                        Text("\(number * Int(vm.ymax)/5)")
                             .offset(x:-geometry.size.width/2 - 10, y:0)
                         Rectangle()
                             .frame(height: 1)
@@ -48,14 +48,14 @@ struct ScatterplotView: View {
                     }
                     .position(
                         x: geometry.size.width / 2,
-                        y: geometry.size.height - CGFloat(number) * geometry.size.height / CGFloat(vm.ymax)
+                        y: geometry.size.height - (geometry.size.height/5) * CGFloat(number)
                     )
                 }
                 
                 //Vertical Grid
-                ForEach(0..<Int(vm.xmax+1)) { number in
+                ForEach(0..<6) { number in
                     ZStack {
-                        Text(number != 0 ? "\(number)" : "")
+                        Text(number != 0 ? "\(number * Int(vm.xmax/5))" : "")
                             .offset(x:0, y: geometry.size.height/2 + 10)
                         Rectangle()
                             .frame(width: 1)
@@ -63,7 +63,7 @@ struct ScatterplotView: View {
 
                     }
                     .position(
-                        x: CGFloat(number) * geometry.size.width / CGFloat(vm.xmax),
+                        x: CGFloat(number) * geometry.size.width/5,
                         y: geometry.size.height / 2
                     )
                 }

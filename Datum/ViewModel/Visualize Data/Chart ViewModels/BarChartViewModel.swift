@@ -26,15 +26,20 @@ class BarChartViewModel: ObservableObject {
             self.categories.append(category)
         }
         
-        maxValue = calculateMaxValue(value: maxValue)
+        maxValue = nearestMultipleOf5(value: maxValue)
         
         self.numberOfCategories = CGFloat(categoriesAndCounts.count)
     }
     
     //Sets the max value of the chart to the nearest multiple of 5, because the chart has 5 gridlines
-    func calculateMaxValue(value: CGFloat) -> CGFloat {
+    func nearestMultipleOf5(value: CGFloat) -> CGFloat {
         let remainder = value.truncatingRemainder(dividingBy: 5)
-        return value + 5 - remainder
+        
+        if remainder == 0 {
+            return value
+        } else {
+            return value + 5 - remainder
+        }
     }
     
 }

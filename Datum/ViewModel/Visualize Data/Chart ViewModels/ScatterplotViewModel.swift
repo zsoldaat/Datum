@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 class ScatterplotViewModel: ObservableObject {
     
@@ -27,30 +28,28 @@ class ScatterplotViewModel: ObservableObject {
         self.ymax = y.max{$0.value < $1.value}!.value
         
         for (x, y) in zip(x, y) {
-            
             let point = Point(id: UUID(), xValue: x, yValue: y)
             dataPoints.append(point)
-            
-            //Only assigning these so it has a default value that the min function can compare with, this is also jank
-//            self.xmin = point.xValue.value
-//            self.xmax = point.xValue.value
-//            self.ymin = point.yValue.value
-//            self.ymax = point.yValue.value
-//            
-//            self.xmin = min(xmin!, point.xValue.value)
-//            self.xmax = max(xmax!, point.xValue.value)
-//            self.ymin = min(ymin!, point.yValue.value)
-//            self.ymax = min(ymax!, point.yValue.value)
-            
+        }
+        
+        xmax = self.nearestMultipleOf5(xmax)
+        ymax = self.nearestMultipleOf5(ymax)
+    }
+    
+    func nearestMultipleOf5(_ value: Double) -> Double {
+        let remainder = value.truncatingRemainder(dividingBy: 5)
+        
+        if remainder == 0 {
+            return value
+        } else {
+            return value + 5 - remainder
         }
     }
     
     struct Point: Identifiable {
-        
         var id: UUID
         var xValue: ContinuousDataPoint
         var yValue: ContinuousDataPoint
-        
     }
     
     
