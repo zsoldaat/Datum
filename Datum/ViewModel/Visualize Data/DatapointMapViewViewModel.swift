@@ -16,6 +16,8 @@ class DatapointMapViewViewModel: ObservableObject {
     
     init(dataset: Dataset, exampleMode: Bool) {
         
+        self.locationCoordinates = []
+        
         //Creating locationCoordinates
         if !exampleMode {
             var locationDict: [UUID: Location] = [:]
@@ -46,54 +48,31 @@ class DatapointMapViewViewModel: ObservableObject {
             
             locationCoordinates = Array(locationDict.values)
             
-            //Creating centerLocation
-            var longitude: Double = 0
-            var latitude: Double = 0
-            
-            for location in locationCoordinates {
-                latitude += location.coordinate.latitude
-                longitude += location.coordinate.longitude
-            }
-            
-            latitude = latitude/Double(locationCoordinates.count)
-            longitude = longitude/Double(locationCoordinates.count)
-            
-            centerLocation = Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-            
-            //Creating MapRegion
-            mapRegion = MKCoordinateRegion(
-                center: centerLocation.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.25, longitudeDelta: 0.25)
-            )
         } else {
-            
-            var locations: [Location] = []
             
             for datapoint in ExampleData.exampleCategoricalVariable.categoriesArray.first!.valuesArray {
                 let location = Location(coordinate: CLLocationCoordinate2D(latitude: datapoint.latitude, longitude: datapoint.longitude))
-                locations.append(location)
+                locationCoordinates.append(location)
             }
-            
-            locationCoordinates = locations
-            
-            var longitude: Double = 0
-            var latitude: Double = 0
-            
-            for location in locations {
-                latitude += location.coordinate.latitude
-                longitude += location.coordinate.longitude
-            }
-            
-            latitude = latitude/Double(locations.count)
-            longitude = longitude/Double(locations.count)
-            
-            centerLocation = Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
-            
-            mapRegion = MKCoordinateRegion(
-                center: centerLocation.coordinate,
-                span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-            )
         }
+        
+        var longitude: Double = 0
+        var latitude: Double = 0
+        
+        for location in locationCoordinates {
+            latitude += location.coordinate.latitude
+            longitude += location.coordinate.longitude
+        }
+        
+        latitude = latitude/Double(locationCoordinates.count)
+        longitude = longitude/Double(locationCoordinates.count)
+        
+        centerLocation = Location(coordinate: CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+        
+        mapRegion = MKCoordinateRegion(
+            center: centerLocation.coordinate,
+            span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        )
         
         
     }
