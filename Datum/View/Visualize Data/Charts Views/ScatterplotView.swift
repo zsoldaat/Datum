@@ -10,44 +10,10 @@ import SwiftUI
 struct ScatterplotView: View {
     
     let exampleMode: Bool
-    
-    var dataPoints: [Point]
-    var xmin: Double?
-    var xmax: Double?
-    var ymin: Double?
-    var ymax: Double?
-    
+    let vm: ScatterplotViewModel
     
     init(xvar: ContinuousVariable?, yvar: ContinuousVariable?, exampleMode: Bool = false) {
-        
-        dataPoints = []
-        
-        let x: [ContinuousDataPoint]
-        let y: [ContinuousDataPoint]
-
-        x = xvar?.valuesArray ?? []
-        y = yvar?.valuesArray ?? []
-        
-        
-        
-        for (x, y) in zip(x, y) {
-            
-            let point = Point(id: UUID(), xValue: x, yValue: y)
-            dataPoints.append(point)
-            
-            //Only assisnging these so it has a default value that the min function can compare with, this is also jank
-            self.xmin = point.xValue.value
-            self.xmax = point.xValue.value
-            self.ymin = point.yValue.value
-            self.ymax = point.yValue.value
-            
-            self.xmin = min(xmin!, point.xValue.value)
-            self.xmax = max(xmax!, point.xValue.value)
-            self.ymin = min(ymin!, point.yValue.value)
-            self.ymax = min(ymax!, point.yValue.value)
-            
-        }
-        
+        self.vm = ScatterplotViewModel(xvar: xvar!, yvar: yvar!)
         self.exampleMode = exampleMode
     }
     
@@ -56,13 +22,13 @@ struct ScatterplotView: View {
             ZStack {
                 
                 //Scatterplot
-                ForEach(dataPoints) { point in
+                ForEach(vm.dataPoints) { point in
                     Circle()
                         .frame(width: 10)
                         .foregroundColor(.blue)
                         .position(
-                            x: geometry.size.width * CGFloat(point.xValue.value / xmax!),
-                            y: geometry.size.height - geometry.size.height * CGFloat(point.yValue.value / ymax!)
+                            x: geometry.size.width * CGFloat(point.xValue.value / vm.xmax),
+                            y: geometry.size.height - geometry.size.height * CGFloat(point.yValue.value / vm.ymax)
                         )
                         .onTapGesture {
                             //Change this to actually display the point on screen
@@ -71,7 +37,7 @@ struct ScatterplotView: View {
                 }
                 
                 //Horizontal Grid
-                ForEach(0..<Int(ymax!+1)) { number in
+                ForEach(0..<Int(vm.ymax+1)) { number in
                     ZStack {
                         Text("\(number)")
                             .offset(x:-geometry.size.width/2 - 10, y:0)
@@ -82,12 +48,12 @@ struct ScatterplotView: View {
                     }
                     .position(
                         x: geometry.size.width / 2,
-                        y: geometry.size.height - CGFloat(number) * geometry.size.height / CGFloat(ymax!)
+                        y: geometry.size.height - CGFloat(number) * geometry.size.height / CGFloat(vm.ymax)
                     )
                 }
                 
                 //Vertical Grid
-                ForEach(0..<Int(xmax!+1)) { number in
+                ForEach(0..<Int(vm.xmax+1)) { number in
                     ZStack {
                         Text(number != 0 ? "\(number)" : "")
                             .offset(x:0, y: geometry.size.height/2 + 10)
@@ -97,13 +63,10 @@ struct ScatterplotView: View {
 
                     }
                     .position(
-                        x: CGFloat(number) * geometry.size.width / CGFloat(xmax!),
+                        x: CGFloat(number) * geometry.size.width / CGFloat(vm.xmax),
                         y: geometry.size.height / 2
                     )
                 }
-                
-                //Visual Guide
-//                Rectangle().strokeBorder(lineWidth: 2).foregroundColor(.red)
                 
                 if !exampleMode {
                     FloatingCloseButton()
@@ -112,14 +75,6 @@ struct ScatterplotView: View {
         }
         .padding()
     }
-    
-}
-
-struct Point: Identifiable {
-    
-    var id: UUID
-    var xValue: ContinuousDataPoint
-    var yValue: ContinuousDataPoint
     
 }
 
